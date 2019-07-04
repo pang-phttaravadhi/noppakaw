@@ -1,2 +1,2 @@
 <?php
-Route::Get('/','\App\BackofficeModules\HomeController@index');
+Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
