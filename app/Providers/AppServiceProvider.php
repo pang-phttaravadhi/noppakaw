@@ -13,6 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+       $this->app->register(\App\BackofficeModules\ModuleServiceProvider::class);
+       $this->app->register(\App\LiffModules\ModuleServiceProvider::class);
+       $this->app->register(\App\LineModules\ModuleServiceProvider::class);
         //
     }
 
