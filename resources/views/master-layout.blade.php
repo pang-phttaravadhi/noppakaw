@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="#"><img src="/assets/img/logo/logo.png" alt="" /></a>
+                        <a href="#"><img src="/assets/img/logo/mylogo.jpg" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -91,8 +91,9 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Copyright © 2018 
-. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                        <h3 style="color:white;">Noppakaw</h3>
+                        <p style="color:white;">26/9 หมู่6 ซอยแจ้งวัฒนะ24 ตำบลบางตลาด อำเภอปากเกร็ด จังหวัดนนทบุรี 11120 Tel.0993361190</p>
+                        <a href="https://colorlib.com"></a><p style="color:white;">Line : Noppakaw.</p>
                     </div>
                 </div>
             </div>

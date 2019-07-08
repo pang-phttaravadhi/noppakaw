@@ -7,6 +7,6 @@ class ModuleServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-         $this->loadViewsFrom(__DIR__.'/home/views','home');
+        $this->loadViewsFrom(__DIR__.'/Home/Views','home');        
     }
 }

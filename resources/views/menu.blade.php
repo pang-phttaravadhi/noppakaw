@@ -3,17 +3,17 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li class="active"><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> หน้าแรก</a>
+                        <li class="active"><a data-toggle="tab" href=<i class="fa fa-home" aria-hidden="true"></i></i> หน้าแรก</a>
                         </li>
-                        <li><a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-mail"></i> สินค้า</a>
+                        <li><a data-toggle="tab" href=<i class="fa fa-shopping-cart" aria-hidden="true"></i></i> สินค้า</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Interface"><i class="notika-icon notika-edit"></i> ชำระเงิน</a>
+                        <li><a data-toggle="tab" href=<i class="fa fa-university" aria-hidden="true"></i></i> ชำระเงิน</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> แจ้งชำระเงิน</a>
+                        <li><a data-toggle="tab" href=<i class="fa fa-check-circle" aria-hidden="true"></i></i> แจ้งชำระเงิน</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Tables"><i class="notika-icon notika-windows"></i> ติดตามสถานะ</a>
+                        <li><a data-toggle="tab" href=<i class="fa fa-ambulance" aria-hidden="true"></i></i> ติดตามสถานะ</a>
                         </li>
-                        <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> ติดต่อเรา</a>
+                        <li><a data-toggle="tab" href=<i class="fa fa-phone-square" aria-hidden="true"></i></i> ติดต่อเรา</a>
                         </li>
                         
                     </ul>
