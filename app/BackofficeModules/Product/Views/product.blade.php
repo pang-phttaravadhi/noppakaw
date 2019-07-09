@@ -22,6 +22,8 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-info"><a href="/product/productfrom">เพิ่มสินค้าใหม่</a></button>
+            <button type="submit" class="btn btn-info"><a href="/product/categoryfrom">เพิ่มหมวดสินค้า</a></button>
+            
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
