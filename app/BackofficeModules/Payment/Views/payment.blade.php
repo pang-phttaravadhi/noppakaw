@@ -2,38 +2,54 @@
 @section('title')
 @section('content' )
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">ใบการสั่งซื้อ</div>
+                <div class="panel-heading">ใบสั่งซื้อ</div>
                 <div class="panel-body">
-                    <form action="/action_page.php">
-                        <div class="form-group">
-                            <label for="email">ชื่อลูกค้า</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">ที่อยู่ในการจัดส่ง</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">รายการสั่งซื้อ</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">ราคาสุทธิ</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">ชื่อสินค้า</label>
-                            <input type="password" class="form-control" id="pwd">
-                        </div>
-                        
-                        <button type="submit" class="btn btn-default">ยืนยัน</button>
-                    </form>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>รหัสใบสั่งซื้อ</th>
+                                <th>ชื่อ-นามสกุลลูกค้า</th>
+                                <th>ที่อยู่ในการจัดส่ง</th>
+                                <th>จำนวนเงินสุทธิ</th>
+                                <th>สถานะ</th>
+                                <th>เลขพัสดุ</th>
+                                <th style="width:110px">แก้ไขรายการ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @for($i=0;$i<10;$i++)
+                            <tr>
+                                <td>0001</td>
+                                <td>คุณมานี</td>
+                                <td>54/87 หมู่บ้านลภาวัน19 ต.คลองข่อย อ.ปากเกร็ด จ.นนทบุรี 11120 0991152220</td>
+                                <td>1000 บาท</td>
+                                <td>รอการโอน</td>
+                                <td></td>
+                                <td>
+                                    <div class="btn-group">
+                                    <a href="/payment/paymentfrom">
+                                    <button type="button" class="btn btn-Basic"><a href="/payment/paymentfrom"> Oder deteil</button>
+                                    </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endfor
+                        </tbody>
+                    </table>
+                    <ul class="pagination">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                    </ul>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info"><a href="/payment/paymentfrom">รายการการแจ้งชำระเงิน</a></button>
+        </div>
+    </div>  
+</div>
         </div>
 
        
