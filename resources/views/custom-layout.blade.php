@@ -23,7 +23,7 @@
                 <li class="nav-menu"><a href="/">หน้าแรก</a></li>
                 <li class="nav-menu"><a href="/product">สินค้า</a></li>
                 <li class="nav-menu"><a href="/payment">การแจ้งชำระเงิน</a></li>
-                <li class="nav-menu"><a href="status">ติดตามสินค้า</a></li>
+                
                
 
                 <li class="dropdown nav-menu">
