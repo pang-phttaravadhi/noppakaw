@@ -13,5 +13,9 @@ class PaymentController extends Controller
     {
     	return view('pay::payment');
     }
+    public function paymentfrom()
+    {
+    	return view('pay::paymentfrom');
+    }
     
 }
