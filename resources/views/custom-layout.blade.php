@@ -22,10 +22,10 @@
             <ul class="nav navbar-nav pull-right" style="margin-top: 11px">
                 <li class="nav-menu"><a href="/">หน้าแรก</a></li>
                 <li class="nav-menu"><a href="/product">สินค้า</a></li>
+                <li class="nav-menu"><a href="/">ลูกค้า</a></li>
                 <li class="nav-menu"><a href="/payment">การแจ้งชำระเงิน</a></li>
                 
-               
-
+                
                 <li class="dropdown nav-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         <i class="fa fa-user" aria-hidden="true"> ภัทรพร ทองเทิ่ง</i><span class="caret"></span>
