@@ -19,11 +19,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @for($i=0;$i<10;$i++)
                             <tr>
                                 <td>0001</td>
-                                <td>คุณมานี</td>
-                                <td>54/87 หมู่บ้านลภาวัน19 ต.คลองข่อย อ.ปากเกร็ด จ.นนทบุรี 11120 0991152220</td>
+                                <td>คุณมานี จ่ายแสง</td>
+                                <td>54/87 หมู่บ้านลภาวัน19 ต.คลองข่อย อ.ปากเกร็ด จ.นนทบุรี 11120 Tel.0991152220</td>
+                                <td>2,745 บาท</td>
+                                <td>รอการโอน</td>
+                                <td></td>
+                                <td>
+                                    <div class="btn-group">
+                                    <a href="/payment/paymentfrom">
+                                    <button type="button" class="btn btn-Basic"><a href="/payment/paymentfrom"> Oder deteil</button>
+                                    </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                                <tbody>
+                            <tr>
+                                <td>0002</td>
+                                <td>คุณรัศมี บ้านโป่ง</td>
+                                <td>12/7 หมู่บ้านพฤหัส  ต.คลองแข่ว อ.ปากเกร็ด จ.นนทบุรี 11120 Tel.099115333</td>
                                 <td>1000 บาท</td>
                                 <td>รอการโอน</td>
                                 <td></td>
@@ -35,7 +51,6 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endfor
                         </tbody>
                     </table>
                     <ul class="pagination">

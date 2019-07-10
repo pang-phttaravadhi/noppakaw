@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav pull-right" style="margin-top: 11px">
                 <li class="nav-menu"><a href="/">หน้าแรก</a></li>
                 <li class="nav-menu"><a href="/product">สินค้า</a></li>
-                <li class="nav-menu"><a href="/">ลูกค้า</a></li>
+                <li class="nav-menu"><a href="/customer">ลูกค้า</a></li>
                 <li class="nav-menu"><a href="/payment">การแจ้งชำระเงิน</a></li>
                 
                 

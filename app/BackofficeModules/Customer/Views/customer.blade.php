@@ -1,31 +1,25 @@
 @extends('custom-layout')
 @section('title')
 @section('content' )
-<div class="col-md-9">
+<div class="container">
+<div class="col-md-10">
             <div class="panel panel-default">
                 <div class="panel-heading">สถานะการจัดส่งสินค้า</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>ชื่อลูกค้า</th>
-                                <th>รหัสสินค้า</th>
-                                <th>ชื่อสินค้า</th>
-                                <th>ราคาสินค้า</th>
-                                <th>สถานะ</th>
-                                <th>เลขพัสดุ</th>
+                                <th>ชื่อ-นามสกุลลูกค้า</th>
+                                <th>ที่อยู่</th>
+                                <th>เบอร์โทร</th>
                                 <th style="width:110px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for($i=0;$i<10;$i++)
                             <tr>
-                                <td>คุณมณี</td>
-                                <td>01</td>
-                                <td>ชุดไทยเรือนต้น</td>
-                                <td>1000 บาท</td>
-                                <td>ชำระเรียบร้อย</td>
-                                <td>ed25805958th</td>
+                                <td>คุณมานี จ่ายแสง</td>
+                                <td>54/87 หมู่บ้านลภาวัน19 ต.คลองข่อย อ.ปากเกร็ด จ.นนทบุรี 11120</td>
+                                <td>0991152220</td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
@@ -33,7 +27,19 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endfor
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>คุณรัศมี บ้านโป่ง</td>
+                                <td>12/7 หมู่บ้านพฤหัส  ต.คลองแข่ว อ.ปากเกร็ด จ.นนทบุรี 11120</td>
+                                <td>0991153330</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
+                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <ul class="pagination">
@@ -47,6 +53,7 @@
             </div>
         </div>
     </div>  
+</div>
 </div>
 
 
