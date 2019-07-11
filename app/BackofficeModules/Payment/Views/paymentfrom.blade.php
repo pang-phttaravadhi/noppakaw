@@ -15,7 +15,7 @@
                                 <th>รายละเอียดสินค้า</th>
                                 <th>ราคา</th>
                                 <th>จำนวน</th>
-                                <th>รวมสุทธิ</th>
+                                <th>ราคารวม</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -89,5 +89,5 @@
     </div>  
 </div>
         </div>
-
+        <button type="submit" class="btn btn-info"><a href="/payment/">กลับ</a></button>
 @endsection

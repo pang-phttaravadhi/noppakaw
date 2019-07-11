@@ -2,7 +2,28 @@
 @section('title')
 @section('content' )
 <div class="container">
-<div class="col-md-10">
+<div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="email">ชื่อ-นามสกุลลูกค้า</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">เบอร์โทร</label>
+                            <input type="password" class="form-control" id="pwd">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-default">ค้นหา</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div> 
+<div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">สถานะการจัดส่งสินค้า</div>
                 <div class="panel-body">

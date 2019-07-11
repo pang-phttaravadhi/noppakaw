@@ -9,42 +9,46 @@
                 <div class="panel-body">
                     <form action="/action_page.php">
                         <div class="form-group">
-                            <label for="email">รหัสสินค้า</label>
+                            <label for="email">หมวดสินค้า</label>
                             <input type="email" class="form-control" id="email">
                         </div>
-                        <div class="form-group">
-                            <label for="pwd">ชื่อสินค้า</label>
-                            <input type="password" class="form-control" id="pwd">
-                        </div>
-                        
                         <button type="submit" class="btn btn-default">ค้นหา</button>
                     </form>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info"><a href="/product/productfrom">เพิ่มสินค้าใหม่</a></button>
+            <button type="submit" class="btn btn-info"><a href="/category/categoryfrom">เพิ่มหมวดสินค้า</a></button>
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">สินค้า</div>
+                <div class="panel-heading">หมวดสินค้า</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสสินค้า</th>
-                                <th>ชื่อสินค้า</th>
                                 <th>หมวดสินค้า</th>
-                                <th>ราคาสินค้า</th>
+                                <th>รายละเอียด</th>
+                                
                                 
                                 <th style="width:110px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for($i=0;$i<25;$i++)
+                        @for($i=0;$i<10;$i++)
                             <tr>
-                                <td>01</td>
-                                <td>ชุดไทยเรือนต้น</td>
-                                <td>ชุดไทยราชนิยม</td>
-                                <td>1000 บาท</td>
+                                <td>เครื่องประดับ</td>
+                                <td>ชุดทอง</td>
+                                
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
+                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>เครื่องประดับ</td>
+                                <td>ชุดเงิน</td>
+                                
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>

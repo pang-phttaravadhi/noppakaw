@@ -36,5 +36,7 @@
     </div>    
   </form>
 </div>
+
+<button type="submit" class="btn btn-info"><a href="/product/">กลับ</a></button>
        
 @endsection

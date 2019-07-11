@@ -17,8 +17,5 @@ class ProductController extends Controller
     {
     	return view('pro::productfrom');
     }
-    public function categoryfrom()
-    {
-        return view('categoryfrom::categoryfrom');
-    }
+    
 }
