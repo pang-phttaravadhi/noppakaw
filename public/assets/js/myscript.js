@@ -1,3 +1,8 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 var Helper = {};
 Helper.ajax = function(url,method,params,callback){
     if(typeof params ==='object'){
@@ -20,7 +25,7 @@ Helper.ajax = function(url,method,params,callback){
                 alert('ขออภัยค่ะ ระบบเกิดความผิดพลาด');
             },
             400:function(response){
-                alert(response.responseJSON.body);
+                alert(response.responseJSON.message);
         }
     },
         success:function(response){
