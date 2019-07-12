@@ -2,7 +2,7 @@
 @section('title')
 @section('content' )
 <div class="container">
-<div class="row">
+    <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading"></div>
@@ -16,14 +16,12 @@
                             <label for="pwd">เบอร์โทร</label>
                             <input type="password" class="form-control" id="pwd">
                         </div>
-                        
                         <button type="submit" class="btn btn-default">ค้นหา</button>
                     </form>
                 </div>
             </div>
-            
         </div> 
-<div class="col-md-9">
+        <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">สถานะการจัดส่งสินค้า</div>
                 <div class="panel-body">
@@ -75,7 +73,7 @@
         </div>
     </div>  
 </div>
-</div>
+
 
 
 

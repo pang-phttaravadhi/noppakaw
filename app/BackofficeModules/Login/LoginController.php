@@ -18,6 +18,11 @@ class LoginController extends Controller
         //echo Hash::make('123456789');exit;
         return view('log::login');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 
     public function action(Request $request)
     {

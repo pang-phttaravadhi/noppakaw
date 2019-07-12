@@ -15,7 +15,7 @@ class CurrentUser
                             ->first();
                 return $admin;
             }
-            elseif($user->user_type===MyConst::$USER_LEVEL_TEACHER){
+            elseif($user->user_type===MyConst::$USER_LEVEL_STAFF){
                 $admin = DB::table('staff')
                             ->where('id',$user->user_id)
                             ->first();

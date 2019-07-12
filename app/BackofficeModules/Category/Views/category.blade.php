@@ -26,18 +26,12 @@
                         <thead>
                             <tr>
                                 <th>หมวดสินค้า</th>
-                                <th>รายละเอียด</th>
-                                
-                                
                                 <th style="width:110px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for($i=0;$i<10;$i++)
                             <tr>
                                 <td>เครื่องประดับ</td>
-                                <td>ชุดทอง</td>
-                                
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
@@ -46,9 +40,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>เครื่องประดับ</td>
-                                <td>ชุดเงิน</td>
-                                
+                                <td>รองเท้า</td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
@@ -56,7 +48,6 @@
                                     </div>
                                 </td>
                             </tr>
-                        @endfor
                         </tbody>
                     </table>
                     <ul class="pagination">

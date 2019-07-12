@@ -10,4 +10,5 @@ Route::prefix('')->group(function() {
     Route::Get('/login','\App\BackofficeModules\Login\LoginController@index');
     Route::Get('/category','\App\BackofficeModules\Category\CategoryController@category');
     Route::Post('/login','\App\BackofficeModules\Login\LoginController@action');
+    Route::Get('/logout','\App\BackofficeModules\Login\LoginController@logout');
 });

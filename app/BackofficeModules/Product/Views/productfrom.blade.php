@@ -24,6 +24,7 @@
       <input type="email" class="form-control" id="email">
     </div>
     <button type="button" class="btn btn-primary">บันทึก</button>
+    <button type="submit" class="btn btn-info"><a href="/product/">กลับ</a></button>
     <h2>ใส่รูปภาพ</h2>
     <div class="row">
       <div class="col-md-4">
@@ -37,6 +38,6 @@
   </form>
 </div>
 
-<button type="submit" class="btn btn-info"><a href="/product/">กลับ</a></button>
+
        
 @endsection
