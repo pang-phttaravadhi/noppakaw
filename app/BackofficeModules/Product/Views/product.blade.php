@@ -9,12 +9,12 @@
                 <div class="panel-body">
                     <form action="/action_page.php">
                         <div class="form-group">
-                            <label for="email">รหัสสินค้า</label>
-                            <input type="email" class="form-control" id="email">
+                            <label>รหัสสินค้า</label>
+                            <input type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">ชื่อสินค้า</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <label>ชื่อสินค้า</label>
+                            <input type="text" class="form-control">
                         </div>
                         
                         <button type="submit" class="btn btn-default">ค้นหา</button>
@@ -34,34 +34,29 @@
                                 <th>ชื่อสินค้า</th>
                                 <th>หมวดสินค้า</th>
                                 <th>ราคาสินค้า</th>
-                                
+                                <th>รายละเอียดสินค้า</th>
                                 <th style="width:110px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @for($i=0;$i<25;$i++)
+                        @foreach($products as $product)
                             <tr>
-                                <td>01</td>
-                                <td>ชุดไทยเรือนต้น</td>
-                                <td>ชุดไทยราชนิยม</td>
-                                <td>1000 บาท</td>
+                                <td>{{$product->pro_id}}</td>
+                                <td>{{$product->pro_name}}</td>
+                                <td>{{$product->cate}}</td>
+                                <td>{{$product->price}}</td>
+                                <td>{{$product->pro_det}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
-                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
+                                        <a href="/product/{{$product->pro_id}}" class="btn btn-sm btn-primary">แก้ไข</a>
+                                        <a class="btn btn-sm btn-primary">ลบ</a>
                                     </div>
                                 </td>
                             </tr>
-                        @endfor
+                        @endforeach
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
+                   {!! $products->render() !!}
                 </div>
             </div>
         </div>

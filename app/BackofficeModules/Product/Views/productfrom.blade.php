@@ -2,29 +2,42 @@
 @section('title')
 @section('content' )
 <div class="container">
-  <form action="/action_page.php">
+  
+  <!-- <form action="/product" method="post">
+
+  <form action="/product/1" method="post">
+    <input type="hidden" name="_methods" value="put"> -->
+
+    <form action="{{ $action }}" method="post">
+    @if(!empty($hidden))
+    <input type="hidden" name="_methods" value="{{ $hidden }}">
+    @endif
+
+    @csrf()
+    @if(isset($product))
     <div class="form-group">
-      <label for="email">รหัสสินค้า:</label>
-      <input type="email" class="form-control" id="email">
+      <label>รหัสสินค้า:</label>
+      <input type="text" class="form-control" name="pro_id" value="{{ isset($product) ? $product->pro_id:'' }}" readonly>
+    </div>
+    @endif
+    <div class="form-group">
+      <label>ชื่อสินค้า:</label>
+      <input type="text" class="form-control"  name="pro_name" value="{{ isset($product) ? $product->pro_name:''}}">
     </div>
     <div class="form-group">
-      <label for="email">ชื่อสินค้า:</label>
-      <input type="email" class="form-control" id="email">
+      <label>หมวดสินค้า:</label>
+      <input type="text" class="form-control"  name="cate" value="{{ isset($product) ? $product->cate:''}}">
     </div>
     <div class="form-group">
-      <label for="email">หมวดสินค้า:</label>
-      <input type="email" class="form-control" id="email">
+      <label>ราคาสินค้า:</label>
+      <input type="text" class="form-control"  name="price" value="{{ isset($product) ? $product->price:''}}">
     </div>
     <div class="form-group">
-      <label for="pwd">ราคาสินค้า:</label>
-      <input type="password" class="form-control" id="pwd">
+      <label>รายละเอียดสินค้า:</label>
+      <input type="text" class="form-control"  name="pro_det" value="{{ isset($product) ? $product->pro_det:''}}">
     </div>
-    <div class="form-group">
-      <label for="email">รายละเอียดสินค้า:</label>
-      <input type="email" class="form-control" id="email">
-    </div>
-    <button type="button" class="btn btn-primary">บันทึก</button>
-    <button type="submit" class="btn btn-info"><a href="/product/">กลับ</a></button>
+    <button type="submit" class="btn btn-primary">บันทึก</button>
+    <a href="/product" class="btn btn-info">กลับ</a>
     <h2>ใส่รูปภาพ</h2>
     <div class="row">
       <div class="col-md-4">

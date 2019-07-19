@@ -9,6 +9,8 @@
                 <div class="panel-body">
                     <form action="/action_page.php">
                         <div class="form-group">
+                            <label for="email">รหัสหมวดสินค้า</label>
+                            <input type="email" class="form-control" id="email">
                             <label for="email">หมวดสินค้า</label>
                             <input type="email" class="form-control" id="email">
                         </div>
@@ -25,12 +27,14 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th>รหัสหมวดสินค้า</th>
                                 <th>หมวดสินค้า</th>
                                 <th style="width:110px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td>01</td>
                                 <td>เครื่องประดับ</td>
                                 <td>
                                     <div class="btn-group">
@@ -40,6 +44,7 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>02</td>
                                 <td>รองเท้า</td>
                                 <td>
                                     <div class="btn-group">

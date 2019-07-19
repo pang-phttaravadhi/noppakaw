@@ -2,7 +2,11 @@
 Route::prefix('')->group(function() {
     Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
     Route::Get('/product','\App\BackofficeModules\Product\ProductController@index');
-    Route::Get('/product/productfrom','\App\BackofficeModules\Product\ProductController@productfrom');
+    Route::Get('/product/create','\App\BackofficeModules\Product\ProductController@action_create');
+    Route::Get('/product/{id}','\App\BackofficeModules\Product\ProductController@action_edit');
+    Route::Get('/product/delete/{id}','\App\BackofficeModules\Product\ProductController@action_delete');
+    Route::Post('/product','\App\BackofficeModules\Product\ProductController@action_insert');
+    Route::POST('/product/{id}','\App\BackofficeModules\Product\ProductController@action_update');
     Route::Get('/category/categoryfrom','\App\BackofficeModules\Category\CategoryController@categoryfrom');
     Route::Get('/payment','\App\BackofficeModules\Payment\PaymentController@payment');
     Route::Get('/payment/paymentfrom','\App\BackofficeModules\Payment\PaymentController@paymentfrom');
