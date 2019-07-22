@@ -3,9 +3,17 @@
 @section('content' )
 <div class="container">
     <div class="col-md-10">
+    @if(isset($category))
+      <form action="/category/{{$category->cate_id}}"  class="form-ajax" call_back='yes' method="POST">
+        <input type="hidden"value="put" name="_methods">
+        @csrf()
+    @else
+      <form class="form-ajax"action="/category"method="POST">
+    @csrf()
+    @endif
         <div class="form-group">
-            <label for="email">หมวดสินค้า:</label>
-            <input type="email" class="form-control" id="email">
+            <label for="text">หมวดสินค้า:</label>
+            <input type="text" class="form-control" id="text">
                 <h2>ใส่รูปภาพ</h2>
                     <div class="row">
                         <div class="col-md-4">

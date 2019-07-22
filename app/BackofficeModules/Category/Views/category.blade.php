@@ -9,10 +9,10 @@
                 <div class="panel-body">
                     <form action="/action_page.php">
                         <div class="form-group">
-                            <label for="email">รหัสหมวดสินค้า</label>
-                            <input type="email" class="form-control" id="email">
-                            <label for="email">หมวดสินค้า</label>
-                            <input type="email" class="form-control" id="email">
+                            <label for="text">รหัสหมวดสินค้า</label>
+                            <input type="text" class="form-control" id="text">
+                            <label for="text">หมวดสินค้า</label>
+                            <input type="text" class="form-control" id="text">
                         </div>
                         <button type="submit" class="btn btn-default">ค้นหา</button>
                     </form>
@@ -34,7 +34,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>01</td>
+                                <td>1</td>
+                                <td>ชุดไทย</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
+                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
                                 <td>เครื่องประดับ</td>
                                 <td>
                                     <div class="btn-group">
@@ -44,7 +54,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>02</td>
+                                <td>3</td>
                                 <td>รองเท้า</td>
                                 <td>
                                     <div class="btn-group">
