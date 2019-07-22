@@ -1,6 +1,17 @@
 <?php
 Route::prefix('')->group(function() {
+    Route::Get('/login','\App\BackofficeModules\Login\LoginController@index');
+    Route::Post('/login','\App\BackofficeModules\Login\LoginController@action');
+    Route::Get('/logout','\App\BackofficeModules\Login\LoginController@logout');
     Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
+    Route::resource('product','\App\BackofficeModules\Product\ProductController');
+    Route::Get('/product','\App\BackofficeModules\Product\ProductController@index');
+    Route::Get('/product/create','\App\BackofficeModules\Product\ProductController@create');
+    Route::Get('/product/{id}','\App\BackofficeModules\Product\ProductController@action_edit');
+    Route::Post('/product/delete/{id}','\App\BackofficeModules\Product\ProductController@destory');
+    Route::Post('/product','\App\BackofficeModules\Product\ProductController@store');
+    Route::POST('/product/{id}','\App\BackofficeModules\Product\ProductController@update');
+    /*
     Route::Get('/product','\App\BackofficeModules\Product\ProductController@index');
     Route::Get('/product/create','\App\BackofficeModules\Product\ProductController@action_create');
     Route::Get('/product/{id}','\App\BackofficeModules\Product\ProductController@action_edit');
@@ -15,4 +26,5 @@ Route::prefix('')->group(function() {
     Route::Get('/category','\App\BackofficeModules\Category\CategoryController@category');
     Route::Post('/login','\App\BackofficeModules\Login\LoginController@action');
     Route::Get('/logout','\App\BackofficeModules\Login\LoginController@logout');
+    */
 });

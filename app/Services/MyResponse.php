@@ -1,6 +1,6 @@
 <?php
-namespace App\Services;
 
+namespace App\Services;
 class MyResponse
 {
     public static function error($message){
@@ -9,9 +9,10 @@ class MyResponse
             'message'=>$message
         ],400);
     }
-    public static function success($message,$body = null){
+    public static function success($message,$url='',$body = null){
         return [
             'status'=>200,
+            'url'=>$url,
             'message'=>$message,
             'body'=>$body
         ];
