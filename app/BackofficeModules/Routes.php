@@ -6,6 +6,7 @@ Route::prefix('')->group(function() {
     Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
     Route::resource('product','\App\BackofficeModules\Product\ProductController');
     Route::resource('category','\App\BackofficeModules\Category\CategoryController');
+ 
     /*
     Route::Get('/product','\App\BackofficeModules\Product\ProductController@index');
     Route::Get('/product/create','\App\BackofficeModules\Product\ProductController@create');
@@ -19,12 +20,6 @@ Route::prefix('')->group(function() {
     Route::Post('/category/delete/{id}','\App\BackofficeModules\Category\CategoryController@destory');
     Route::Get('/category/{id}','\App\BackofficeModules\Category\CategoryController@action_edit');
     Route::Get('/category/create','\App\BackofficeModules\Category\CategoryController@create');
-    
-    
-
-
-
-    
     Route::Get('/product','\App\BackofficeModules\Product\ProductController@index');
     Route::Get('/product/create','\App\BackofficeModules\Product\ProductController@action_create');
     Route::Get('/product/{id}','\App\BackofficeModules\Product\ProductController@action_edit');
