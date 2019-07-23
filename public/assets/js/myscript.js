@@ -69,7 +69,7 @@ $(function(){
         if(confirm('ท่านต้องการจะลบรายการนี้ใช่หรือไม่')){
             var el = $(this);
             var url = el.attr('href');
-            var method = 'post';
+            var method = 'DELETE';
             var data = '';
                 callback = function (){
                     alert('ระบบได้ลบข้อมูลเรียบร้อยแล้ว');

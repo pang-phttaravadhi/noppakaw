@@ -18,7 +18,7 @@ class ProductController extends Controller
         ->select('product.*','category.cate_name')
         ->leftJoin('category','product.cate_id','category.cate_id')
         ->whereNull('product.deleted_at');
-
+        
         if(!empty($keyword))
         {
             $products->where('pro_name','LIKE','%'.$keyword.'%');
@@ -99,7 +99,7 @@ class ProductController extends Controller
 
         return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
-    public function destory($id)
+    public function destroy($id)
     {
         if(is_numeric($id))
         {

@@ -47,7 +47,7 @@
                                 <td>
                                     <div class="btn-group">
                                     <a class="btn btn-default" href="/product/{{$product->pro_id}}"><i class="fa fa-edit"></i></a>
-                                    <a class="btn btn-default deleted-item" href="/product/delete/{{$product->pro_id}}"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-default deleted-item" href="/product/{{$product->pro_id}}"><i class="fa fa-trash"></i></a>
                                     </div> 
                                     </div>
                                 </td>

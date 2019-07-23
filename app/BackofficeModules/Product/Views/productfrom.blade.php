@@ -6,7 +6,7 @@
     <div class="panel-heading" style="font-size:20px;">
     </div>
     @if(isset($product))
-      <form action="/product/{{$product->pro_id}}"  class="form-ajax" call_back='yes' method="POST">
+      <form action="/product/{{$product->pro_id}}"  class="form-ajax" call_back='yes' method="PUT">
         <input type="hidden"value="put" name="_methods">
         @csrf()
     @else
