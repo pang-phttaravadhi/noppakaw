@@ -48,7 +48,7 @@ class ProductController extends Controller
                 $products = DB ::table('product')
                 ->where('pro_name','$pro_name')
                 ->whereNull('deleted_at')->first();
-                if(!empty($pro_name)){
+                if(!empty($product)){
                     return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
                 }
                 DB::table('product')->insert([
@@ -101,7 +101,7 @@ class ProductController extends Controller
                 ->where('pro_id','$pro_id')
                 ->where('pro_name','$pro_name')
                 ->whereNull('deleted_at')->first();
-                if(!empty($pro_name)){
+                if(!empty($product)){
                     return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
                 }
                 DB::table('product')->where('pro_id',$pro_id)->update([
