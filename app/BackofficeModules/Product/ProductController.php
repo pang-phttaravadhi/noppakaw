@@ -43,7 +43,14 @@ class ProductController extends Controller
             $cate_id = $request->get('cate_id');
             $image = $request->get('image');
             if(!empty($pro_name) && !empty($image)  && !empty($price) && !empty($cate_id))
+            
             {
+                $products = DB ::table('product')
+                ->where('pro_name','$pro_name')
+                ->whereNull('deleted_at')->first();
+                if(!empty($pro_name)){
+                    return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
+                }
                 DB::table('product')->insert([
                     'pro_name' =>$pro_name,
                     'price' =>$price,
@@ -90,6 +97,13 @@ class ProductController extends Controller
 
             if(!empty($pro_name) && !empty($image) && is_numeric($cate_id)&& is_numeric($price))
             {
+                $products = DB ::table('product')
+                ->where('pro_id','$pro_id')
+                ->where('pro_name','$pro_name')
+                ->whereNull('deleted_at')->first();
+                if(!empty($pro_name)){
+                    return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
+                }
                 DB::table('product')->where('pro_id',$pro_id)->update([
                     'pro_name' =>$pro_name,
                     'price' =>$price,
