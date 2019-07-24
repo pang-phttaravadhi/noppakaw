@@ -11,7 +11,5 @@ Route::prefix('')->group(function() {
         Route::resource('category','\App\BackofficeModules\Category\CategoryController');
         Route::resource('payment','\App\BackofficeModules\Payment\PaymentController');
         Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
-       
     });
-   
 });
