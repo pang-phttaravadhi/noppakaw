@@ -3,32 +3,34 @@
 @section('content' )
 <div class="container">
     <div class="col-md-10">
-    @if(isset($category))
-      <form action="/category/{{$category->cate_id}}"  class="form-ajax" call_back='yes' method="POST">
-        <input type="hidden"value="put" name="_methods">
-        @csrf()
-    @else
-      <form class="form-ajax"action="/category"method="POST">
-    @csrf()
-    @endif
-        <div class="form-group">
-            <label for="text">หมวดสินค้า:</label>
-            <input type="text" class="form-control" id="text">
-                <h2>ใส่รูปภาพ</h2>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="thumbnail">
-                                <a href="http://i.lnwfile.com/u4s2kd.png" target="_blank">
-                                    <img src="http://i.lnwfile.com/u4s2kd.png" alt="Lights" style="width:100%">
-                                </a>
-                            </div>
-                        </div>
-                    </div>    
-                    <button type="button" class="btn btn-primary">บันทึก</button>
-                    <button type="submit" class="btn btn-info"><a href="/category/">กลับ</a></button>
+        <div class="panel panel-default"> 
+            <a herf="/category" กลับหน้าหลัก> </a>
+            <div class="panel-heading">
+                @if(isset($category))
+                หมวดสินค้า :{{$category->cate_name}}
+                @else
+                เพิ่มหมวดสินค้า
+                @endif
+                </div>
+                @if(isset($category))
+                    <form action="/category/{{$category->cate_id}}" class="form-ajax" method="PUT">
+                        <input type="hidden" value="put" name="_mathods">
+                    @csrf()
+                @else
+                    <form class="form-ajax" action="/category" method="POST">
+                @csrf()
+                @endif
+                <div class="panel-body">
+                        
+                    <input type="text" name="cate_name" class="form-control" value="{{isset($category)?$category->cate_name:''}}"/>
+                        
+                    </div> 
+                    <button class="btn">ยืนยัน</button>
+                </form>
+                </form>
+            </div>
         </div>
     </div>
-    
 </div>
 
 @endsection

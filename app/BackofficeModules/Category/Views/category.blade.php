@@ -5,20 +5,19 @@
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">ค้นหา</div>
+              
                 <div class="panel-body">
-                    <form action="/action_page.php">
+                    <form action="/category">
                         <div class="form-group">
-                            <label for="text">รหัสหมวดสินค้า</label>
-                            <input type="text" class="form-control" id="text">
-                            <label for="text">หมวดสินค้า</label>
-                            <input type="text" class="form-control" id="text">
+                            <label>หมวดสินค้า</label>
+                                <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
                         <button type="submit" class="btn btn-default">ค้นหา</button>
                     </form>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info"><a href="/category/categoryfrom">เพิ่มหมวดสินค้า</a></button>
+            <a href='/category/create' class="btn btn-info">เพิ่มหมวดสินค้า</a>
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
@@ -27,51 +26,28 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>รหัสหมวดสินค้า</th>
+                                <th>ลำดับที่</th>
                                 <th>หมวดสินค้า</th>
                                 <th style="width:110px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($category as $index=> $row)
                             <tr>
-                                <td>1</td>
-                                <td>ชุดไทย</td>
+                                <td>{{$index+$category->firstItem()}}</td>
+                                <td>{{$row->cate_name}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
-                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
+                                        <a class="btn btn-default" href="/category/{{$row->cate_id}}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-default deleted-item" href="/category/{{$row->cate_id}}"><i class="fa fa-trash"></i></a>
+                                    </div> 
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>เครื่องประดับ</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
-                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>รองเท้า</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-primary">แก้ไข</button>
-                                        <button type="button" class="btn btn-sm btn-primary">ลบ</button>
-                                    </div>
-                                </td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
-                    <ul class="pagination">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
+                    {!!$category->render()!!}
                 </div>
             </div>
         </div>

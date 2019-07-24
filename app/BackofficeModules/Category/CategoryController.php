@@ -6,95 +6,93 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use stdClass;
-use DB;
-
+use DB; 
+use App\Services\MyResponse;
 class CategoryController extends Controller
 {   
     public function index(Request $request)
     {   
-        $category = DB::table('category')->paginate(25);
-
-        // $category = [];
-        // for($i=0;$i<25;$i++)
-        // {
-        //     $category[] = [
-        //         'pro_name'=>'ชุดไทยประยุกค์'.$i,
-        //         'cate'=>'ชุดไทย'.$i,
-        //         'price'=>'2000',
-        //         'pro_det'=>'รายละเอียดชุดไทยประยุกค์'.$i
-        //     ];
-        // }
+        $keyword = $request->get('keyword');
+        $category = DB ::table('category')
+        ->select('category.*','category.cate_name')
+        ->whereNull('category.deleted_at');
         
-        // if(!empty($category)) {
-        //     DB::table('category')->insert($category);
-        // }
+        if(!empty($keyword))
+        {
+            $category->where('cate_name','LIKE','%'.$keyword.'%');
+        }
+
+        $category = $category->paginate(10);
         return view('cat::category',compact('category'));
     }
-
-    public function action_insert(Request $request)
+    public function create()
     {
-        
+        return view('cat::categoryfrom');
+    }
+    public function store(Request $request)
+    {
             $cate_name = $request->get('cate_name');
             // $image = $request->get('image');
-
             if(!empty($cate_name))
             {
                 DB::table('category')->insert([
                     'cate_name' =>$cate_name
                 ]);
-                return redirect('/category/'.$id);
-
+                return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/category');
+            }else{
+                return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
             }
 
-        return redirect('/category');
-        
     }
 
-    public function action_update($id,Request $request)
+
+    public function show($cate_id,Request $request)
     {   
-        if(is_numeric($id))
+        if(is_numeric($cate_id))
         {
-            $cate_id = $request->get('cate_id');
+            $category = DB::table('category')->where('cate_id',$cate_id)->first();
+            if(!empty($category))
+            {
+                $action='/category'.$cate_id;
+                return view('cat::categoryfrom',[
+                    'category'=>$category,
+                    'action'=>$action
+                ]);
+            }
+        }
+        return view('data-not-found',[
+            'back_url'=>'/category',
+        ]);
+    }
+    public function update($cate_id,Request $request)
+    {
+        if(is_numeric($cate_id))
+        {
             $cate_name = $request->get('cate_name');
             // $image = $request->get('image');
 
-            if(!empty($cate_name))
+            if(!empty($cate_name) && is_numeric($cate_id))
             {
-                DB::table('category')->where('cate_id',$id)->update([
+                DB::table('category')->where('cate_id',$cate_id)->update([
                     'cate_name' =>$cate_name
                 ]);
-                return redirect('/category/'.$id);
-
+                return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ','/category');
+            }else{ 
+                return MyResponse::error('กรุณาป้อนข้อมุลให้ครบค่ะ');
             }
-
         }
-        return redirect('/category');
-        
-    }
 
-
-    public function action_create() {
-        $action = '/category';
-        $hidden = '';
-        return view('cat::categoryfrom',compact('action','hidden'));
+        return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
-    public function action_edit($id) {
-        $product = DB::table('category')->where('cate_id',$id)->first();
-        $action = '/category/'.$id;
-        $hidden = 'put';
-        return view('cat::categoryfrom',compact('category','action','hidden'));
-    }
-    public function action_delete($id)
+    public function destroy($id)
     {
         if(is_numeric($id))
         {
-        DB::table('category')->where('id',$id)->delete();
-        return redirect('/category');
+        DB::table('category')->where('cate_id',$id)->update([
+            'deleted_at'=>date('Y-m-d H:i:s'),
+        ]);
+        return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
         }
-    
+        return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
-    
-    
 }
-
-

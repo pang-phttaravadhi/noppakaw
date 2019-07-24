@@ -3,7 +3,6 @@ Route::prefix('')->group(function() {
     Route::Get('/login','\App\BackofficeModules\Login\LoginController@index')->name('login');
     Route::Post('/login','\App\BackofficeModules\Login\LoginController@action');
     Route::Get('/logout','\App\BackofficeModules\Login\LoginController@logout');
-   
     
     Route::group (['middleware'=> ['auth']], function ()
     {
@@ -14,4 +13,5 @@ Route::prefix('')->group(function() {
         Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
        
     });
+   
 });
