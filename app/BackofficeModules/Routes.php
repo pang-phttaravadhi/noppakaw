@@ -6,10 +6,10 @@ Route::prefix('')->group(function() {
     
     Route::group (['middleware'=> ['auth']], function ()
     {
+        Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
         Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
         Route::resource('product','\App\BackofficeModules\Product\ProductController');
         Route::resource('category','\App\BackofficeModules\Category\CategoryController');
         Route::resource('payment','\App\BackofficeModules\Payment\PaymentController');
-        Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
     });
 });

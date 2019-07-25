@@ -1,85 +1,67 @@
 <?php
 
-namespace App\BackofficeModules\Payment;
+namespace App\BackofficeModules\payment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use stdClass;
-use DB;
+use DB; 
 use App\Services\MyResponse;
 class PaymentController extends Controller
 {   
+    public function Payment()
+    {
+        return view('paymentdetail::Payment');
+    }
     public function index(Request $request)
     {   
-        $pay_id = $request->get('pay_id');
         $keyword = $request->get('keyword');
+        $order_id = $request->get('order_id');
+
         $payment = DB ::table('payment')
-        ->select('payment.*','payment.pay_id')
-        ->leftJoin('customer','payment.cust_name','customer.cust_name')
-        ->leftJoin('customer','payment.address','customer.address')
-        ->leftJoin('customer','payment.tel','customer.tel')
-        ->leftJoin('product','payment.pro_name','product.pro_name')
-        ->leftJoin('product','payment.price','product.price')
+        ->select('payment.*','orders.cust_id')
+        ->leftJoin('orders','payment.order_id','orders.order_id')
         ->whereNull('payment.deleted_at');
         
         if(!empty($keyword))
         {
             $payment->where('pay_id','LIKE','%'.$keyword.'%');
         }
-        if(is_numeric($pay_id))
-        {
-            $payment->where('payment.pay_id','=',$pay_id);
+        if(is_numeric($order_id)){
+            $payment->where('payment.order_id','=',$order_id);
         }
-        $payment = $payment->orderBy('payment.price','desc')->orderBy('payment.pro_name','desc')->paginate(30);
-        $payment= DB::table('payment')->whereNull('deleted_at')->get();
-        return view('pay::payment',compact('payment'));
+
+        $payment = $payment->paginate(10);
+        $orders = DB ::table('orders')->whereNull('deleted_at')->get();
+        return view('paymentdetail::payment',compact('payment','orders'));
     }
     public function create()
     {
-        $payment= DB::table('payment')->whereNull('deleted_at')->get();
-        return view('pay::paymentfrom');
+        return view('paymentdetail::paymentfrom');
     }
     public function store(Request $request)
     {
-        $cust_name = $request->get('cust_name');
-        $address = $request->get('address');
-        $tel = $request->get('tel');
-        $pro_name = $request->get('pro_name');
-        $price = $request->get('price');
-        $amount = $request->get('amount');
-        $delvfe = $request->get('delvfe');
-        $count = $request->get('count');
-        $net = $request->get('net');
-        $status = $request->get('status');
-        $parcel = $request->get('parcel');
-
-      
-            if(!empty($cust_name) && !empty($address) && !empty($tel) 
-            && !empty($pro_name) && !empty($price) && !empty($amount) && !empty($delvfe) && !empty($count) 
-            && !empty($net) && !empty($status) && !empty($parcel))
+            $order_id = $request->get('order_id');
+            $bank_account = $request->get('bank_account');
+            $price = $request->get('price');
+            $approved_status = $request->get('approved_status');
+            // $image = $request->get('image');
+            if(!empty($pay_id)  && !empty($bank_account) && !empty($price) && !empty($approved_status) && is_numeric($order_id))
             {
                 DB::table('payment')->insert([
-                    'cust_name' =>$cust_name,
-                    'address ' =>$address,
-                    'tel' =>$tel,
-                    'pro_name' =>$pro_name,
+                    'pay_id' =>$pay_id,
+                    'order_id' =>$order_id,
+                    'bank_account' =>$bank_account,
                     'price' =>$price,
-                    'amount' =>$amount,
-                    'delvfe' =>$delvfe,
-                    'count' =>$count,
-                    'net' =>$net,
-                    'payment' =>$payment,
-                    'status' =>$status,
-                    'parcel' =>$parcel
+                    'approved_status' =>$approved_status
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/payment');
             }else{
                 return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
             }
-    }
 
-    
+    }
 
 
     public function show($pay_id,Request $request)
@@ -90,21 +72,9 @@ class PaymentController extends Controller
             if(!empty($payment))
             {
                 $action='/payment'.$pay_id;
-                $payment= DB::table('payment')->whereNull('deleted_at')->get();                
-                return view('pay::paymentfrom',[
+                return view('paymentdetail::paymentfrom',[
                     'payment'=>$payment,
-                    'action'=>$action,
-                    'cust_name' =>$cust_name,
-                    'address ' =>$address,
-                    'tel' =>$tel,
-                    'pro_name' =>$pro_name,
-                    'price' =>$price,
-                    'amount' =>$amount,
-                    'delvfe' =>$delvfe,
-                    'count' =>$count,
-                    'net' =>$net,
-                    'status' =>$status,
-                    'parcel' =>$parcel
+                    'action'=>$action
                 ]);
             }
         }
@@ -112,39 +82,25 @@ class PaymentController extends Controller
             'back_url'=>'/payment',
         ]);
     }
-    public function update($pay_id,Request $request)
+    public function update($order_id,Request $request)
     {
         if(is_numeric($pay_id))
         {
-            $cust_name = $request->get('cust_name');
-            $address = $request->get('address');
-            $tel = $request->get('tel');
-            $pro_name = $request->get('pro_name');
+            $order_id = $request->get('order_id');
+            $bank_account = $request->get('bank_account');
             $price = $request->get('price');
-            $amount = $request->get('amount');
-            $delvfe = $request->get('delvfe');
-            $count = $request->get('count');
-            $net = $request->get('net');
-            $payment = $request->get('payment');
-            $status = $request->get('status');
-            $parcel = $request->get('parcel');
-            
+            $approved_status = $request->get('approved_status');
+            // $image = $request->get('image');
 
-            if(!empty($pro_name) && is_numeric($cate_id)&& is_numeric($price))
+            if(!empty($pay_id)  && !empty($bank_account) && !empty($price) && !empty($approved_status) && is_numeric($order_id))
+
             {
                 DB::table('payment')->where('pay_id',$pay_id)->update([
-                    'cust_name' =>$cust_name,
-                    'address ' =>$address,
-                    'tel' =>$tel,
-                    'pro_name' =>$pro_name,
+                    'pay_id' =>$pay_id,
+                    'order_id' =>$order_id,
+                    'bank_account' =>$bank_account,
                     'price' =>$price,
-                    'amount' =>$amount,
-                    'delvfe' =>$delvfe,
-                    'count' =>$count,
-                    'net' =>$net,
-                    'payment' =>$payment,
-                    'status' =>$status,
-                    'parcel' =>$parcel,
+                    'approved_status' =>$approved_status
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ','/payment');
             }else{ 
@@ -154,14 +110,14 @@ class PaymentController extends Controller
 
         return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
-    public function destroy($pay_id)
+    public function destroy($id)
     {
-        if(is_numeric($pay_id))
+        if(is_numeric($id))
         {
-            DB::table('payment')->where('pay_id',$pay_id)->update([
-                'deleted_at'=>date('Y-m-d H:i:s'),
-            ]);
-            return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
+        DB::table('payment')->where('pay_id',$id)->update([
+            'deleted_at'=>date('Y-m-d H:i:s'),
+        ]);
+        return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
         }
         return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
