@@ -1,17 +1,16 @@
 <?php
 
-namespace App\BackofficeModules\bank;
+namespace App\LiffModules\Categoryliff;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use DB;
 
-class BankController extends Controller
+class CategoryliffController extends Controller
 {
     public function index()
     {
-    	return view('bank::bank');
+    	return view('cate::categoryliff');
     }
-    
 }

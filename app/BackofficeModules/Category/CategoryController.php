@@ -32,9 +32,14 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
             $cate_name = $request->get('cate_name');
-            // $image = $request->get('image');
             if(!empty($cate_name))
             {
+                $category = DB ::table('category')
+                ->where('cate_name','$cate_name')
+                ->whereNull('deleted_at')->first();
+                if(!empty($category)){
+                    return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
+                }
                 DB::table('category')->insert([
                     'cate_name' =>$cate_name
                 ]);
@@ -69,10 +74,17 @@ class CategoryController extends Controller
         if(is_numeric($cate_id))
         {
             $cate_name = $request->get('cate_name');
-            // $image = $request->get('image');
+            
 
             if(!empty($cate_name) && is_numeric($cate_id))
             {
+                $category = DB ::table('category')
+                ->where('cate_id','$cate_id')
+                ->where('cate_name','$cate_name')
+                ->whereNull('deleted_at')->first();
+                if(!empty($category)){
+                    return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
+                }
                 DB::table('category')->where('cate_id',$cate_id)->update([
                     'cate_name' =>$cate_name
                 ]);

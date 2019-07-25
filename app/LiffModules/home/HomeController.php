@@ -1,17 +1,16 @@
 <?php
 
-namespace App\BackofficeModules\bank;
+namespace App\LiffModules\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use DB;
 
-class BankController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
-    	return view('bank::bank');
+    	return view('liffhome::index');
     }
-    
 }
