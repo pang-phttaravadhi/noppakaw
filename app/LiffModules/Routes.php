@@ -1,6 +1,12 @@
 <?php
 Route::prefix('liff')->group(function() {
-    
+    Route::Get('/','\App\LiffModules\Home\HomeController@index');
+    Route::Get('/categoryliff','\App\LiffModules\Categoryliff\CategoryliffController@index');
+    Route::Get('/history','\App\LiffModules\History\HistoryController@index');
+    Route::Get('/paymentliff','\App\LiffModules\Paymentliff\PaymentliffController@index');
+
+
+
     
    
 });

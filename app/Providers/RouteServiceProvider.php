@@ -58,7 +58,10 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('app/BackofficeModules/Routes.php'));
-    }
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('app/LiffModules/Routes.php'));
+}
 
     /**
      * Define the "api" routes for the application.
@@ -73,5 +76,6 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+        
     }
 }
