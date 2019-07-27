@@ -27,39 +27,39 @@
                             <tr>
                                 <th>ลำดับที่</th>
                                 <th>เลขใบสั่งซื้อ</th>
-                                <th>เลขบัญชีลูกค้า</th>
-                                <th>ราคาสินค้า</th>
-                                <th>สถานะการอนุมัติ</th>
-                                <th style="width:110px">แก้ไขรายการ</th>
+                                <th>รายการสินค้า</th>
+                                <th>ชื่อลูกค้า</th>
+                                <th>ที่อยู่ในการจัดส่ง</th>
+                                <th>ราคารวม</th>
+                                <th>
+
+                                <th></th>
+                               <!-- <th style="width:110px">แก้ไขรายการ</th>-->
                                 <th style="width:110px">Order detail</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($payment as $index=> $row)
+                        @foreach($payment as $index=> $payment)
                             <tr>
-                                <td>{{$index+$payment->firstItem()}}</td>
-                                <td>{{$row->order_id}}</td>
-                                <td>{{$row->bank_account}}</td>
-                                <td>{{$row->price}}</td>
-                                <td>{{$row->approved_status}}</td>
+                                <td>{{$index+$orders->firstItem()}}</td>
+                                <td>{{$row->detail_id}}</td>
+                                <td>{{$row->cust_name}}</td>
+                                <td>{{$row->address}}</td>
+                                <td>{{$row->amount}}</td>
                                 <td>
-                                    <div class="btn-group">
+                                <div class="btn-group">
+                                    <a href="/orders/{{$row->order_id}}" class="btn btn-info" role="button">Order detail</a> 
+                                    </div> 
+                                    <!--<div class="btn-group">
                                         <a class="btn btn-default" href="/payment/{{$row->pay_id}}"><i class="fa fa-edit"></i></a>
                                         <a class="btn btn-default deleted-item" href="/payment/{{$row->pay_id}}"><i class="fa fa-trash"></i></a>
-                                    </div> 
-                                </td>
-                                <td>
-                                <!--<ul class="nav navbar-nav">
-                                <li class="nav-menu"><a href="/paymentdetail" class="btn btn-info" role="button">Order detail</a></li> -->
-                                    <div class="btn-group">
-                                    <a href="/payment/paymentdetail" class="btn btn-info" role="button">Order detail</a> 
-                                    </div> 
+                                    </div> -->
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    {!!$payment->render()!!}
+                    {!!$orders->render()!!}
                 </div>
             </div>
         </div>
