@@ -10,51 +10,60 @@ use DB;
 use App\Services\MyResponse;
 class PaymentController extends Controller
 {   
-    public function Payment()
-    {
-        return view('paymentdetail::Payment');
-    }
     public function index(Request $request)
     {   
         $keyword = $request->get('keyword');
+        $cust_id = $request->get('cust_id');
         $order_id = $request->get('order_id');
-
-        $payment = DB ::table('payment')
-        ->select('payment.*','orders.cust_id')
-        ->leftJoin('orders','payment.order_id','orders.order_id')
-        ->whereNull('payment.deleted_at');
+        $orders = DB ::table('orders')
+        ->select('orders.*','customer.cust_name','order_details.amount','order_details.price_per_unit','order_details.detail_id')
+        ->leftJoin('customer','orders.cust_id','customer.cust_id')
+        ->leftJoin ('order_details','orders.detail_id','order_details.detail_id')
+        ->whereNull('orders.deleted_at');
         
         if(!empty($keyword))
         {
-            $payment->where('pay_id','LIKE','%'.$keyword.'%');
+            $orders->where('order_id','LIKE','%'.$keyword.'%');
         }
-        if(is_numeric($order_id)){
-            $payment->where('payment.order_id','=',$order_id);
+        if(is_numeric($cust_id))
+        {
+            $orders->where('orders.cust_id','=',$cust_id);
+        }
+        if(is_numeric($detail_id))
+        {
+            $orders->where('orders.detail_id','=',$detail_id);
         }
 
-        $payment = $payment->paginate(10);
-        $orders = DB ::table('orders')->whereNull('deleted_at')->get();
-        return view('paymentdetail::payment',compact('payment','orders'));
+        $orders = $orders->paginate(10);
+        $customer= DB ::table('customer')->whereNull('deleted_at')->get();
+        $order_details= DB ::table('order_details')->whereNull('deleted_at')->get();
+        return view('paymentfrom::payment',compact('orders','customer','order_details'));
     }
     public function create()
     {
-        return view('paymentdetail::paymentfrom');
+        $customer= DB::table('customer')->whereNull('deleted_at')->get();
+        $order_details= DB ::table('order_details')->whereNull('deleted_at')->get();
+        return view('payment::paymentfrom',compact('customer','order_details'));
     }
     public function store(Request $request)
     {
             $order_id = $request->get('order_id');
-            $bank_account = $request->get('bank_account');
-            $price = $request->get('price');
-            $approved_status = $request->get('approved_status');
+            $cust_id = $request->get('cust_id');
+            $order_id = $request->get('order_id');
             // $image = $request->get('image');
-            if(!empty($pay_id)  && !empty($bank_account) && !empty($price) && !empty($approved_status) && is_numeric($order_id))
+            if(!empty($order_id)  && !empty($cust_id) && !empty($detail_id))
             {
-                DB::table('payment')->insert([
-                    'pay_id' =>$pay_id,
+                $orders= DB::table('orders')
+                ->where('order_id',$order_id)
+                ->whereNull('orders.deleted_at')->first();
+                if(!empty($orders))
+                {
+                    return MyResponse::error('ขออภัยข้อมูลนี้มีในระบบอยู่แล้ว');
+                }
+                DB::table('order')->insert([
                     'order_id' =>$order_id,
-                    'bank_account' =>$bank_account,
-                    'price' =>$price,
-                    'approved_status' =>$approved_status
+                    'detail_id' =>$detail_id,
+                    'cust_id' =>$cust_id
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/payment');
             }else{
@@ -62,19 +71,19 @@ class PaymentController extends Controller
             }
 
     }
-
-
-    public function show($pay_id,Request $request)
+    public function show($order_id,Request $request)
     {   
-        if(is_numeric($pay_id))
+        if(is_numeric($order_id))
         {
-            $payment = DB::table('payment')->where('pay_id',$pay_id)->first();
-            if(!empty($payment))
+            $orders = DB::table('orders')->where('order_id',$order_id)->first();
+            if(!empty($orders))
             {
-                $action='/payment'.$pay_id;
-                return view('paymentdetail::paymentfrom',[
-                    'payment'=>$payment,
-                    'action'=>$action
+                $customer= DB ::table('customer')->whereNull('deleted_at')->get();
+                $order_details= DB ::table('order_details')->whereNull('deleted_at')->get();
+                return view('payment::paymentfrom',[
+                    'orders'=>$orders,
+                    'detail_id' =>$detail_id,
+                    'cust_id' =>$cust_id
                 ]);
             }
         }
@@ -84,23 +93,21 @@ class PaymentController extends Controller
     }
     public function update($order_id,Request $request)
     {
-        if(is_numeric($pay_id))
+        if(is_numeric($order_id))
         {
             $order_id = $request->get('order_id');
-            $bank_account = $request->get('bank_account');
-            $price = $request->get('price');
-            $approved_status = $request->get('approved_status');
+            $cust_id = $request->get('cust_id');
+            $detail_id = $request->get('detail_id');
             // $image = $request->get('image');
 
-            if(!empty($pay_id)  && !empty($bank_account) && !empty($price) && !empty($approved_status) && is_numeric($order_id))
-
+            if(!empty($order_id) && !empty($cust_id_id) && !empty($detail_id))
             {
-                DB::table('payment')->where('pay_id',$pay_id)->update([
-                    'pay_id' =>$pay_id,
+                
+                DB::table('orders')->where('order_id',$order_id)->update([
                     'order_id' =>$order_id,
-                    'bank_account' =>$bank_account,
-                    'price' =>$price,
-                    'approved_status' =>$approved_status
+                    'cust_name' =>$cust_name,
+                    'address' =>$address,
+                    'amount' =>$amount
                 ]);
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ','/payment');
             }else{ 
@@ -110,11 +117,11 @@ class PaymentController extends Controller
 
         return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
-    public function destroy($id)
+    public function destroy($order_id)
     {
-        if(is_numeric($id))
+        if(is_numeric($order_id))
         {
-        DB::table('payment')->where('pay_id',$id)->update([
+        DB::table('orders')->where('order_id',$order_id)->update([
             'deleted_at'=>date('Y-m-d H:i:s'),
         ]);
         return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
