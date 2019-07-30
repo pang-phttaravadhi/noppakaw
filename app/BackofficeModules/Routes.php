@@ -8,6 +8,7 @@ Route::prefix('')->group(function() {
     {
         Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
         Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
+        Route::Get('/paymentnotification','\App\BackofficeModules\Paymentnotification\PaymentnotificationController@index');
         Route::resource('product','\App\BackofficeModules\Product\ProductController');
         Route::resource('category','\App\BackofficeModules\Category\CategoryController');
         Route::resource('payment','\App\BackofficeModules\Payment\PaymentController');

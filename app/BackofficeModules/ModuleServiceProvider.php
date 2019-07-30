@@ -16,6 +16,8 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/Customer/Views','cus');     
         $this->loadViewsFrom(__DIR__.'/Login/views','log'); 
         $this->loadViewsFrom(__DIR__.'/Category/Views','cat');
+        $this->loadViewsFrom(__DIR__.'/Paymentnotification/Views','payy');
+
 
     }
 }

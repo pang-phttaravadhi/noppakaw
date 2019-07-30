@@ -25,8 +25,8 @@
                 <li class="nav-menu"><a href="/">หน้าแรก</a></li>
                 <li class="nav-menu"><a href="/product">สินค้า</a></li>
                 <li class="nav-menu"><a href="/category">หมวดสินค้าสินค้า</a></li>
-                <!--<li class="nav-menu"><a href="/bank">ธนาคาร</a></li> -->
                 <li class="nav-menu"><a href="/payment">ใบสั่งซื้อ</a></li>
+                <li class="nav-menu"><a href="/paymentnotification">แจ้งชำระเงิน</a></li>
                 <li class="dropdown nav-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         <i class="fa fa-user" aria-hidden="true"></i> {{CurrentUser::user()->first_name}}<span class="caret"></span>
