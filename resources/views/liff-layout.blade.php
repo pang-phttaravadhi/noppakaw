@@ -17,6 +17,7 @@
                         <i class="fa fa-navicon" style="font-size:36px;color:#fff" ></i>
                     </a>
                     <ul class="dropdown-menu">
+                        <li class="nav-menu"><a href="/liff">หน้าแรก</a></li>
                         <li class="sub-nav-menu"><a href="/liff/categoryliff">หมวดสินค้า</a></li>
                         <li class="sub-nav-menu"><a href="/liff/paymentliff">แจ้งชำระเงิน</a></li>
                         <li class="sub-nav-menu"><a href="/liff/history">History</a></li>
@@ -30,6 +31,7 @@
         <div style="padding-top:80px" class="container-fluid">
             @yield('content')
         </div>
+        
         <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
         <script src="/assets/js/SimpleAjaxUploader.min.js"></script>

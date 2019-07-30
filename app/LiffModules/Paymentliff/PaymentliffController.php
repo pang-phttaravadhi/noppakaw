@@ -11,6 +11,16 @@ class PaymentliffController extends Controller
 {
     public function index()
     {
-    	return view('payy::Paymentliff');
+        return view('payy::Paymentliff');
+    	
     }
+    public function paymentlifffrom()
+    {
+        return view('payyfrom::Paymentlifffrom');
+    	
+    }
+   
+
 }
+
+
