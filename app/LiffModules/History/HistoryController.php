@@ -13,4 +13,9 @@ class HistoryController extends Controller
     {
     	return view('his::History');
     }
+    public function historyfrom()
+    {
+        return view('hisfrom::Historyfrom');
+    	
+    }
 }
