@@ -59,7 +59,7 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div class="modal-body" style="font-size=16px;"
-                                    <h3>ได้เพิ่มสินค้าลงในตะกร้าสินค้าเรียบร้อยแล้วค่ะ</h3>
+                                <h3>ได้เพิ่มสินค้าลงในตะกร้าสินค้าเรียบร้อยแล้วค่ะ</h3>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -67,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
