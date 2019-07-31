@@ -5,6 +5,7 @@ Route::prefix('liff')->group(function() {
     Route::Get('/history','\App\LiffModules\History\HistoryController@index');
     Route::Get('/historyfrom','\App\LiffModules\History\HistoryController@historyfrom');
     Route::Get('/paymentliff','\App\LiffModules\Paymentliff\PaymentliffController@index');
+    Route::Get('/profile','\App\LiffModules\Profile\ProfileController@index');
     Route::Get('/paymentlifffrom','\App\LiffModules\Paymentliff\PaymentliffController@paymentlifffrom');
 
 

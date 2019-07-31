@@ -21,6 +21,7 @@
                         <li class="sub-nav-menu"><a href="/liff/categoryliff">หมวดสินค้า</a></li>
                         <li class="sub-nav-menu"><a href="/liff/paymentliff">แจ้งชำระเงิน</a></li>
                         <li class="sub-nav-menu"><a href="/liff/history">ประวัติการสั่งซื้อ</a></li>
+                        <li class="sub-nav-menu"><a href="/liff/profile">โปรไฟล์</a></li>
                     </ul>
                 </li>
                 <li class="sub-nav-menu pull-right"><a href="/liff/history">
