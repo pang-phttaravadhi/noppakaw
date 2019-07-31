@@ -13,5 +13,9 @@ class ProfileController extends Controller
     {
     	return view('proo::Profile');
     }
+    public function profilefrom()
+    {
+    	return view('proofrom::Profilefrom');
+    }
     
 }
