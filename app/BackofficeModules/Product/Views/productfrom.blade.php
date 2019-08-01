@@ -34,6 +34,10 @@
       <label>ราคาสินค้า:</label>
         <input type="text" class="form-control"  name="price" value="{{ isset($product) ? $product->price:''}}">
     </div>
+    <div class="form-group">
+      <label>น้ำหนัก:</label>
+        <input type="text" class="form-control"  name="weight" value="{{ isset($product) ? $product->weight:''}}">
+    </div>
     <button type="submit" class="btn btn-primary">บันทึก</button>
       <a href="/product" class="btn btn-info">กลับ</a>
       <h2>ใส่รูปภาพ</h2>

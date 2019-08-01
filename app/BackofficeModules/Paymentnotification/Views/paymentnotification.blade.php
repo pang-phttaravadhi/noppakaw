@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
-                    <form action="/product">
+                    <form action="/paymentnotification">
                         <div class="form-group">
                             <label>ชื่อ-นามสกุลลูกค้า</label>
                             <input type="text" class="form-control"  name="" value="">
@@ -30,6 +30,7 @@
                                 <th>เลขใบสั่งซื้อ</th>
                                 <th>ชื่อลูกค้า</th>
                                 <th>จำนวนเงิน</th>
+                                <th>หลักฐานการโอน</th>
                                 <th>การอนุมัติสถานะ</th>
                                 <th style="width:100px">ดูการเเจ้งชำระเงิน</th>
                             </tr>
@@ -41,6 +42,7 @@
                                 <td>01</td>
                                 <td>คุณมานี</td>
                                 <td>2000</td>
+                                <td></td>
                                 <td>รอโอนเงิน</td>
                                 <td>
                                     <div class="btn-group">

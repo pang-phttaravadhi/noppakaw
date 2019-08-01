@@ -13,7 +13,7 @@
                             <input type="text" class="form-control"  name="" value="">
                         </div>
                         <div class="form-group">
-                        <button type="submit" class="btn btn-default">ค้นหา</button>
+                        <button type="submit" class="btn btn-info">ค้นหา</button>
                         </div>
                     </form>
                 </div>

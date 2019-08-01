@@ -13,7 +13,7 @@
                             <label>หมวดสินค้า</label>
                                 <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
-                        <button type="submit" class="btn btn-default">ค้นหา</button>
+                        <button type="submit" class="btn btn-info">ค้นหา</button>
                     </form>
                 </div>
             </div>

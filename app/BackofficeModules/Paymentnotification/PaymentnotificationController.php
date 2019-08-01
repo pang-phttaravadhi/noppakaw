@@ -15,5 +15,11 @@ class PaymentnotificationController extends Controller
     	return view('payy::paymentnotification');
     	
     }
+    public function paymentnotificationfrom(Request $request)
+    {
+      
+    	return view('payyfrom::paymentnotificationfrom');
+    	
+    }
     
 }
