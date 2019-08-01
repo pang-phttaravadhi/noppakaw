@@ -37,11 +37,11 @@
                         <tbody>
                         
                             <tr>
-                                <td>$index+1</td>
-                                <td>01</td>
-                                <td>คุณมานี</td>
-                                <td>2000</td>
-                                <td>รอโอนเงิน</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-default"><i class="fa fa-edit"></i></a>

@@ -39,12 +39,12 @@
                         <tbody>
                        
                             <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>ชุดไทยเรือนต้น</td>
-                                <td>คุณมานี ใจดี</td>
-                                <td>54/87 หมู่บ้านลภาวัน19 ต.คลองข่อย อ. ปากเกร็ด จ.นนทบุรี 11120</td>
-                                <td>2000</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="" class="btn btn-info" role="button">Order detail</a> 

@@ -2,7 +2,7 @@
 @section('title','หมวดสินค้า')
 @section('content' )
 
-<div>
+
     <div class="text-center">
         <h1>หมวดสินค้า</h1>
         <h3>สร้างขึ้นเพื่อการศึกษา<h3>
@@ -828,5 +828,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection
