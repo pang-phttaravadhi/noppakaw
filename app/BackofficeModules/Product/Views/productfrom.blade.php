@@ -3,8 +3,7 @@
 @section('content' )
 <div class="container">
     <a herf="/product"กลับ></a>
-    <div class="panel-heading" style="font-size:20px;">
-    </div>
+      <div class="panel-heading" style="font-size:20px;"></div>
     @if(isset($product))
       <form action="/product/{{$product->pro_id}}"  class="form-ajax" call_back='yes' method="PUT">
         <input type="hidden"value="put" name="_methods">
@@ -29,6 +28,11 @@
           </option>
           @endforeach
       </select>
+    </div>
+    <div class="form-group">
+      <label>ประเภทสินค้า:</label>
+          <label><input type="checkbox" name="pro_type"value="{{ isset($product) ? $product->pro_type:''}}">สินค้าใหม่</label>
+          <label><input type="checkbox" name="pro_type"value="{{ isset($product) ? $product->pro_type:''}}">สินค้าแนะนำ</label>
     </div>
     <div class="form-group">
       <label>ราคาสินค้า:</label>

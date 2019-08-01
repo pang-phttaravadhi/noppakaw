@@ -36,18 +36,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
                             <tr>
-
-
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-
- 
-
+                                <td></td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-default"><i class="fa fa-edit"></i></a>
@@ -55,7 +50,6 @@
                                     </div> 
                                 </td>
                             </tr>
-                        
                         </tbody>
                     </table>
                 </div>

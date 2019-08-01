@@ -42,8 +42,9 @@ class ProductController extends Controller
             $price = $request->get('price');
             $weight = $request->get('weight');
             $cate_id = $request->get('cate_id');
+            $pro_type = $request->get('pro_type');
             $image = $request->get('image');
-            if(!empty($pro_name) && !empty($image)  && !empty($price) && !empty($weight) && !empty($cate_id))
+            if(!empty($pro_name) && !empty($image)  && !empty($price) && !empty($weight) && !empty($cate_id) && !empty($pro_type))
             
             {
                 $products = DB ::table('product')
@@ -57,6 +58,7 @@ class ProductController extends Controller
                     'price' =>$price,
                     'weight' =>$weight,
                     'cate_id'=>$cate_id,
+                    'pro_type'=>$pro_type,
                     'image'=>$image,
                     'created_at'=>date('Y-m-d H:i:s'),
                 ]);
@@ -96,9 +98,10 @@ class ProductController extends Controller
             $price = $request->get('price');
             $weight = $request->get('weight');
             $cate_id = $request->get('cate_id');
+            $pro_type = $request->get('pro_type');
             $image = $request->get('image');
 
-            if(!empty($pro_name) && !empty($image) && is_numeric($cate_id) && is_numeric($price) && is_numeric($weight))
+            if(!empty($pro_name) && !empty($image) && is_numeric($cate_id) && is_numeric($price) && is_numeric($weight) && is_numeric($pro_type))
             {
                 $products = DB ::table('product')
                 ->where('pro_id',$pro_id)
@@ -112,6 +115,7 @@ class ProductController extends Controller
                     'price' =>$price,
                     'weight' =>$weight,
                     'cate_id'=>$cate_id,
+                    'pro_type'=>$pro_type,
                     'image'=>$image,
                     'updated_at'=>date('Y-m-d H:i:s')
                 ]);
