@@ -25,7 +25,7 @@
                     <input type="text" name="cate_name" class="form-control" value="{{isset($category)?$category->cate_name:''}}"/>
                         
                     </div> 
-                    <button class="btn">ยืนยัน</button>
+                    <button class="btn btn-primary">ยืนยัน</button>
                 </form>
                 </form>
             </div>

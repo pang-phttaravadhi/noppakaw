@@ -46,6 +46,7 @@
                                 <th>ชื่อสินค้า</th>
                                 <th>หมวดสินค้า</th>
                                 <th>ราคาสินค้า</th>
+                                <th>น้ำหนัก</th>
                                 <th style="width:100px">แก้ไขรายการ</th>
                             </tr>
                         </thead>
@@ -56,6 +57,7 @@
                                 <td>{{$product->pro_name}}</td>
                                 <td>{{$product->cate_name}}</td>
                                 <td>{{$product->price}}</td>
+                                <td>{{$product->weight}}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-default" href="/product/{{$product->pro_id}}"><i class="fa fa-edit"></i></a>
