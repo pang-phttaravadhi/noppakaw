@@ -13,4 +13,13 @@ class ShoppingcartController extends Controller
     {
     	return view('shopp::shoppingcart');
     }
+    public function shoppingcartfrom()
+    {
+    	return view('shopp::shoppingcartfrom');
+    }
+    public function shoppingcartfromm()
+    {
+    	return view('shopp::shoppingcartfromm');
+    }
+    
 }

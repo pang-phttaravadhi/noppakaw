@@ -289,7 +289,7 @@
                 <a href="https://q.lnwfile.com/f8sy2f.jpg">
                 <img src="https://q.lnwfile.com/f8sy2f.jpg" alt="Lights" style="width:100%">
                     <div class="caption">
-                        <p>เซตเครื่องประดับ</p>
+                        <p>เซตเครื่องทอง</p>
                         <p>1000 บาท</p>
                         <p>น้ำหนัก 0.3 กิโลกรัม</p>
                     </div>
@@ -319,8 +319,8 @@
                 <a href="https://q.lnwfile.com/_/q/_raw/2i/2p/9j.jpg">
                 <img src="https://q.lnwfile.com/_/q/_raw/2i/2p/9j.jpg" alt="Nature" style="width:100%">
                     <div class="caption">
-                        <p>เซตเครื่องประดับ</p>
-                        <p>3000 บาท </p>
+                        <p>เซตเครื่องพลอย</p>
+                        <p>1500 บาท </p>
                         <p>น้ำหนัก 0.3 กิโลกรัม</p>
                     </div>
                 </a>

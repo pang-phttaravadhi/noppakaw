@@ -12,7 +12,14 @@ class PaymentController extends Controller
 {   
     public function index(Request $request)
     {   
-        return view('paymentfrom::payment');
+        return view('pay::payment');
     }
+    public function paymentfrom(Request $request)
+    {
+      
+    	return view('payfrom::paymentfrom');
+    	
+    }
+    
 }
       

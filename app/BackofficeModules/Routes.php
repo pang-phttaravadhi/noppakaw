@@ -14,5 +14,6 @@ Route::prefix('')->group(function() {
         Route::resource('product','\App\BackofficeModules\Product\ProductController');
         Route::resource('category','\App\BackofficeModules\Category\CategoryController');
        // Route::resource('payment','\App\BackofficeModules\Payment\PaymentController');
+        Route::Get('/paymentfrom','\App\BackofficeModules\Payment\PaymentController@paymentfrom');
     });
 });
