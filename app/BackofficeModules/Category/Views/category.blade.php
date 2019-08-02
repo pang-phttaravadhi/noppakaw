@@ -17,7 +17,7 @@
                     </form>
                 </div>
             </div>
-            <a href='/category/create' class="btn btn-info">เพิ่มหมวดสินค้า</a>
+            <a href='/category/create' class="btn btn-primary">เพิ่มหมวดสินค้า</a>
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">

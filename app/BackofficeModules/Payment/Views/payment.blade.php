@@ -47,7 +47,9 @@
                                 <td></td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="/paymentfrom" class="btn btn-info" role="button">Order detail</a> 
+                                        <a href="/paymentfrom" class="btn btn-primary" role="button">Order detail</a> 
+
+ 
                                     </div> 
                                 </td>
                             </tr>
