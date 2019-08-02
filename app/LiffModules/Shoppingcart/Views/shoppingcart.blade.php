@@ -1,7 +1,7 @@
 @extends('liff-layout')
 @section('title','ตะกร้าสินค้า')
 @section('content' )
-  <div>
+<div>
     <h4>รายการใบสั่งซื้อ</h4>
     <div class="panel panel-default">
       <div class="panel-heading text-center"><strong>รายการสินค้า</strong></div>
@@ -9,16 +9,16 @@
         <table style="width:100%">
         @for($i=0;$i<2;$i++)
           <tr>
-              <td colspan="2" style="margin-bottom:5px;padding:10px 0">
-                  <a href="https://i.pinimg.com/736x/38/d2/b5/38d2b5994f4df4daf4bb651d1bbbb85a.jpg">
-                    <img src="https://i.pinimg.com/736x/38/d2/b5/38d2b5994f4df4daf4bb651d1bbbb85a.jpg"  alt="Nature" style="width:20%;float:left;">
-                  </a>
-                  <div style="width:78%;float:right;margin-left:5px;">
-                    <p style="margin:3px;"><strong>เสื้อผ้าปปปปปปปปปปปปปปปป</strong></p>
-                    <p style="margin:3px;">ราคา : 200 บาท</p>
-                    <p style="margin:3px;">จำนวน : <input class="text-center" style="width:85px;padding:5px;" type="number" value="0"></p>
-                  </div>
-              </td>
+            <td colspan="2" style="margin-bottom:5px;padding:10px 0">
+                <a href="https://i.pinimg.com/736x/38/d2/b5/38d2b5994f4df4daf4bb651d1bbbb85a.jpg">
+                  <img src="https://i.pinimg.com/736x/38/d2/b5/38d2b5994f4df4daf4bb651d1bbbb85a.jpg"  alt="Nature" style="width:20%;float:left;">
+                </a>
+                <div style="width:78%;float:right;margin-left:5px;">
+                  <p style="margin:3px;"><strong>เสื้อผ้าปปปปปปปปปปปปปปปป</strong></p>
+                  <p style="margin:3px;">ราคา : 200 บาท</p>
+                  <p style="margin:3px;">จำนวน : <input class="text-center" style="width:85px;padding:5px;" type="number" value="0"></p>
+                </div>
+            </td>
           </tr>
           @endfor
           <tr>

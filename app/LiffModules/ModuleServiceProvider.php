@@ -18,6 +18,8 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/Shoppingcart/Views','shopp');
         $this->loadViewsFrom(__DIR__.'/Shoppingcart/Views','shopp'); 
         $this->loadViewsFrom(__DIR__.'/Shoppingcart/Views','shopp');
+        $this->loadViewsFrom(__DIR__.'/Categoryliff/Views','cate');
+
 
 
 
