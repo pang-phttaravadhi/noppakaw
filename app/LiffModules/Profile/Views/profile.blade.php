@@ -1,14 +1,11 @@
 @extends('liff-layout')
 @section('title','profile')
 @section('content' )
-<div class="container">
+<div class="panel panel-default">
+    <div class="panel-heading text-center"><strong>โปรไฟล์</strong></div>
     <div class="row">
         <div class="col-md-4">
-            <div class="card mb-4 shadow-sm" ><center>
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>   
-            </div>  
+            <img src="https://www.greatstarsdigital.com/wp-content/uploads/2017/08/%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%9F%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%99_%E0%B9%91%E0%B9%97%E0%B9%90%E0%B9%98%E0%B9%92%E0%B9%92_0010.jpg" alt="Lights" style="width:40%; display:block;margin:10px auto;" >
             <div class="card-body">
                 <div class="form-group">
                     <label>ชื่อผู้ใช้</label>

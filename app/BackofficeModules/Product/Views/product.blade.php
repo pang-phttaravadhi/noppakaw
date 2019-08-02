@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="container">
-                <a class="btn btn-info" href="/product/create">เพิ่มสินค้าใหม่</a>
+                <a class="btn btn-primary" href="/product/create">เพิ่มสินค้าใหม่</a>
             </div>
         </div> 
         <div class="col-md-9">

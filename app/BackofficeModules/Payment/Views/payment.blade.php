@@ -47,7 +47,7 @@
                                 <td></td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-info" role="button">Order detail</a> 
+                                        <a href="" class="btn btn-primary" role="button">Order detail</a> 
                                     </div> 
                                 </td>
                             </tr>
