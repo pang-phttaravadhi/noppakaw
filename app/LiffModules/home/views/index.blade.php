@@ -1,6 +1,6 @@
 @extends('liff-layout')
 @section('content' )
-<img src="/assets/img/logo/logoo.jpg"  width="345" height="190"> 
+<img src="/assets/img/logo/1.jpg"  width="345" height="190"> 
 <h4>รายการสินค้าแนะนำ</h4>
 <div class="row">
     <div class="col-md-4 col-xs-6">

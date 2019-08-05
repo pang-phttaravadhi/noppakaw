@@ -5,13 +5,20 @@ namespace App\LiffModules\Categoryliff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
+use stdClass;
 use DB;
+use App\Services\MyResponse;
 
 class CategoryliffController extends Controller
 {
     public function index()
     {
-    	return view('cate::categoryliff');
+        $products = DB ::table('product')
+        ->select('product.*','category.cate_name')
+        ->leftJoin('category','product.cate_id','category.cate_id')
+        ->whereNull('product.deleted_at');
+        
+    	return view('cate::categoryliff',compact('products'));
     }
     public function categorylifffrom1()
     {

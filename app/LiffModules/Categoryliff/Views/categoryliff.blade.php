@@ -9,7 +9,23 @@
         <a class="btn btn-info" href="/liff/categorylifffrom3">รองเท้า</a>
     </div>
 </div>
-<div class="row">
+@foreach($products as $index => $products)
+<div class="thumbnail">
+    <a href="/liff/product-detail/1">
+    <img {{$products->image}} alt="Lights" style="width:100%">
+        <div class="caption">
+            <p>{{$products->pro_name}}</p>
+            <p>{{$products->price}}</p>
+            <p>{{$products->weight}}</p>
+        </div>
+    </a>
+    <div class="container">
+        <button style='font-size:14px'><i class='fa fa-shopping-cart'></i></button>
+    </div>
+</div>
+@endforeach
+
+<!--<div class="row">
     <div class="col-md-4 col-xs-6">
         <div class="thumbnail">
             <a href="/liff/product-detail/1">
@@ -77,5 +93,5 @@
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li>
     </ul>
-</div>
+</div>-->
 @endsection
