@@ -31,8 +31,8 @@
     </div>
     <div class="form-group">
       <label>ประเภทสินค้า:</label>
-          <label><input type="checkbox" name="pro_type"value="{{ isset($product) ? $product->pro_type:''}}">สินค้าใหม่</label>
-          <label><input type="checkbox" name="pro_type"value="{{ isset($product) ? $product->pro_type:''}}">สินค้าแนะนำ</label>
+          <label><input type="checkbox" {{ isset($product) && $product->is_new=='Y'?'checked':''}} name="is_new"value="Y">สินค้าใหม่</label>
+          <label><input type="checkbox" {{ isset($product) && $product->is_recommence=='Y'?'checked':''}} name="is_recommence"value="Y">สินค้าแนะนำ</label>
     </div>
     <div class="form-group">
       <label>ราคาสินค้า:</label>

@@ -3,33 +3,41 @@
 @section('content' )
 <div class="panel panel-default">
     <div class="panel-heading text-center"><strong>หมวดสินค้า</strong></div>
-    <div class="panel-body">
-        <a class="btn btn-info" href="/liff/categorylifffrom1">ชุดไทย</a>
-        <a class="btn btn-info" href="/liff/categorylifffrom2">เครื่องประดับ</a>
-        <a class="btn btn-info" href="/liff/categorylifffrom3">รองเท้า</a>
+    <div class="panel-body" style="display:flex; justify-content: center;">
+    <a class="btn btn-info" style="margin:auto" href="/liff/categoryliff">ทั้งหมด</a>
+    @foreach($category as $index => $cate)
+        <a class="btn btn-info" style="margin:auto" href="/liff/categoryliff?cate_id={{$cate->cate_id}}">{{$cate->cate_name}}</a>
+    @endforeach
     </div>
 </div>
-@foreach($products as $index => $products)
-<div class="thumbnail">
-    <a href="/liff/product-detail/1">
-    <img {{$products->image}} alt="Lights" style="width:100%">
-        <div class="caption">
-            <p>{{$products->pro_name}}</p>
-            <p>{{$products->price}}</p>
-            <p>{{$products->weight}}</p>
+<div class="row">
+    @foreach($products as $index => $product)
+    <div class="col-md-4 col-xs-6">
+        <div class="thumbnail">
+            <a href="/liff/product-detail/1">
+            <img src="{{$product->image}}" alt="Lights" style="width:100%">
+                <div class="caption">
+                <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">{{$product->pro_name}}</p>
+                <p>ราคา <b>{{$product->price}}</b> บาท</p>
+                <p>น้ำหนัก <b>{{$product->weight}}</b> กรัม</p>
+
+                </div>
+            </a>
+            <div class="container">
+                <button style='font-size:14px'><i class='fa fa-shopping-cart'></i></button>
+            </div>
         </div>
-    </a>
-    <div class="container">
-        <button style='font-size:14px'><i class='fa fa-shopping-cart'></i></button>
     </div>
+    @endforeach
 </div>
-@endforeach
+
+
 
 <!--<div class="row">
     <div class="col-md-4 col-xs-6">
         <div class="thumbnail">
             <a href="/liff/product-detail/1">
-            <img src="https://www.greatstarsdigital.com/wp-content/uploads/2017/08/%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%9F%E0%B8%B4%E0%B8%A3%E0%B9%8C%E0%B8%99_%E0%B9%91%E0%B9%97%E0%B9%90%E0%B9%98%E0%B9%92%E0%B9%92_0010.jpg" alt="Lights" style="width:100%">
+            <img src="xxxx" alt="Lights" style="width:100%">
                 <div class="caption">
                     <p>ชุดไทยจักรพรรดิ สีเงิน</p>
                     <p>3000 บาท</p>
