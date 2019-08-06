@@ -47,11 +47,11 @@
       <h2>ใส่รูปภาพ</h2>
       <div class="row">
         <div class="col-md-4">
-        <button type="button" data-callback="uploaded" data-ext="jpg,png,jpeg" class="btn btn-primary upload">อัพโหลดรูปภาพ</button>
-        <input type="hidden" value="{{ isset($product) ? $product->image:''}}" name="image" id="image"/>
-          <div class="thumbnail">
+          <button type="button" data-callback="uploaded" data-ext="jpg,png,jpeg" class="btn btn-primary upload">อัพโหลดรูปภาพ</button>
+          <input type="hidden" value="{{ isset($product) ? $product->image:''}}" name="image" id="image"/>
+            <div class="thumbnail">
               <img src="{{ isset($product) ? $product->image:''}}" id="display-image" alt="Lights" style="width:100%">
-          </div>
+            </div>
         </div>
       </div>    
   </form>

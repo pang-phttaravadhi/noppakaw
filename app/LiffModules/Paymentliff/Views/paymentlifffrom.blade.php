@@ -6,7 +6,7 @@
     <p>ท่านสามารถเลือกวิธีการชำระเงินได้เลยค่ะ<p>
     <img src="/assets/img/logo/payment.jpg"  width="304" height="236"> 
     <p>เมื่อท่านชำระเงินเรียบร้อยแล้ว โปรดส่งหลักฐานการโอนมาที่ปุ่มแจ้งชำระเงินด้วยค่ะ</p>
-    <a class="btn btn-default" href="/liff/paymentlifffrom" > แจ้งชำระเงิน </a>
+    <a class="btn btn-info" href="/liff/paymentliff" > แจ้งชำระเงิน </a>
 </div>
 
 @endsection

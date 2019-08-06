@@ -4,7 +4,6 @@ Route::prefix('liff')->group(function() {
     Route::Get('/categoryliff','\App\LiffModules\Categoryliff\CategoryliffController@index');
     Route::Get('/history','\App\LiffModules\History\HistoryController@index');
     Route::Get('/historyfrom','\App\LiffModules\History\HistoryController@historyfrom');
-    Route::Get('/paymentliff','\App\LiffModules\Paymentliff\PaymentliffController@index');
     Route::Get('/profile','\App\LiffModules\Profile\ProfileController@index');
     Route::Get('/profilefrom','\App\LiffModules\Profile\ProfileController@profilefrom');
     Route::Get('/paymentlifffrom','\App\LiffModules\Paymentliff\PaymentliffController@paymentlifffrom');
@@ -16,7 +15,12 @@ Route::prefix('liff')->group(function() {
     Route::Get('/categorylifffrom3','\App\LiffModules\Categoryliff\CategoryliffController@categorylifffrom3');
     Route::Get('/product-detail/{pro_id}','\App\LiffModules\Categoryliff\CategoryliffController@detail');
     
-    
+    Route::group (['middleware'=> ['auth']], function ()
+    {
+        
+        Route::resource('paymentliff','\App\LiffModules\Paymentliff\PaymentliffController');
+       
+    }); 
 
 
     
