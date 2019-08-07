@@ -10,9 +10,6 @@ Route::prefix('liff')->group(function() {
     Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');
     Route::Get('/shoppingcartfrom','\App\LiffModules\shoppingcart\ShoppingcartController@shoppingcartfrom');
     Route::Get('/shoppingcartfromm','\App\LiffModules\Shoppingcart\ShoppingcartController@shoppingcartfromm');
-    Route::Get('/categorylifffrom1','\App\LiffModules\Categoryliff\CategoryliffController@categorylifffrom1');
-    Route::Get('/categorylifffrom2','\App\LiffModules\Categoryliff\CategoryliffController@categorylifffrom2');
-    Route::Get('/categorylifffrom3','\App\LiffModules\Categoryliff\CategoryliffController@categorylifffrom3');
     Route::Get('/product-detail/{pro_id}','\App\LiffModules\Categoryliff\CategoryliffController@detail');
     Route::Post('/login','\App\LiffModules\Customer\CustomerController@login');
     Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');

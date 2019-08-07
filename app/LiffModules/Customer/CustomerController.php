@@ -49,7 +49,8 @@ class CustomerController extends Controller
                 $customer_id = DB::table('customer')->insertGetId([
                     'cust_name'=>$displayname,
                     'created_at'=>date('Y-m-d H:i:s'),
-                    'line_id'=>$line_id
+                    'line_id'=>$line_id,
+                    'image'=>$pictureurl
                 ]);
                 $user_id = DB::table('users')->insertGetId([
                     'user_id'=>$customer_id,

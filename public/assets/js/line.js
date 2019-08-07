@@ -1,15 +1,21 @@
-(function( $ ) {
-    
+$(window).on('load',function(){
     liff.init(
         data => {
-
-            // Now you can call LIFF API
-            const userId = data.context.userId;
-            Helper.ajax ('/liff/login','POST',{}.attr('content'),_method:'delete'},callback)   
+            liff.getProfile()
+            .then(profile => {
+            Helper.ajax ('/liff/login','POST',{
+                line_id:profile.userId,
+                displayname:profile.displayName,
+                pictureurl:profile.pictureUrl
+            },function(result){
+            })   
+            })
+            .catch((err) => {
+            });
         },
         err => {
             // LIFF initialization failed
         }
         );
-});
+    });
 

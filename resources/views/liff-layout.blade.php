@@ -37,7 +37,7 @@
         <script src="/assets/js/bootstrap.min.js"></script>
         <script src="/assets/js/SimpleAjaxUploader.min.js"></script>
         <script src="/assets/js/myscript.js"></script>
-        <script src="/assets/js/line.js"></script>
+        <script src="/assets/js/line.js?v=5"></script>
         @stack('scripts')
     </body>
 </head>
