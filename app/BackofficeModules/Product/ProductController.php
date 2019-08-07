@@ -113,7 +113,7 @@ class ProductController extends Controller
             'back_url'=>'/product',
         ]);
     }
-    public function update($pro_id,Request $request)
+    public function edit($pro_id,Request $request)
     {
         if(is_numeric($pro_id))
         {
