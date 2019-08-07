@@ -32,11 +32,12 @@
         <div style="padding-top:80px" class="container-fluid">
             @yield('content')
         </div>
-        
+        <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
         <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
         <script src="/assets/js/SimpleAjaxUploader.min.js"></script>
         <script src="/assets/js/myscript.js"></script>
+        <script src="/assets/js/line.js"></script>
         @stack('scripts')
     </body>
 </head>

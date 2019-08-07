@@ -12,8 +12,6 @@
                     <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">{{$product->pro_name}}</p>
                     <p>ราคา <b>{{$product->price}}</b> บาท</p>
                     <p>น้ำหนัก <b>{{$product->weight}}</b> กรัม</p>
-                    
-
                     </div>
                 </a>
                 <div class="container">
