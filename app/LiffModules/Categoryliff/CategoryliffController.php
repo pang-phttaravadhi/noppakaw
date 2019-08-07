@@ -32,20 +32,15 @@ class CategoryliffController extends Controller
         return view('cate::categoryliff',compact('products','category'));
         
     }
-    public function categorylifffrom1()
-    {
-    	return view('cate::categorylifffrom1');
-    }
-    public function categorylifffrom2()
-    {
-    	return view('cate::categorylifffrom2');
-    }
-    public function categorylifffrom3()
-    {
-    	return view('cate::categorylifffrom3');
-    }
     public function detail($pro_id)
     {
-    	return view('cate::product-detail');
+        $product = DB ::table('product')
+        ->select('product.*','category.cate_name')
+        ->leftJoin('category','product.cate_id','category.cate_id')
+        ->whereNull('product.deleted_at')
+        ->where('pro_id','=',$pro_id)
+        ->first();
+
+    	return view('cate::product-detail',compact('product'));
     }
 }

@@ -10,26 +10,27 @@
     @endforeach
     </div>
 </div>
+<form action="/liff/shoppingcart">
 <div class="row">
     @foreach($products as $index => $product)
     <div class="col-md-4 col-xs-6">
         <div class="thumbnail">
-            <a href="/liff/product-detail/1">
+            <a href="/liff/product-detail/{{$product->pro_id}}">
             <img src="{{$product->image}}" alt="Lights" style="width:100%">
                 <div class="caption">
                 <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">{{$product->pro_name}}</p>
                 <p>ราคา <b>{{$product->price}}</b> บาท</p>
                 <p>น้ำหนัก <b>{{$product->weight}}</b> กรัม</p>
-
                 </div>
             </a>
             <div class="container">
-                <button style='font-size:14px'><i class='fa fa-shopping-cart'></i></button>
+                <a href='/liff/product-detail/{{$product->pro_id}}' class="add-shoppingcart" style='font-size:14px'><i class='fa fa-shopping-cart'></i></a>
             </div>
         </div>
     </div>
     @endforeach
 </div>
+</form>
 
 
 
