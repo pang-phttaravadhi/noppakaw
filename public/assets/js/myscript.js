@@ -113,12 +113,6 @@ $(function(){
         }
         
     });
-<<<<<<< HEAD
-
-
-
-   
-=======
     $('.add-shoppingcart').on('click',function(e){
         e.preventDefault();
         var el = $(this);
@@ -131,6 +125,6 @@ $(function(){
         }
         Helper.ajax (url,method,{_token:$('meta[name="csrf-token"]').attr('content'),_method:'POST'},callback)   
     });
->>>>>>> liffproductdetail
+
 });
 

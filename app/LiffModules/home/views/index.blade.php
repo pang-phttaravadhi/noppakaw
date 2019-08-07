@@ -6,7 +6,7 @@
     @foreach($products as $index => $product)
         <div class="col-md-4 col-xs-6">
             <div class="thumbnail">
-                <a href="/liff/product-detail/1">
+                <a href="/liff/product-detail/">
                 <img src="{{$product->image}}" alt="Lights" style="width:100%">
                     <div class="caption">
                     <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">{{$product->pro_name}}</p>
