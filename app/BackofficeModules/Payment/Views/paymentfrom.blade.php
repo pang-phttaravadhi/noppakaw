@@ -15,7 +15,7 @@
     @endif
     <div class="form-group">
       <label>เลขใบสั่งซื้อ:</label>
-        <input type="text" class="form-control"  name="detail_id" value="">
+        <input type="text" class="form-control"  name="order_id" value="">
     </div>
     <div class="form-group">
       <label>รายการสินค้า:</label>
@@ -30,24 +30,24 @@
         <input type="text" class="form-control"  name="address" value="">
     </div>
     <div class="form-group">
-      <label>ราคาสินค้าต่อหน่วย:</label>
-        <input type="text" class="form-control"  name="price_per_unit" value="">
+      <label>จำนวนทั้งหมด:</label>
+        <input type="text" class="form-control"  name="amount" value="">
     </div>
     <div class="form-group">
-      <label>ราคาสินค้า:</label>
-        <input type="text" class="form-control"  name="price" value="">
+      <label>ราคารวม:</label>
+        <input type="text" class="form-control"  name="total_price" value="">
     </div>
     <div class="form-group">
-      <label>ค่าจัดส่ง:</label>
+      <label>ส่วนลด:</label>
+        <input type="text" class="form-control"  name="discount" value="">
+    </div>
+    <div class="form-group">
+      <label>ค่าขนส่ง:</label>
         <input type="text" class="form-control"  name="transport_price" value="">
     </div>
     <div class="form-group">
       <label>ยอดสุทธิ:</label>
         <input type="text" class="form-control"  name="price_net" value="">
-    </div>
-    <div class="form-group">
-      <label>ราคารวม:</label>
-        <input type="text" class="form-control"  name="amount" value="">
     </div>
     <button type="submit" class="btn btn-primary">บันทึก</button>
       <a href="/payment" class="btn btn-info">กลับ</a>

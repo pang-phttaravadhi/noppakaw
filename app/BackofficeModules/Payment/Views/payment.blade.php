@@ -26,12 +26,15 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>ลำดับที่</th>
                                 <th>เลขใบสั่งซื้อ</th>
                                 <th>รายการสินค้า</th>
                                 <th>ชื่อลูกค้า</th>
                                 <th>ที่อยู่ในการจัดส่ง</th>
+                                <th>จำนวนทั้งหมด</th>
                                 <th>ราคารวม</th>
+                                <th>ส่วนลด</th>
+                                <th>ค่าขนส่ง</th>
+                                <th>ยอดสุทธิ</th>
                                <!-- <th style="width:110px">แก้ไขรายการ</th>-->
                                 <th style="width:110px">Order detail</th>
                             </tr>
@@ -39,6 +42,10 @@
                         <tbody>
                        
                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

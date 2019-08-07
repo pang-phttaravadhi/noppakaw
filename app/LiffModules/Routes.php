@@ -15,6 +15,8 @@ Route::prefix('liff')->group(function() {
     Route::Get('/categorylifffrom2','\App\LiffModules\Categoryliff\CategoryliffController@categorylifffrom2');
     Route::Get('/categorylifffrom3','\App\LiffModules\Categoryliff\CategoryliffController@categorylifffrom3');
     Route::Get('/product-detail/{pro_id}','\App\LiffModules\Categoryliff\CategoryliffController@detail');
+    Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');
+    Route::POST('/shoppingcart/{pro_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@add');
     
     
 
