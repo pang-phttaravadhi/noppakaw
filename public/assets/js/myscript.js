@@ -121,7 +121,7 @@ $(function(){
         var data = '';
         callback = function (){
             alert('ระบบได้เพิ่มสินค้าลงในตะกร้าเรียบร้อยแล้วค่ะ');
-            window.location.reload();
+            // window.location.reload();
         }
         Helper.ajax (url,method,{_token:$('meta[name="csrf-token"]').attr('content'),_method:'POST'},callback)   
     });

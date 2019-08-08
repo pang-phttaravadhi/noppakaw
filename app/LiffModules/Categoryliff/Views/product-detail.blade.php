@@ -7,10 +7,10 @@
         <img src="{{$product->image}}" alt="Lights" style="width:100%">
                 <div class="caption">
                     <p>{{$product->pro_name}}</p>
-                    <p>อก 32-40  </p>
-                    <p>เอว 26-30 </p>
-                    <p>สะโพก 40 </p>
-                    <p>ความยาว 42</p>
+                    <p>{{$product->detail}}อก</p>
+                    <p>{{$product->detail}}เอว</p>
+                    <p>{{$product->detail}}สะโพก</p>
+                    <p>{{$product->detail}}ความยาว</p>
                     <p>{{$product->price}}บาท</p>
                     <p>{{$product->weight}}กรัม</p>
                 </div>

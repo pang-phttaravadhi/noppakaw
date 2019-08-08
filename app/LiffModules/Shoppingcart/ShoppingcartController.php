@@ -33,8 +33,15 @@ class ShoppingcartController extends Controller
     	return view('shopp::shoppingcartfromm');
     }
     public function add($pro_id)
-    {
-    	return view('shopp::shoppingcart');
+    {   
+        print_r($pro_id);exit();
+     // select product by id
+
+     // 1unit*price = amount
+
+     // insert to shopping cart 
+        
+        return true;
     }
     
 }
