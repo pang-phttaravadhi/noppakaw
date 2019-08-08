@@ -14,6 +14,8 @@ Route::prefix('liff')->group(function() {
     Route::Post('/login','\App\LiffModules\Customer\CustomerController@login');
     Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');
     Route::POST('/shoppingcart/{pro_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@add');
+    Route::Get('/promotion','\App\LiffModules\Promotion\PromotionController@index');
+
 
     
     Route::resource('paymentliff','\App\LiffModules\Paymentliff\PaymentliffController');
