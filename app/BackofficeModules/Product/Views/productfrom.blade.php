@@ -42,6 +42,10 @@
       <label>น้ำหนัก:</label>
         <input type="text" class="form-control"  name="weight" value="{{ isset($product) ? $product->weight:''}}">
     </div>
+    <div>
+    <label>รายละเอียดสินค้า:</label>
+    <textarea class="form-control" rows="5" name="detail" >{{ isset($product) ? $product->detail:''}}</textarea>
+    </div>
     <button type="submit" class="btn btn-primary">บันทึก</button>
       <a href="/product" class="btn btn-info">กลับ</a>
       <h2>ใส่รูปภาพ</h2>

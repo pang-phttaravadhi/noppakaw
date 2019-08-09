@@ -44,11 +44,13 @@ class ProductController extends Controller
             $cate_id = $request->get('cate_id');
             $is_new = $request->get('is_new');
             $is_recommence = $request->get('is_recommence');
+            $detail = $request->get('detail');
             $image = $request->get('image');
             if(!empty($pro_name) 
             && !empty($image)  
             && !empty($price) 
             && !empty($weight) 
+            && !empty($detail) 
             && !empty($cate_id) 
             )
             {
@@ -79,6 +81,7 @@ class ProductController extends Controller
                     'pro_name' =>$pro_name,
                     'price' =>$price,
                     'weight' =>$weight,
+                    'detail' =>$detail,
                     'cate_id'=>$cate_id,
                     'is_new'=>$is_new,
                     'is_recommence'=>$is_recommence,
@@ -113,13 +116,14 @@ class ProductController extends Controller
             'back_url'=>'/product',
         ]);
     }
-    public function edit($pro_id,Request $request)
+    public function update($pro_id,Request $request)
     {
         if(is_numeric($pro_id))
         {
             $pro_name = $request->get('pro_name');
             $price = $request->get('price');
             $weight = $request->get('weight');
+            $detail = $request->get('detail');
             $cate_id = $request->get('cate_id');
             $is_new = $request->get('is_new');
             $is_recommence= $request->get('is_recommence');
@@ -130,6 +134,7 @@ class ProductController extends Controller
             && is_numeric($cate_id) 
             && is_numeric($price) 
             && is_numeric($weight) 
+            && !empty($detail) 
             )
             {
                 
@@ -160,6 +165,7 @@ class ProductController extends Controller
                     'pro_name' =>$pro_name,
                     'price' =>$price,
                     'weight' =>$weight,
+                    'detail' =>$detail,
                     'cate_id'=>$cate_id,
                     'is_new'=>$is_new,
                     'is_recommence'=>$is_recommence,
