@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 <body>
-    <div class="container">
-        <div class="modal-content" style="height:302px; width:352px; margin: 100px auto; ">
+    <div class="container"style="background-color: #f3767d;" >
+        <div class="modal-content" style="height:370px; width:352px; margin: 100px auto; "><center>
             <div class="modal-header">
+            <img src="/assets/img/logo/2.jpg"  width="150" height="90"><center> 
                 <h4 class="modal-title" id="myModalLabel">Log in</h4>
             </div> <!-- /.modal-header -->
             <div class="modal-body">
@@ -40,7 +41,7 @@
                 </form>
             </div> <!-- /.modal-body -->
             <div class="modal-footer">
-                <button class="form-control btn btn-warning" id="btn_login" type="button">เข้าสู่ระบบ</button>
+                <button class="form-control btn btn-info" id="btn_login" type="button">เข้าสู่ระบบ</button>
                     <div class="progress" style="height:0px; width:0px;">
                         <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="100" style="width: 0%;">
                             <span class="sr-only">progress</span>
