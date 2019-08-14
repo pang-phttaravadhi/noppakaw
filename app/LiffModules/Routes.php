@@ -25,3 +25,21 @@ Route::prefix('liff')->group(function() {
     
    
 });
+/*
+/shoppingcart/add1
+www.noppakaw.test/liff/
+www.noppakaw.test/liff/categoryliff
+www.noppakaw.test/liff/history
+www.noppakaw.test/liff/historyfrom
+www.noppakaw.test/liff/profile
+www.noppakaw.test/liff/profilefrom
+www.noppakaw.test/liff/paymentlifffrom
+www.noppakaw.test/liff/shoppingcart
+www.noppakaw.test/liff/shoppingcartfrom
+www.noppakaw.test/liff/shoppingcartfromm
+www.noppakaw.test/liff/product-detail/1
+www.noppakaw.test/liff/login
+www.noppakaw.test/liff/shoppingcart
+www.noppakaw.test/liff/shoppingcart/1
+www.noppakaw.test/liff/promotion
+www.noppakaw.test/liff/paymentliff*/

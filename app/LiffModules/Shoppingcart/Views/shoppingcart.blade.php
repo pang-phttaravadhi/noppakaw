@@ -21,46 +21,48 @@
             </td>
           </tr>
           @endfor
-          <tr>
-            <td class="text-right" style="padding-top:10px;margin-bottom:2px;border-top:3px double #ccc;font-size:15px;">
-              <strong>จำนวนทั้งหมด :</strong>
-            </td>
-            <td class="text-right" style="padding-top:10px;margin-bottom:2px;border-top:3px double #ccc;width:120px;font-size:15px;">
-              <strong>2 ชิ้น</strong>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right" style="padding-top:10px;margin-bottom:2pxfont-size:15px;">
-              <strong>ราคารวม :</strong>
-            </td>
-            <td class="text-right" style="padding-top:10px;margin-bottom:2px;font-size:15px;">
-              <strong>200 บาท</strong>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right" style="padding-top:10px;margin-bottom:2px;font-size:15px;">
-              <strong>ส่วนลด :</strong>
-            </td>
-            <td class="text-right" style="padding-top:10px;margin-bottom:2px;font-size:15px;">
-              <strong>0 บาท</strong>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right" style="padding-top:10px;padding-bottom:10px;margin-bottom:2px;font-size:15px;">
-              <strong>ค่าขนส่ง :</strong>
-            </td>
-            <td class="text-right" style="padding-top:10px;padding-bottom:10px;margin-bottom:2px;font-size:15px;">
-              <strong>50 บาท</strong>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-right" style="border-top:3px double #ccc;border-bottom:3px double #ccc;padding:10px 0;margin-bottom:2px;font-size:19px;color:#b00">
-              <strong>ยอดสุทธิ :</strong>
-            </td>
-            <td class="text-right" style="border-top:3px double #ccc;border-bottom:3px double #ccc;padding:10px 0;margin-bottom:2px;font-size:19px;color:#b00">
-              <strong>250 บาท</strong>
-            </td>
-          </tr>
+          @foreach($orders as $index => $order)
+            <tr>
+              <td class="text-right" style="padding-top:10px;margin-bottom:2px;border-top:3px double #ccc;font-size:15px;">
+                <strong>จำนวนทั้งหมด :</strong>
+              </td>
+              <td class="text-right" style="padding-top:10px;margin-bottom:2px;border-top:3px double #ccc;width:120px;font-size:15px;">
+                <strong>{{$order->amount}}</strong>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right" style="padding-top:10px;margin-bottom:2pxfont-size:15px;">
+                <strong>ราคารวม :</strong>
+              </td>
+              <td class="text-right" style="padding-top:10px;margin-bottom:2px;font-size:15px;">
+                <strong>{{$order->total_price}}</strong>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right" style="padding-top:10px;margin-bottom:2px;font-size:15px;">
+                <strong>ส่วนลด :</strong>
+              </td>
+              <td class="text-right" style="padding-top:10px;margin-bottom:2px;font-size:15px;">
+                <strong>{{$order->discount}}</strong>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right" style="padding-top:10px;padding-bottom:10px;margin-bottom:2px;font-size:15px;">
+                <strong>ค่าขนส่ง :</strong>
+              </td>
+              <td class="text-right" style="padding-top:10px;padding-bottom:10px;margin-bottom:2px;font-size:15px;">
+                <strong>{{$order->transport_price}}</strong>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-right" style="border-top:3px double #ccc;border-bottom:3px double #ccc;padding:10px 0;margin-bottom:2px;font-size:19px;color:#b00">
+                <strong>ยอดสุทธิ :</strong>
+              </td>
+              <td class="text-right" style="border-top:3px double #ccc;border-bottom:3px double #ccc;padding:10px 0;margin-bottom:2px;font-size:19px;color:#b00">
+                <strong>{{$order->price_net}}</strong>
+              </td>
+            </tr>
+          @endforeach
         </table>
         <a href="/liff/shoppingcartfrom" style='margin:25px 0;' class="btn btn-primary btn-block">ป้อนที่อยู่ในการจัดส่งสินค้า</a>
       </div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="blog-header">
+        <ol class="breadcrumb">
+            <li><a href="<?php echo base_url(); ?>">หน้าแรก</a></li>
+            <li class="active">ตะกร้าสินค้า</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 blog-main">
+            <div class="row" style="font-size:13px;">
+                <?php if ($me_count > 0) { ?>
+                <form action="<?php echo base_url();?>/cart/update/0" method="post" name="cartform" id="cartform">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>รูปสินค้า</th>
+                                <th>สินค้า</th>
+                                <th style="text-align:center;">ราคา/หน่วย</th>
+                                <th style="width: 100px;text-align: center;">จำนวน</th>
+                                <th style="text-align:center;">จำนวนเงินรวม</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                               

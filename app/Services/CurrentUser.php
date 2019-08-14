@@ -21,6 +21,12 @@ class CurrentUser
                             ->first();
                 return $admin;
             }
+            elseif($user->user_type===MyConst::$USER_LEVEL_CUSTOMER){
+                $admin = DB::table('customer')
+                            ->where('cust_id',$user->user_id)
+                            ->first();
+                return $admin;
+            }
         }
         return null;
         
