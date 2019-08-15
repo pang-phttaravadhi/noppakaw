@@ -31,4 +31,14 @@ class CurrentUser
         return null;
         
     }
+    public static function cart(){
+        $customer= self::user();
+        $shopping_cart = DB ::table('shopping_cart')
+        ->select( DB::raw('count(*) as total_amount'))
+        //->where('cust_id',$customer->cust_id)
+        ->first();
+          return $shopping_cart->total_amount;
+        
+        
+    }
 }

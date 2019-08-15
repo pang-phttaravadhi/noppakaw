@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li class="sub-nav-menu pull-right"><a href="/liff/shoppingcart">
-                    <i class="fa fa-cart-arrow-down" aria-hidden="true" style="font-size:36px;color:#fff"></i> <span class="badge">5</span>
+                    <i class="fa fa-cart-arrow-down" aria-hidden="true" style="font-size:36px;color:#fff"></i> <span class="badge">{{CurrentUser::cart()}}</span>
                 </a></li>
             </ul>
         </nav>
