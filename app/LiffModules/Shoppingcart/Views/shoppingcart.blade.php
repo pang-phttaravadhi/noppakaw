@@ -67,27 +67,7 @@
         <a href="/liff/shoppingcartfrom" style='margin:25px 0;' class="btn btn-primary btn-block">ป้อนที่อยู่ในการจัดส่งสินค้า</a>
       </div>
   </div>
-  <!-- <table class="table table-striped">
-      <thead>
-        <a href="https://i.pinimg.com/736x/38/d2/b5/38d2b5994f4df4daf4bb651d1bbbb85a.jpg">
-          <img src="https://i.pinimg.com/736x/38/d2/b5/38d2b5994f4df4daf4bb651d1bbbb85a.jpg" alt="Nature" style="width:20%">
-        </a>
-        <p>ชื่อสินค้า</p>
-        <p>ราคา</p>
-        <p>จำนวน</p>
-        <ion-list>
-        <ion-icon name="add"  on-click="add(inp)"></ion-icon>
-          <input text-center style="" #inp class="" id="" type="number" value="0"  min="0">
-            <ion-icon name="remove" on-click="remove(inp)"></ion-icon>
-        </ion-list><br>
-      </thead>
-        <label style="padding-left:90px;">จำนวนรวม</label><br>
-        <label style="padding-left:90px;">ราคารวม</label><br>
-        <label style="padding-left:90px;">ค่าจัดส่ง</label><br>
-        <label style="padding-left:90px;">ยอดสุทธิ</label><br>
-        <div class="btn-group">
-          <a href="/" class="btn btn-info" role="button">Order detail</a> 
-        </div> -->
+ 
 </div>
 
 
