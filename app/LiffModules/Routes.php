@@ -7,7 +7,6 @@ Route::prefix('liff')->group(function() {
     Route::Get('/profile','\App\LiffModules\Profile\ProfileController@index');
     Route::Get('/profilefrom','\App\LiffModules\Profile\ProfileController@profilefrom');
     Route::Get('/paymentlifffrom','\App\LiffModules\Paymentliff\PaymentliffController@paymentlifffrom');
-    Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');
     Route::Get('/shoppingcartfrom','\App\LiffModules\shoppingcart\ShoppingcartController@shoppingcartfrom');
     Route::Get('/shoppingcartfromm','\App\LiffModules\Shoppingcart\ShoppingcartController@shoppingcartfromm');
     Route::Get('/product-detail/{pro_id}','\App\LiffModules\Categoryliff\CategoryliffController@detail');
