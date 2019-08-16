@@ -33,7 +33,9 @@ class ProductController extends Controller
     }
     public function create()
     {
-        $category= DB::table('category')->whereNull('deleted_at')->get();
+        $category= DB::table('category')
+        ->whereNull('deleted_at')
+        ->get();
         return view('pro::productfrom',compact('category'));
     }
     public function store(Request $request)
@@ -73,7 +75,8 @@ class ProductController extends Controller
                 }
                 $products = DB ::table('product')
                 ->where('pro_name',$pro_name)
-                ->whereNull('deleted_at')->first();
+                ->whereNull('deleted_at')
+                ->first();
                 if(!empty($product)){
                     return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
                 }
