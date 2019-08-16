@@ -47,14 +47,6 @@ class ShoppingcartController extends Controller
             $shipping=60;
         }
         $price_net=($shopping_cart->total_price-$discount)+$shipping;
-
-        $confirms = DB ::table('shopping_cart')
-        ->select('confirm.*','product.pro_name','product.price','product.image','product.weight','cust_name','cust_address','cust_tel')
-        ->leftJoin('shopping_cart','confirm.shopping_id','shopping_cart.shopping_id')
-        ->leftJoin('customer','confirm.cust_id','customer.cust_id')
-        ->whereNull('confirm.deleted_at')
-        //->where('shopping_cart.cust_id',$customer->cust_id)
-        ->get();
         
     	return view('shopp::shoppingcart',compact('shopping_cart','shipping','discount','price_net','products'));
     }
