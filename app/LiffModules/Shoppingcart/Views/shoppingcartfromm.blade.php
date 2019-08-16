@@ -68,11 +68,11 @@
         <div class="panel-body">
             <table style="width:100%">
                 <label>ชื่อ</label>
-                <input type="text" class="form-control"  name="" value="">
+                <input type="text" class="form-control"  name="cust_name" value="{{ isset($customer) ? $customer->cust_name:''}}">
                 <label>ที่อยู่ในการจัดส่ง</label>
-                <input type="text" class="form-control"  name="" value="">
+                <input type="text" class="form-control"  name="address" value="{{ isset($customer) ? $customer->address:''}}">
                 <label>เบอร์โทร</label>
-                <input type="text" class="form-control"  name="" value="">
+                <input type="text" class="form-control"  name="tel" value="{{ isset($customer) ? $customer->tel:''}}">
                 <a href="/liff/paymentlifffrom" style='margin:25px 0;' class="btn btn-primary btn-block">ยืนยันการชำระเงิน</a>
             </table>
         </div>
