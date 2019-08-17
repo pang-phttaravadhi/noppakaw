@@ -61,40 +61,28 @@ class ShoppingcartController extends Controller
     }
     public function create(Request $request)
         {
-            dd($customer);
-            $customer= DB::table('customer')
-            ->whereNull('deleted_at')
-            ->get();
             return view('shopp::shoppingcartfrom',compact('customer'));
         }
     public function store(Request $request)
     {
-            $cust_name = $request->get('cust_name');
-            $address = $request->get('address');
-            $tel = $request->get('tel');
-            if(!empty($cust_name) 
-            && !empty($address)  
-            && !empty($tel) 
-            )
-            {
-                $customers = DB ::table('customer')
-                ->where('cust_name',$cust_name)
-                ->where('address',$address)
-                ->where('tel',$tel)
-                ->whereNull('deleted_at')->get();
-                if(!empty($customer)){
-                    return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
-                }
-                DB::table('customer')->insert([
-                    'cust_name' =>$cust_name,
-                    'address' =>$address,
-                    'tel' =>$tel,
-                    'created_at'=>date('Y-m-d H:i:s'),
-                ]);
-                return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/customer');
-            }else{
-                return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
+        $cust_name = $request->get('cust_name');
+        if(!empty($cust_name))
+        {
+            $customer = DB ::table('customer')
+            ->where('cust_name',$cust_name)
+            ->whereNull('deleted_at')->first();
+            if(!empty($customer)){
+                return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
             }
+            DB::table('customer')->insert([
+                'cust_name' =>$cust_name,
+                'address' =>$address ,
+                'tel' =>$tel
+            ]);
+            return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/shoppingcart');
+        }else{
+            return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
+        }
 
     }
     public function shoppingcartfromm()

@@ -63,7 +63,7 @@
               </td>
             </tr>
         </table>
-        <a href="/liff/shoppingcartfrom" style='margin:25px 0;' class="btn btn-primary btn-block">ป้อนที่อยู่ในการจัดส่งสินค้า</a>
+       <a href="/liff/shoppingcartfrom/create" style='margin:25px 0;' class="btn btn-primary btn-block">ป้อนที่อยู่ในการจัดส่งสินค้า</a>
       </div>
   </div>
 </div>

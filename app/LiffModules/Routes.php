@@ -18,7 +18,7 @@ Route::prefix('liff')->group(function() {
 
     
     Route::resource('paymentliff','\App\LiffModules\Paymentliff\PaymentliffController');
-       
+    Route::resource('shoppingcart','\App\LiffModules\shoppingcart\shoppingcartController');  
 
 
     
