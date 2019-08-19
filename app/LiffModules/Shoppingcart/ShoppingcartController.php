@@ -52,6 +52,7 @@ class ShoppingcartController extends Controller
     }
     public function shoppingcartfrom(Request $request)
     {
+        $customer= CurrentUser::user();
         $customer = DB ::table('shopping_cart')
         ->select('shopping_cart.*','customer.cust_name','customer.address','customer.tel')
         ->leftJoin('customer','shopping_cart.cust_id','customer.cust_id')
@@ -59,22 +60,24 @@ class ShoppingcartController extends Controller
         ->get();
     	return view('shopp::shoppingcartfrom');
     }
-    public function create(Request $request)
+        public function create(Request $request)
         {
-            return view('shopp::shoppingcartfrom',compact('customer'));
+            $customer= CurrentUser::user();
+           return view('shopp::shoppingcartfrom',compact('customer'));
         }
-    public function store(Request $request)
+        public function store(Request $request)
     {
+        $customer= CurrentUser::user();
         $cust_name = $request->get('cust_name');
         if(!empty($cust_name))
-        {
+         {
             $customer = DB ::table('customer')
             ->where('cust_name',$cust_name)
             ->whereNull('deleted_at')->first();
             if(!empty($customer)){
                 return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
             }
-            DB::table('customer')->insert([
+           DB::table('customer')->insert([
                 'cust_name' =>$cust_name,
                 'address' =>$address ,
                 'tel' =>$tel
@@ -87,10 +90,12 @@ class ShoppingcartController extends Controller
     }
     public function shoppingcartfromm()
     {
+        $customer= CurrentUser::user();
     	return view('shopp::shoppingcartfromm');
     }
     public function add($pro_id)
-    {   
+    { 
+        $customer= CurrentUser::user();  
         file_put_contents(__DIR__.'/debug.txt','xxx');
         $product = DB ::table('product')
         ->where('pro_id',$pro_id)
