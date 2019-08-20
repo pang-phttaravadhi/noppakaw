@@ -8,6 +8,7 @@ use Input;
 use DB;
 use stdClass;
 use App\Services\MyResponse;
+use App\Services\CurrentUser;
 
 class PaymentliffController extends Controller
 {
@@ -20,6 +21,29 @@ class PaymentliffController extends Controller
     {
         return view('payyfrom::Paymentlifffrom');
     	
+    }
+    public function store(Request $request)
+    {
+        $customers= CurrentUser::user();
+        $payments = DB ::table('payment');
+        $order_id = $request->get('order_id');
+        $bank_type = $request->get('bank_type');
+        $price_net = $request->get('price_net');
+        $image = $request->get('image');
+        //->where('shopping_cart.cust_id',$customer->cust_id)
+        if(!empty($order_id) && !empty($bank_type) && !empty($price_net) && !empty($image))
+         {
+           DB::table('payment')->insert([
+                'order_id' =>$order_id,
+                'bank_type' =>$bank_type,
+                '$price_net' =>$price_net,
+                '$image' =>$image,
+            ]);
+            return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/paymentliff');
+        }else{
+            return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
+        }
+
     }
     public function update($pay_id,Request $request)
     {

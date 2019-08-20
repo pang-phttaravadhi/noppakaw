@@ -10,20 +10,19 @@ use App\Services\CurrentUser;
 use App\Services\MyResponse;
 class ShoppingcartController extends Controller
 {
-    public function index(Request $request)
+    private function product_list()
     {
         $customer= CurrentUser::user();
-       
         $products = DB ::table('shopping_cart')
         ->select('shopping_cart.*','product.pro_name','product.price','product.image','product.weight')
         ->leftJoin('product','shopping_cart.pro_id','product.pro_id')
         ->whereNull('shopping_cart.deleted_at')
-        //->where('shopping_cart.cust_id',$customer->cust_id)
+        ->where('shopping_cart.cust_id',$customer->cust_id)
         ->get();
 
         $shopping_cart = DB ::table('shopping_cart')
         ->select( DB::raw('SUM(amount) as total_amount'), DB::raw('SUM(price_per_unit*amount) as total_price'))
-        //->where('cust_id',$customer->cust_id)
+        ->where('cust_id',$customer->cust_id)
         ->first();
         $discount=0;
         $shipping=0;
@@ -48,57 +47,80 @@ class ShoppingcartController extends Controller
         }
         $price_net=($shopping_cart->total_price-$discount)+$shipping;
         
-    	return view('shopp::shoppingcart',compact('shopping_cart','shipping','discount','price_net','products'));
+    	return view('shopp::shopping-cart-product',compact('shopping_cart','shipping','discount','price_net','products'));
     }
-    public function shoppingcartfrom(Request $request)
+
+    private function shipping_list($shop_button=true)
     {
         $customer= CurrentUser::user();
-        $customer = DB ::table('shopping_cart')
-        ->select('shopping_cart.*','customer.cust_name','customer.address','customer.tel')
-        ->leftJoin('customer','shopping_cart.cust_id','customer.cust_id')
-        ->whereNull('shopping_cart.deleted_at')
-        ->get();
-    	return view('shopp::shoppingcartfrom');
+        return view('shopp::shopping-cart-shipping' ,compact('customer','shop_button'));
     }
-        public function create(Request $request)
-        {
-            $customer= CurrentUser::user();
-           return view('shopp::shoppingcartfrom',compact('customer'));
-        }
-        public function store(Request $request)
+
+    public function index(Request $request)
     {
         $customer= CurrentUser::user();
-        $cust_name = $request->get('cust_name');
-        if(!empty($cust_name))
+        $product_list_html = $this->product_list();   
+    	return view('shopp::shoppingcart',compact('product_list_html','customer'));
+    }
+    public function shipping(Request $request)
+    {
+        $customer= CurrentUser::user();
+        $shipping_html = $this->shipping_list();
+    	return view('shopp::shoppingcartfrom' ,compact('shipping_html'));
+    }
+    
+    public function shipping_save($cus_id,Request $request)
+    {
+        $customer= CurrentUser::user();
+        $cust_name  = $request->get('cust_name');
+        $address    = $request->get('address');
+        $tel        = $request->get('tel');
+        if(!empty($cust_name) && !empty($address) && !empty($tel))
          {
-            $customer = DB ::table('customer')
-            ->where('cust_name',$cust_name)
-            ->whereNull('deleted_at')->first();
-            if(!empty($customer)){
-                return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
-            }
-           DB::table('customer')->insert([
+           DB::table('customer')->where('cust_id',$customer->cust_id)->update([
                 'cust_name' =>$cust_name,
-                'address' =>$address ,
-                'tel' =>$tel
+                'address' =>$address,
+                'tel' =>$tel,
             ]);
-            return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/shoppingcart');
+            return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/shoppingcart-confirm');
         }else{
             return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
         }
 
     }
-    public function shoppingcartfromm()
+    public function confirm(Request $request)
     {
-        $customer= CurrentUser::user();
-    	return view('shopp::shoppingcartfromm');
+        $product_list_html = $this->product_list();
+        $shipping_html = $this->shipping_list(false);
+    	return view('shopp::shoppingcartconfirm', compact('product_list_html','shipping_html'));
     }
+
+    public function order_save(Request $request)
+    {
+
+        //product_list  
+        // save data to order table 
+
+        // save data to order detail tabke
+
+        // remove shopping cart table where cust_id   
+        
+        return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/thankyou');
+    }
+
+    public function thankyou()
+    {
+        return view('shopp::thankyou');
+    }
+
+
     public function add($pro_id)
     { 
-        $customer= CurrentUser::user();  
+        $customer= CurrentUser::user();
         file_put_contents(__DIR__.'/debug.txt','xxx');
         $product = DB ::table('product')
         ->where('pro_id',$pro_id)
+        //->where('shopping_cart.cust_id',$customer->cust_id) 
         ->first();
         $customer= CurrentUser::user();
         if(!empty($customer)){

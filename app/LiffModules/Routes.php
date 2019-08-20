@@ -13,12 +13,20 @@ Route::prefix('liff')->group(function() {
     Route::Post('/login','\App\LiffModules\Customer\CustomerController@login');
     Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');
     Route::POST('/shoppingcart/{pro_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@add');
+    Route::GET('/shoppingcart-shipping/{cust_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@shipping');
+    Route::POST('/shoppingcart-shipping/{cust_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@shipping_save');
+    Route::GET('/shoppingcart-confirm','\App\LiffModules\Shoppingcart\ShoppingcartController@confirm');
+    Route::POST('/shoppingcart-confirm','\App\LiffModules\Shoppingcart\ShoppingcartController@order_save');
+    Route::GET('/thankyou','\App\LiffModules\Shoppingcart\ShoppingcartController@thankyou');
+
     Route::Get('/promotion','\App\LiffModules\Promotion\PromotionController@index');
+
 
 
     
     Route::resource('paymentliff','\App\LiffModules\Paymentliff\PaymentliffController');
     Route::resource('shoppingcart','\App\LiffModules\shoppingcart\shoppingcartController');  
+    Route::resource('history','\App\LiffModules\History\HistoryController');  
 
 
     

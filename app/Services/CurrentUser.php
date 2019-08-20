@@ -7,6 +7,15 @@ use MyConst;
 class CurrentUser
 {
     public static function user(){
+        //for test
+        
+        return DB::table('customer')
+            ->where('cust_id',3)
+            ->first();
+
+
+            
+
         if(Auth::check()){
             $user = Auth::user();
             if($user->user_type===MyConst::$USER_LEVEL_ADMIN){
@@ -35,7 +44,7 @@ class CurrentUser
         $customer= self::user();
         $shopping_cart = DB ::table('shopping_cart')
         ->select( DB::raw('count(*) as total_amount'))
-        //->where('cust_id',$customer->cust_id)
+        ->where('cust_id',$customer->cust_id)
         ->first();
           return $shopping_cart->total_amount;
         
