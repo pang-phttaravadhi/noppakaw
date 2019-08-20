@@ -97,14 +97,58 @@ class ShoppingcartController extends Controller
 
     public function order_save(Request $request)
     {
-        $product_list_html = $this->product_list();
-        //product_list  
-        // save data to order table 
-       
-        // save data to order detail tabke
+        $customer= CurrentUser::user();
+        $products = DB ::table('shopping_cart')
+        ->select('shopping_cart.*','product.pro_name','product.price','product.image','product.weight')
+        ->leftJoin('product','shopping_cart.pro_id','product.pro_id')
+        ->whereNull('shopping_cart.deleted_at')
+        ->where('shopping_cart.cust_id',$customer->cust_id)
+        ->get();
 
-        // remove shopping cart table where cust_id   
+        $shopping_cart = DB ::table('shopping_cart')
+        ->select( DB::raw('SUM(amount) as total_amount'), DB::raw('SUM(price_per_unit*amount) as total_price'))
+        ->where('cust_id',$customer->cust_id)
+        ->first();
+        $discount=0;
+        $shipping=0;
+        $price_net=0;
+        if($shopping_cart->total_price>5000){
+            $discount=$shopping_cart->total_price*0.20;
+        }elseif($shopping_cart->total_price>2500){
+            $discount=$shopping_cart->total_price*0.10;
+        }elseif($shopping_cart->total_price>2000){
+            $discount=$shopping_cart->total_price*0.05;
+        }
+        $total_weight=0;
+        foreach($products as $pro){
+            $total_weight+=$pro->weight;
+        }
+        if($total_weight>800){
+            $shipping=200;
+        }elseif($total_weight>500){
+            $shipping=100;
+        }elseif($total_weight>400){
+            $shipping=60;
+        }
+        $price_net=($shopping_cart->total_price-$discount)+$shipping;
         
+    	return view('shopp::shopping-cart-product',compact('shopping_cart','shipping','discount','price_net','products'));
+        {
+            DB ::table('orders')
+             ->insert([
+                'order_id ' =>$order_id,
+                'cust_id' =>$customer->cust_id,
+                'transport_price' =>$transport_price,
+                'price_net' =>$price_net,
+                'total_price' =>$total_price,
+                'price_per_unit ' =>$price_per_unit,
+                'amount' =>$amount,
+                'discount' =>$discount,
+                'created_at'=>date('Y-m-d H:i:s'),
+            ]);
+        }
+
+       
         return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/thankyou');
     }
 
