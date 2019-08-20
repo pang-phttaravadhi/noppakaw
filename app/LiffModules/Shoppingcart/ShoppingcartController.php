@@ -69,7 +69,7 @@ class ShoppingcartController extends Controller
     	return view('shopp::shoppingcartfrom' ,compact('shipping_html'));
     }
     
-    public function shipping_save($cus_id,Request $request)
+    public function shipping_save($cust_id,Request $request)
     {
         $customer= CurrentUser::user();
         $cust_name  = $request->get('cust_name');
@@ -97,10 +97,10 @@ class ShoppingcartController extends Controller
 
     public function order_save(Request $request)
     {
-
+        $product_list_html = $this->product_list();
         //product_list  
         // save data to order table 
-
+       
         // save data to order detail tabke
 
         // remove shopping cart table where cust_id   
