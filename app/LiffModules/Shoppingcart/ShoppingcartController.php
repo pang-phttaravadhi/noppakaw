@@ -92,23 +92,38 @@ class ShoppingcartController extends Controller
     {
         $product_list_html = $this->product_list();
         $shipping_html = $this->shipping_list(false);
+
     	return view('shopp::shoppingcartconfirm', compact('product_list_html','shipping_html'));
     }
 
     public function order_save(Request $request)
     {
+       
         $customer= CurrentUser::user();
+       // $order_id=$request->get('order_id');
         $products = DB ::table('shopping_cart')
         ->select('shopping_cart.*','product.pro_name','product.price','product.image','product.weight')
         ->leftJoin('product','shopping_cart.pro_id','product.pro_id')
         ->whereNull('shopping_cart.deleted_at')
         ->where('shopping_cart.cust_id',$customer->cust_id)
         ->get();
+       
+        $orders = DB ::table('shopping_cart')
+        ->select('shopping_cart.*','orders.cust_id')
+        ->leftJoin('orders','shopping_cart.cust_id','orders.cust_id')
+        ->whereNull('shopping_cart.deleted_at')
+        //->where('cust_id',$customer->cust_id)
+        ->first();
+        if(is_numeric($order_id))
+        {
+            $orders->where('shopping_cart.cust_id','=',$order_id);
+        }
 
         $shopping_cart = DB ::table('shopping_cart')
         ->select( DB::raw('SUM(amount) as total_amount'), DB::raw('SUM(price_per_unit*amount) as total_price'))
         ->where('cust_id',$customer->cust_id)
         ->first();
+        $price=0;
         $discount=0;
         $shipping=0;
         $price_net=0;
@@ -132,24 +147,45 @@ class ShoppingcartController extends Controller
         }
         $price_net=($shopping_cart->total_price-$discount)+$shipping;
         
-    	return view('shopp::shopping-cart-product',compact('shopping_cart','shipping','discount','price_net','products'));
-        {
-            DB ::table('orders')
-             ->insert([
-                'order_id ' =>$order_id,
-                'cust_id' =>$customer->cust_id,
-                'transport_price' =>$transport_price,
-                'price_net' =>$price_net,
-                'total_price' =>$total_price,
-                'price_per_unit ' =>$price_per_unit,
-                'amount' =>$amount,
-                'discount' =>$discount,
-                'created_at'=>date('Y-m-d H:i:s'),
-            ]);
-        }
-
+        $order_id=DB ::table('orders')
+        ->insertGetId([
+           'cust_id' =>$customer->cust_id,
+           'transport_price' =>$shipping,
+           'price_net' =>$price_net,
+           'total_price' =>$shopping_cart->total_price,
+           'amount' =>$shopping_cart->total_amount,
+           'discount' =>$discount,
+           'created_at'=>date('Y-m-d H:i:s'),
+       ]);
+        
+       foreach($products as $index => $pro)
+            DB ::table('order_details')
+            ->insert([
+               'order_id' =>$order_id,
+               'pro_id' =>$pro_id,
+               'price_per_unit' =>$price,
+               'total_price' =>$shopping_cart->total_price,
+               'amount' =>$shopping_cart->total_amount,
+               'created_at'=>date('Y-m-d H:i:s'),
+           ]);
+           
+        
        
         return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/thankyou');
+    }
+    public function destroy($cust_id)
+    {
+        $customer= CurrentUser::user();
+        if(is_numeric($cust_id))
+        {
+            DB::table('shopping_cart')
+            ->where('cust_id',$cust_id)
+            ->update([
+                'deleted_at'=>date('Y-m-d H:i:s'),
+            ]);
+            return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
+        }
+        return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
     }
 
     public function thankyou()
