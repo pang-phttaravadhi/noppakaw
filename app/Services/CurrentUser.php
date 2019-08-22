@@ -10,8 +10,11 @@ class CurrentUser
         //for test
         
          return DB::table('customer')
+
                ->where('cust_id',3)
                 ->first();
+              
+
 
 
             
