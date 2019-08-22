@@ -18,26 +18,23 @@ class ProfileController extends Controller
         $cust_name  = $request->get('cust_name');
         $address    = $request->get('address');
         $tel        = $request->get('tel');
-        if(!empty($cust_name) && !empty($address) && !empty($tel))
+        $image        = $request->get('image');
+        
+        if(!empty($cust_name) && !empty($address) && !empty($tel) && !empty($image))
          {
            DB::table('customer')->where('cust_id',$customer->cust_id)->update([
                 'cust_name' =>$cust_name,
                 'address' =>$address,
                 'tel' =>$tel,
+                'image' =>$image,
             ]);
          }
-    	return view('proo::Profile',compact('cust_name','address','tel'));
+    	return view('proo::Profile',compact('cust_name','address','tel','image'));
     }
      public function profilefrom(Request $request)
     {
         $customer= CurrentUser::user();
-       
-    	return view('proofrom::Profilefrom');
-    }
-    public function update($cust_id,Request $request)
-    {
-        $customer= CurrentUser::user();
-        if(is_numeric($cust_id))
+        if(is_numeric('cust_id'))
         {
             $cust_name = $request->get('cust_name');
             $address = $request->get('address');
@@ -46,7 +43,8 @@ class ProfileController extends Controller
 
             if(!empty($cust_name) 
             && !empty($address) 
-            && is_numeric($tel) 
+            && !empty($tel) 
+            && !empty($image)
             )
             {
                 $customers = DB ::table('customer')
@@ -68,8 +66,7 @@ class ProfileController extends Controller
                 return MyResponse::error('กรุณาป้อนข้อมุลให้ครบค่ะ');
             }
         }
-
-        return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
+       
+    	return view('proofrom::Profilefrom',compact('cust_name','address','tel','image'));
     }
-    
 }
