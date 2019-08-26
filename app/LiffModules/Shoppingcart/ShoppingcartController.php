@@ -148,7 +148,7 @@ class ShoppingcartController extends Controller
         $price_net=($shopping_cart->total_price-$discount)+$shipping;
         
         $order_id=DB ::table('orders')
-        ->insertGetId([
+        ->insert([
            'cust_id' =>$customer->cust_id,
            'transport_price' =>$shipping,
            'price_net' =>$price_net,
