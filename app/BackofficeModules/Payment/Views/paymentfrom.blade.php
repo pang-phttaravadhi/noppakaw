@@ -18,10 +18,6 @@
         <input type="text" class="form-control"  name="order_id" value="">
     </div>
     <div class="form-group">
-      <label>รายการสินค้า:</label>
-        <input type="text" class="form-control"  name="pro_name" value="">
-    </div>
-    <div class="form-group">
       <label>ชื่อลูกค้า:</label>
         <input type="text" class="form-control"  name="cust_name" value="">
     </div>
