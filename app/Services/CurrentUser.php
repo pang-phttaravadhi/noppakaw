@@ -9,6 +9,7 @@ class CurrentUser
     public static function user(){
         //for test
         
+<<<<<<< HEAD
         //  return DB::table('customer')
 
         //        ->where('cust_id',3)
@@ -19,6 +20,12 @@ class CurrentUser
 
             
 
+=======
+          return DB::table('customer')
+               ->where('cust_id',3)
+                ->first();
+                
+>>>>>>> 0b9bad7194b86e60ae826863d22777ee786c5b32
         if(Auth::check()){
             $user = Auth::user();
             if($user->user_type===MyConst::$USER_LEVEL_ADMIN){

@@ -24,6 +24,7 @@ class PaymentController extends Controller
           
         return view('pay::payment',compact('orders'));
         //return view('pay::payment');
+
     }
     public function paymentfrom(Request $request)
     {

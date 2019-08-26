@@ -10,7 +10,7 @@
                     <form action="/payment">
                         <div class="form-group">
                             <label>ใบสั่งซื้อ</label>
-                            <input type="text" class="form-control"  name="" value="">
+                            <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
                         <div class="form-group">
                         <button type="submit" class="btn btn-info">ค้นหา</button>
@@ -54,10 +54,10 @@
                                 <td>{{$order->price_net}}</td>
                                 <td></td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a href="/paymentfrom" class="btn btn-primary" role="button">Order detail</a> 
-
-                                    </div> 
+                                <div class="btn-group">
+                                        <a class="btn btn-default" href="/paymentfrom/{{$orders->order_id}}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-default deleted-item" href="/payment/{{$orders->order_id}}"><i class="fa fa-trash"></i></a>
+                                </div> 
                                 </td>
                             </tr>
                         @endforeach
