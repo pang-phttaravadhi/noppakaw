@@ -26,8 +26,8 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>เลขใบสั่งซื้อ</th>
-                                <th>รายการสินค้า</th>
+                                <th>#</th>
+                                <th>ชื่อสินค้า</th>
                                 <th>ชื่อลูกค้า</th>
                                 <th>ที่อยู่ในการจัดส่ง</th>
                                 <th>จำนวนทั้งหมด</th>
@@ -35,21 +35,23 @@
                                 <th>ส่วนลด</th>
                                 <th>ค่าขนส่ง</th>
                                 <th>ยอดสุทธิ</th>
+                                <th>สถานะ</th>
                                <!-- <th style="width:110px">แก้ไขรายการ</th>-->
                                 <th style="width:110px">Order detail</th>
                             </tr>
                         </thead>
                         <tbody>
-                       
+                        @foreach($orders as $index=> $order)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$index+1}}</td>
+                                <td>{{$order->pro}}</td>
+                                <td>{{$order->cust_name}}</td>
+                                <td>{{$order->address}}</td>
+                                <td>{{$order->amount}}</td>
+                                <td>{{$order->total_price}}</td>
+                                <td>{{$order->discount}}</td>
+                                <td>{{$order->transport_price}}</td>
+                                <td>{{$order->price_net}}</td>
                                 <td></td>
                                 <td>
                                     <div class="btn-group">
@@ -58,6 +60,7 @@
                                     </div> 
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -99,54 +99,47 @@ class ShoppingcartController extends Controller
     public function order_save(Request $request)
     {
        
+        //ดึงรายการสินค้าจากตะักร้าสินค้าที่ลูกค้าเลือกไว้
         $customer= CurrentUser::user();
-       // $order_id=$request->get('order_id');
-        $products = DB ::table('shopping_cart')
-        ->select('shopping_cart.*','product.pro_name','product.price','product.image','product.weight')
-        ->leftJoin('product','shopping_cart.pro_id','product.pro_id')
-        ->whereNull('shopping_cart.deleted_at')
-        ->where('shopping_cart.cust_id',$customer->cust_id)
-        ->get();
-       
-        $orders = DB ::table('shopping_cart')
-        ->select('shopping_cart.*','orders.cust_id')
-        ->leftJoin('orders','shopping_cart.cust_id','orders.cust_id')
-        ->whereNull('shopping_cart.deleted_at')
-        //->where('cust_id',$customer->cust_id)
-        ->first();
-        if(is_numeric($order_id))
-        {
-            $orders->where('shopping_cart.cust_id','=',$order_id);
-        }
-
-        $shopping_cart = DB ::table('shopping_cart')
-        ->select( DB::raw('SUM(amount) as total_amount'), DB::raw('SUM(price_per_unit*amount) as total_price'))
-        ->where('cust_id',$customer->cust_id)
-        ->first();
-        $price=0;
-        $discount=0;
-        $shipping=0;
-        $price_net=0;
-        if($shopping_cart->total_price>5000){
-            $discount=$shopping_cart->total_price*0.20;
-        }elseif($shopping_cart->total_price>2500){
-            $discount=$shopping_cart->total_price*0.10;
-        }elseif($shopping_cart->total_price>2000){
-            $discount=$shopping_cart->total_price*0.05;
-        }
-        $total_weight=0;
-        foreach($products as $pro){
-            $total_weight+=$pro->weight;
-        }
-        if($total_weight>800){
-            $shipping=200;
-        }elseif($total_weight>500){
-            $shipping=100;
-        }elseif($total_weight>400){
-            $shipping=60;
-        }
-        $price_net=($shopping_cart->total_price-$discount)+$shipping;
+        // $order_id=$request->get('order_id');
+         $products = DB ::table('shopping_cart')
+         ->select('shopping_cart.*','product.pro_name','product.price','product.image','product.weight')
+         ->leftJoin('product','shopping_cart.pro_id','product.pro_id')
+         ->whereNull('shopping_cart.deleted_at')
+         ->where('shopping_cart.cust_id',$customer->cust_id)
+         ->get();
+         
         
+ 
+         $shopping_cart = DB ::table('shopping_cart')
+         ->select( DB::raw('SUM(amount) as total_amount'), DB::raw('SUM(price_per_unit*amount) as total_price'))
+         ->where('cust_id',$customer->cust_id)
+         ->first();
+         $price=0;
+         $discount=0;
+         $shipping=0;
+         $price_net=0;
+         if($shopping_cart->total_price>5000){
+             $discount=$shopping_cart->total_price*0.20;
+         }elseif($shopping_cart->total_price>2500){
+             $discount=$shopping_cart->total_price*0.10;
+         }elseif($shopping_cart->total_price>2000){
+             $discount=$shopping_cart->total_price*0.05;
+         }
+         $total_weight=0;
+         foreach($products as $pro){
+             $total_weight+=$pro->weight;
+         }
+         if($total_weight>800){
+             $shipping=200;
+         }elseif($total_weight>500){
+             $shipping=100;
+         }elseif($total_weight>400){
+             $shipping=60;
+         }
+         $price_net=($shopping_cart->total_price-$discount)+$shipping;
+         
+        //บันทึกข้อมุลลงที่ table orders 
         $order_id=DB ::table('orders')
         ->insert([
            'cust_id' =>$customer->cust_id,
@@ -156,22 +149,33 @@ class ShoppingcartController extends Controller
            'amount' =>$shopping_cart->total_amount,
            'discount' =>$discount,
            'created_at'=>date('Y-m-d H:i:s'),
+         
        ]);
-        
-       foreach($products as $index => $pro)
-       {
-            DB ::table('order_details')
+
+        //บันทึกรายการสินค้าลงที่ table order details 
+        foreach($products as $index => $pro) 
+        {
+             DB ::table('order_details')
             ->insert([
                'order_id' =>$order_id,
-               'pro_id' =>$pro_id,
-               'price_per_unit' =>$price,
-               'total_price' =>$shopping_cart->total_price,
-               'amount' =>$shopping_cart->total_amount,
+               'pro_id' =>$pro->pro_id,
+               'price_per_unit' =>$pro->price,
+               'total_price' =>($pro->price*$pro->amount),
+               'amount' =>$pro->amount,
                'created_at'=>date('Y-m-d H:i:s'),
            ]);
-        }   
+        }  
+
+
         
-       
+
+        //ลบรายการสินค้าออกจาก table shopping_cart 
+        DB::table('shopping_cart')
+        ->where('cust_id',$customer->cust_id)
+        ->delete();
+
+        //พาไปหน้า thank you 
+    
         return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/thankyou');
     }
     public function destroy($cust_id)

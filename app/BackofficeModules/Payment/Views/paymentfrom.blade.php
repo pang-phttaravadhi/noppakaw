@@ -14,14 +14,6 @@
     @csrf()
     @endif
     <div class="form-group">
-      <label>เลขใบสั่งซื้อ:</label>
-        <input type="text" class="form-control"  name="order_id" value="">
-    </div>
-    <div class="form-group">
-      <label>รายการสินค้า:</label>
-        <input type="text" class="form-control"  name="pro_name" value="">
-    </div>
-    <div class="form-group">
       <label>ชื่อลูกค้า:</label>
         <input type="text" class="form-control"  name="cust_name" value="">
     </div>
@@ -48,6 +40,10 @@
     <div class="form-group">
       <label>ยอดสุทธิ:</label>
         <input type="text" class="form-control"  name="price_net" value="">
+    </div>
+    <div class="form-group">
+      <label>สถานะ:</label>
+        <input type="text" class="form-control"  name="status" value="">
     </div>
     <button type="submit" class="btn btn-primary">บันทึก</button>
       <a href="/payment" class="btn btn-info">กลับ</a>
