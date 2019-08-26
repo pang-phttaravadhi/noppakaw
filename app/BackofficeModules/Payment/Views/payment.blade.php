@@ -10,7 +10,7 @@
                     <form action="/payment">
                         <div class="form-group">
                             <label>ใบสั่งซื้อ</label>
-                            <input type="text" class="form-control"  name="" value="">
+                            <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
                         <div class="form-group">
                         <button type="submit" class="btn btn-info">ค้นหา</button>
@@ -27,7 +27,6 @@
                         <thead>
                             <tr>
                                 <th>เลขใบสั่งซื้อ</th>
-                                <th>รายการสินค้า</th>
                                 <th>ชื่อลูกค้า</th>
                                 <th>ที่อยู่ในการจัดส่ง</th>
                                 <th>จำนวนทั้งหมด</th>
@@ -40,24 +39,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                       
+                        @foreach($orders as $index=> $row)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$index+1}}</td>
+                                <td>{{$row->cust_name}}</td>
+                                <td>{{$row->address}}</td>
+                                <td>{{$row->total_amount}}</td>
+                                <td>{{$row->total_price}}</td>
+                                <td>{{$row->discount}}</td>
+                                <td>{{$row->transport_price}}</td>
+                                <td>{{$row->price_net}}</td>
                                 <td>
-                                    <div class="btn-group">
-                                        <a href="/paymentfrom" class="btn btn-primary" role="button">Order detail</a> 
-
-                                    </div> 
+                                <div class="btn-group">
+                                        <a class="btn btn-default" href="/paymentfrom/{{$orders->order_id}}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-default deleted-item" href="/payment/{{$orders->order_id}}"><i class="fa fa-trash"></i></a>
+                                </div> 
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
