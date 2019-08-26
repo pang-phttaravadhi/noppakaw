@@ -148,7 +148,7 @@ class ShoppingcartController extends Controller
         $price_net=($shopping_cart->total_price-$discount)+$shipping;
         
         $order_id=DB ::table('orders')
-        ->insertGetId([
+        ->insert([
            'cust_id' =>$customer->cust_id,
            'transport_price' =>$shipping,
            'price_net' =>$price_net,
@@ -159,6 +159,7 @@ class ShoppingcartController extends Controller
        ]);
         
        foreach($products as $index => $pro)
+       {
             DB ::table('order_details')
             ->insert([
                'order_id' =>$order_id,
@@ -168,7 +169,7 @@ class ShoppingcartController extends Controller
                'amount' =>$shopping_cart->total_amount,
                'created_at'=>date('Y-m-d H:i:s'),
            ]);
-           
+        }   
         
        
         return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/thankyou');
