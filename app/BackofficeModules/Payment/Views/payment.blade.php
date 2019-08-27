@@ -44,7 +44,7 @@
                         @foreach($orders as $index=> $order)
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td>{{$order->pro}}</td>
+                                <td>{{$order->pro_name}}</td>
                                 <td>{{$order->cust_name}}</td>
                                 <td>{{$order->address}}</td>
                                 <td>{{$order->amount}}</td>
@@ -55,8 +55,8 @@
                                 <td></td>
                                 <td>
                                 <div class="btn-group">
-                                        <a class="btn btn-default" href="/paymentfrom/{{$orders->order_id}}"><i class="fa fa-edit"></i></a>
-                                        <a class="btn btn-default deleted-item" href="/payment/{{$orders->order_id}}"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-default" href="/payment/{{$order->detail_id}}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-default deleted-or" href="#"><i class="fa fa-trash"></i></a>
                                 </div> 
                                 </td>
                             </tr>

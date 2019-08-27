@@ -2,53 +2,38 @@
 @section('title')
 @section('content' )
 <div class="container">
-    <a herf="/payment"กลับ></a>
-    <div class="panel-heading" style="font-size:20px;">
-    </div>
-    @if(isset($payment))
-      <form action="/payment/"  class="form-ajax" call_back='yes' method="PUT">
-        <input type="hidden"value="put" name="_methods">
-        @csrf()
-    @else
-      <form class="form-ajax" action="/payment" method="POST">
-    @csrf()
-    @endif
-    <div class="form-group">
-      <label>ชื่อลูกค้า:</label>
-        <input type="text" class="form-control"  name="cust_name" value="">
-    </div>
-    <div class="form-group">
-      <label>ที่อยู่ในการจัดส่ง:</label>
-        <input type="text" class="form-control"  name="address" value="">
-    </div>
-    <div class="form-group">
-      <label>จำนวนทั้งหมด:</label>
-        <input type="text" class="form-control"  name="amount" value="">
-    </div>
-    <div class="form-group">
-      <label>ราคารวม:</label>
-        <input type="text" class="form-control"  name="total_price" value="">
-    </div>
-    <div class="form-group">
-      <label>ส่วนลด:</label>
-        <input type="text" class="form-control"  name="discount" value="">
-    </div>
-    <div class="form-group">
-      <label>ค่าขนส่ง:</label>
-        <input type="text" class="form-control"  name="transport_price" value="">
-    </div>
-    <div class="form-group">
-      <label>ยอดสุทธิ:</label>
-        <input type="text" class="form-control"  name="price_net" value="">
-    </div>
-    <div class="form-group">
-      <label>สถานะ:</label>
-        <input type="text" class="form-control"  name="status" value="">
-    </div>
-    <button type="submit" class="btn btn-primary">บันทึก</button>
-      <a href="/payment" class="btn btn-info">กลับ</a>
-  </form>
+  <div class="col-md-10">
+      <div class="panel panel-default">
+          <div class="panel-heading">สถานะใบสั่งซื้อ</div>
+          <div class="panel-body">
+              <table class="table table-striped">
+                  <thead>
+                    <input type="radio" name="status" value="status">รอการชำระเงิน<br>
+                      <input type="radio" name="status" value="status">ชำระเงินแล้ว<br>
+                        <button type="submit" class="btn btn-primary">บันทึก</button>
+                        <a href="/payment" class="btn btn-info">กลับ</a>
+                  </thead>
+              </table>
+          </div>
+      </div>
+  </div>
 </div>
+
+
+
+
+<!-- <div class="container">
+    <a herf="/payment"กลับ></a>
+    <div class="panel panel-default" style="font-size:40x;">
+
+      <h1>สถานะ</h1>
+        <input type="radio" name="status" value="status">รอการชำระเงิน<br>
+        <input type="radio" name="status" value="status">ชำระเงินแล้ว<br>
+          <button type="submit" class="btn btn-primary">บันทึก</button>
+          <a href="/payment" class="btn btn-info">กลับ</a>
+    </form>
+    </div>
+</div> -->
 
 
        
