@@ -14,22 +14,11 @@ class ProfileController extends Controller
     public function index(Request $request)
     {
         $customer= CurrentUser::user();
-        $customer = DB ::table('customer');
-        $cust_name  = $request->get('cust_name');
-        $address    = $request->get('address');
-        $tel        = $request->get('tel');
-        $image        = $request->get('image');
-        
-        if(!empty($cust_name) && !empty($address) && !empty($tel) && !empty($image))
-         {
-           DB::table('customer')->where('cust_id',$customer->cust_id)->update([
-                'cust_name' =>$cust_name,
-                'address' =>$address,
-                'tel' =>$tel,
-                'image' =>$image,
-            ]);
-         }
-    	return view('proo::Profile',compact('cust_name','address','tel','image'));
+        $customers = DB ::table('customer')
+        ->select('customer.*')
+        ->get();
+      //print_r($customers);exit;
+    	return view('proo::Profile',compact('customers','customer'));
     }
      public function profilefrom(Request $request)
     {

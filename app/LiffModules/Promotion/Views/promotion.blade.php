@@ -1,7 +1,7 @@
 @extends('liff-layout')
 @section('title','promotion')
 @section('content' )
-<img src="/assets/img/logo/promotion.jpg"  width="385" height="500"> 
+<img src="/assets/img/logo/10.jpg"  width="385" height="635"> 
 
 
 
