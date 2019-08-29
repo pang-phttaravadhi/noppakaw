@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LiffModules\Paymentliff;
+namespace App\LiffModules\Profile;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
