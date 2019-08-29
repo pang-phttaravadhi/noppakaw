@@ -10,9 +10,9 @@ Route::prefix('')->group(function() {
         Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
         Route::Get('/paymentnotification','\App\BackofficeModules\Paymentnotification\PaymentnotificationController@index');
         Route::Get('/paymentnotificationfrom','\App\BackofficeModules\Paymentnotification\PaymentnotificationController@paymentnotificationfrom');
-        Route::resource('/payment','\App\BackofficeModules\Payment\PaymentController');
+        Route::resource('/orders','\App\BackofficeModules\Orders\OrdersController');
         Route::resource('product','\App\BackofficeModules\Product\ProductController');
         Route::resource('category','\App\BackofficeModules\Category\CategoryController');
-        Route::Get('/paymentfrom','\App\BackofficeModules\Payment\PaymentController@paymentfrom');
+        Route::Get('/ordersfrom/{order_id}','\App\BackofficeModules\Orders\OrdersController@paymentfrom');
     });
 });

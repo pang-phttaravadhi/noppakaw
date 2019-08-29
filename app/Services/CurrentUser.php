@@ -7,19 +7,13 @@ use MyConst;
 class CurrentUser
 {
     public static function user(){
-        //for test
+        // for test
         
         //  return DB::table('customer')
 
         //        ->where('cust_id',3)
         //         ->first();
               
-
-
-
-            
-
-
         if(Auth::check()){
             $user = Auth::user();
             if($user->user_type===MyConst::$USER_LEVEL_ADMIN){

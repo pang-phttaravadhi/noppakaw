@@ -7,9 +7,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
-                    <form action="/payment">
+                    <form action="/orders">
                         <div class="form-group">
-                            <label>ใบสั่งซื้อ</label>
+                            <label>ชื่อลูกค้า</label>
+                            <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
+                            <label>สถานะ</label>
                             <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
                         <div class="form-group">
@@ -27,36 +29,24 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>ชื่อสินค้า</th>
+                                <th>รหัสใบสั่งซื้อ</th>
                                 <th>ชื่อลูกค้า</th>
-                                <th>ที่อยู่ในการจัดส่ง</th>
-                                <th>จำนวนทั้งหมด</th>
-                                <th>ราคารวม</th>
-                                <th>ส่วนลด</th>
-                                <th>ค่าขนส่ง</th>
                                 <th>ยอดสุทธิ</th>
                                 <th>สถานะ</th>
-                               <!-- <th style="width:110px">แก้ไขรายการ</th>-->
-                                <th style="width:110px">Order detail</th>
+                               <th style="width:50px">Order detail</th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach($orders as $index=> $order)
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td>{{$order->pro_name}}</td>
+                                <td>{{$order->order_id}}</td>
                                 <td>{{$order->cust_name}}</td>
-                                <td>{{$order->address}}</td>
-                                <td>{{$order->amount}}</td>
-                                <td>{{$order->total_price}}</td>
-                                <td>{{$order->discount}}</td>
-                                <td>{{$order->transport_price}}</td>
                                 <td>{{$order->price_net}}</td>
-                                <td></td>
+                                <td>{{$order->status}}</td>
                                 <td>
                                 <div class="btn-group">
-                                        <a class="btn btn-default" href="/payment/{{$order->detail_id}}"><i class="fa fa-edit"></i></a>
-                                        <a class="btn btn-default deleted-or" href="#"><i class="fa fa-trash"></i></a>
+                                <a href="/ordersfrom/{{$order->order_id}}" class="btn btn-primary" role="button">Order detail</a> 
                                 </div> 
                                 </td>
                             </tr>
