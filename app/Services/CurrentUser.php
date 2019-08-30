@@ -10,9 +10,9 @@ class CurrentUser
         // for test
         
         //  return DB::table('customer')
-
         //        ->where('cust_id',4)
         //         ->first();
+
               
         if(Auth::check()){
             $user = Auth::user();
