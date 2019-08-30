@@ -13,14 +13,27 @@ class OrdersController extends Controller
 {   
     public function index(Request $request)
     {   
-        
+        $cust_id = $request->get('cust_id');
+        $status = $request->get('status');
+        $keyword = $request->get('keyword');
         $orders = DB ::table('orders')
         ->select('orders.*','customer.cust_name','customer.address','customer.tel')
         ->leftJoin('customer','orders.cust_id','customer.cust_id')
         ->whereNull('orders.deleted_at')
-        ->get();
-          //print_r($orders);exit;
-        return view('pay::orders',compact('orders'));
+        ->orderBy('orders.cust_id','desc');
+
+        if(is_numeric($keyword))
+        {
+            $orders->where('orders.cust_id',$keyword);
+        }
+        if(!empty($status))
+        {
+            $orders->where('orders.status','=',$status);
+        }
+        $orders=$orders->get();
+        $customer= DB::table('customer')
+        ->whereNull('deleted_at')->get();
+        return view('pay::orders',compact('orders','customer'));
 
     }
     public function paymentfrom($order_id ,Request $request)
@@ -40,7 +53,6 @@ class OrdersController extends Controller
         ->where('orders.order_id',$order_id)
         ->whereNull('orders.deleted_at')
         ->first();
-    //   print_r($orders);exit;
     	return view('pay::ordersfrom' ,compact('shops','order'));
     	
     }

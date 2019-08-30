@@ -9,10 +9,10 @@ class CurrentUser
     public static function user(){
         // for test
         
-         return DB::table('customer')
+        //  return DB::table('customer')
 
-               ->where('cust_id',3)
-                ->first();
+        //        ->where('cust_id',4)
+        //         ->first();
               
         if(Auth::check()){
             $user = Auth::user();
@@ -40,10 +40,12 @@ class CurrentUser
     }
     public static function cart(){
         $customer= self::user();
+        if(empty($customer)) return 0;
         $shopping_cart = DB ::table('shopping_cart')
         ->select( DB::raw('count(*) as total_amount'))
         ->where('cust_id',$customer->cust_id)
         ->first();
+        if(empty($shopping_cart)) return 0;
           return $shopping_cart->total_amount;
         
         

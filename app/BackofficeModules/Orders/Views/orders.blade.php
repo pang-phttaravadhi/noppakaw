@@ -11,8 +11,17 @@
                         <div class="form-group">
                             <label>ชื่อลูกค้า</label>
                             <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
-                            <label>สถานะ</label>
-                            <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
+                            <div class="form-group">
+                                <label for="status">สถานะ:</label>
+                                <select class="form-control" name="status">
+                                    <option value="">ทั้งหมด</option>
+                                    <option value="ใบสั่งซื้อใหม่">ใบสั่งซื้อใหม่</option>
+                                    <option value="ใบสั่งซื้อรอชำระเงิน">ใบสั่งซื้อรอชำระเงิน</option>
+                                    <option value="ใบสั่งซื้อชำระเงินแล้ว">ใบสั่งซื้อชำระเงินแล้ว</option>
+                                    <option value="ใบสั่งซื้อส่งสินค้าแล้ว">ใบสั่งซื้อส่งสินค้าแล้ว</option>
+                                    <option value="ใบสั่งซื้อได้รับสินค้าแล้ว">ใบสั่งซื้อได้รับสินค้าแล้ว</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                         <button type="submit" class="btn btn-info">ค้นหา</button>
