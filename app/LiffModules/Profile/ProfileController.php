@@ -101,6 +101,5 @@ class ProfileController extends Controller
                 return MyResponse::error('กรุณาป้อนข้อมุลให้ครบค่ะ');
             }
                 return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
-        
     }
 }

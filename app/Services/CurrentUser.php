@@ -11,7 +11,7 @@ class CurrentUser
         
          return DB::table('customer')
 
-               ->where('cust_id',3)
+               ->where('cust_id',6)
                 ->first();
               
         if(Auth::check()){
