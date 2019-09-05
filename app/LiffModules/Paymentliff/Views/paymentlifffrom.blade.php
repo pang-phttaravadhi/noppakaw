@@ -3,7 +3,7 @@
 @section('content' )
 
 <p>กรุณาป้อนข้อมูล</p>
-<form action="/liff/paymentlifffrom/{{isset($payments)?$cust->cust_id:''}}" 
+<form action="/liff/paymentlifffrom/{{isset($payments)?$customer->cust_id:''}}" 
         class="form-ajax" method="POST"> 
             <input type="hidden" value="post" name="_mathods">
 </form>

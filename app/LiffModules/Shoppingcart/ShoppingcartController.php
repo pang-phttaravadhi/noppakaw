@@ -141,7 +141,7 @@ class ShoppingcartController extends Controller
          
         //บันทึกข้อมุลลงที่ table orders 
         $order_id=DB ::table('orders')
-        ->insert([
+        ->insertGetId([
            'cust_id' =>$customer->cust_id,
            'transport_price' =>$shipping,
            'price_net' =>$price_net,

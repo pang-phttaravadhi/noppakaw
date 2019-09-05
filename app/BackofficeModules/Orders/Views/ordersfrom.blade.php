@@ -49,7 +49,7 @@
                             </tr>   
                 </table>
                 <form action="/orders/{{$order->order_id}}" class="form-ajax" call_back='yes' method="PUT">
-                    <input type="hidden"value="POST" name="_methods">
+                    <input type="hidden"value="PUT" name="_methods">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">

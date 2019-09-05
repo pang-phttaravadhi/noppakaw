@@ -24,7 +24,7 @@
                     {{ isset($customers) ? $customer->tel:''}}</textarea>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a class="btn btn-info" href="/liff/profilefrom{{$customer->cust_id}}">แก้ไขโปรไฟล์</a>
+                    <a class="btn btn-info" href="/liff/profilefrom/{{$customer->cust_id}}">แก้ไขโปรไฟล์</a>
                 </div>
             </div>
         </div>

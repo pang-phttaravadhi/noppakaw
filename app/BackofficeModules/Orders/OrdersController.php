@@ -56,32 +56,7 @@ class OrdersController extends Controller
     	return view('pay::ordersfrom' ,compact('shops','order'));
     	
     }
-    public function store(Request $request) 
-    {
-        $order_id = $request->get('order_id');
-        $pro_id = $request->get('pro_id');
-        $amount = $request->get('amount');
-        $price_per_unit = $request->get('price_per_unit');
-        $total_price = $request->get('total_price');
-        $status = $request->get('status');
-
-        if(!empty($order_id) && !empty($pro_id) && !empty($amount) && !empty($price_per_unit) && !empty($total_price) && !empty($status))
-        {
-                DB::table('order_details')->insert([
-                    'order_id' =>$order_id,
-                    'pro_id' =>$pro_id,
-                    'amount' =>$amount,
-                    'price_per_unit' =>$price_per_unit,
-                    'total_price' =>$total_price,
-                    'status' =>$status,
-                    'created_at' =>date('Y-m-d H:i:s'),
-                ]);
-            return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/orders');
-        }else{
-            return MyResponse::error('กรุณาป้อนข้อมูลให้ครบ');
-        }
     
-    }
     public function show($detail_id,Request $request)
     {   
         if(is_numeric($detail_id))
