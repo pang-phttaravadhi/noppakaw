@@ -3,10 +3,11 @@ Route::prefix('')->group(function() {
     Route::Get('/login','\App\BackofficeModules\Login\LoginController@index')->name('login');
     Route::Post('/login','\App\BackofficeModules\Login\LoginController@action');
     Route::Get('/logout','\App\BackofficeModules\Login\LoginController@logout');
+    Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
     
     Route::group (['middleware'=> ['auth']], function ()
     {
-        Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
+        // Route::Post('/upload','\App\BackofficeModules\Product\UploadController@index');
         Route::Get('/','\App\BackofficeModules\Home\HomeController@index');
         Route::Get('/paymentnotification','\App\BackofficeModules\Paymentnotification\PaymentnotificationController@index');
         Route::Get('/paymentnotificationfrom','\App\BackofficeModules\Paymentnotification\PaymentnotificationController@paymentnotificationfrom');

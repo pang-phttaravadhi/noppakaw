@@ -34,22 +34,32 @@ class PaymentliffController extends Controller
         return view('payyfrom::paymentlifffrom',compact('payments','customer'));
     }
 
-    public function store(Request $request)
+    public function store($order_id,Request $request)
     {
+        
             $bank_id = $request->get('bank_id');
-            $status = $request->get('status');
+            $pay_date = $request->get('pay_date');
+            $price_net = $request->get('price_net');
             $image = $request->get('image');
-            if(!empty($bank_type) 
-            && !empty($status) 
+            if(!empty($bank_id) 
+            && !empty($pay_date) 
+            && !empty($price_net) 
             && !empty($image) 
             )
             {
                 DB::table('payment')->insert([
+                    'order_id' =>$order_id,
                     'bank_id' =>$bank_id,
-                    'status' =>$status,
+                    'pay_date'=>$pay_date,
+                    'price_net'=>$price_net,
                     'image'=>$image,
                     'created_at'=>date('Y-m-d H:i:s'),
                 ]);
+                DB::table('orders')
+                ->where('order_id',$order_id)->update([
+                    'status'=>'ใบสั่งซื้อชำระเงินแล้ว'
+                ]);
+                // 'ใบสั่งซื้อใหม่','ใบสั่งซื้อรอชำระเงิน','ใบสั่งซื้อชำระเงินแล้ว','ใบสั่งซื้อส่งสินค้าแล้ว','ใบสั่งซื้อได้รับสินค้าแล้ว'
                
                 return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/history');
             }else{
