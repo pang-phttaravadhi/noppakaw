@@ -10,10 +10,15 @@ use App\Services\CurrentUser;
 
 class HistoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $customer= CurrentUser::user();
+        $payments = DB ::table('payment')
+        ->select('payment.*','orders.status')
+        ->leftJoin('orders','payment.order_id','orders.order_id')
+        ->get();
          
-        return view('his::History');
+        return view('his::History',compact('customers','payments'));
     }
     public function historyfrom()
     {
