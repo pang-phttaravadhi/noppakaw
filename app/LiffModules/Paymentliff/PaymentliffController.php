@@ -25,8 +25,9 @@ class PaymentliffController extends Controller
     {
         $customer= CurrentUser::user();
         $payments = DB ::table('orders')
-        ->select('orders.*','bank.bank_type','bank.image')
+        ->select('orders.*','bank.bank_id','bank.image','bank.bank_name')
         ->leftJoin('bank','orders.bank_id','bank.bank_id')
+        ->leftJoin('payment','orders.order_id','payment.order_id')
         ->orderBy('orders.order_id','desc')
         ->first();
         // print_r($payments);exit;
@@ -35,7 +36,7 @@ class PaymentliffController extends Controller
 
     public function store(Request $request)
     {
-            $bank_type = $request->get('bank_type');
+            $bank_id = $request->get('bank_id');
             $status = $request->get('status');
             $image = $request->get('image');
             if(!empty($bank_type) 
@@ -44,77 +45,65 @@ class PaymentliffController extends Controller
             )
             {
                 DB::table('payment')->insert([
-                    'bank_type' =>$bank_type,
+                    'bank_id' =>$bank_id,
                     'status' =>$status,
                     'image'=>$image,
                     'created_at'=>date('Y-m-d H:i:s'),
                 ]);
                
-                return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/paymentlifffrom');
+                return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้ว','/liff/history');
             }else{
                 return MyResponse::error('กรุณาป้อนข้อมูลให้ครบค่ะ');
             }
 
     }
-    public function show($pay_id,Request $request)
-    {   
-        if(is_numeric($pay_id))
-        {
-            $payments = DB::table('payment')
-            ->where('pay_id',$pay_id)
-            ->first();
-            if(!empty($payments))
-            {
-                return view('payyfrom::Paymentlifffrom',[
-                    'payment'=>$payments,
-                ]);
-            }
-        }
-        return view('data-not-found',[
-            'back_url'=>'/payment',
-        ]);
-    }
+    // public function show($pay_id,Request $request)
+    // {   
+    //     if(is_numeric($pay_id))
+    //     {
+    //         $payments = DB::table('payment')->where('pay_id',$pay_id)->first();
+    //         if(!empty($payments))
+    //         {
+    //             $action='/payment'.$pay_id;
+    //             $bank_type= DB::table('bank')->whereNull('deleted_at')->get();                
+    //             return view('payyfrom::paymentlifffrom',compact('payments','customer'),[
+    //                 'payment'=>$payments,
+    //                 'action'=>$action,
+    //                 'bank'=>$bank_type
+    //             ]);
+    //         }
+    //     }
+    //     return view('data-not-found',[
+    //         'back_url'=>'/paymentlifffrom',
+    //     ]);
+    // }
     // public function update($pay_id,Request $request)
     // {
     //     if(is_numeric($pay_id))
     //     {
-    //         $bank_type  = $request->get('status');
-    //         $status  = $request->get('status');
-    //         $image = $request->get('image');
-            
+    //         $order_id = $request->get('order_id');
+    //         $price_net = $request->get('price_net');
 
-    //         if(!empty($status))
-    //         {
-    //             DB::table('payment')
+    //         if(!empty($price_net) 
+    //         && is_numeric($order_id) 
+    //         && !empty($detail) 
+    //         )
+           
+    //             $payments = DB ::table('payment')
     //             ->where('pay_id',$pay_id)
-    //             ->update([
-    //                 'status' =>$status,
-    //                 'updated_at' =>date('Y-m-d H:i:s'),
-    //             ]);
-    //             if(!empty($bank_type)){
-    //                 $banks = DB::table('bank')
-    //                 ->where('bank_id',$bank_id)
-    //                 ->first();
-    //                 if(!$banks){
-    //                     DB::table('bank')
-    //                     ->insert([
-    //                         'bank_id' =>$bank_id,
-    //                         'bank_name' =>$bank_name,
-    //                         'bank_num' =>$bank_num,
-    //                         'bank_type' =>$bank_type,
-    //                         'image ' =>$image,
-    //                         'created_at' =>date('Y-m-d H:i:s'),
-    //                         'updated_at' =>date('Y-m-d H:i:s')
-    //                     ]);
-    //                 }
+    //             ->where('bank_type',$bank_type)
+    //             ->whereNull('deleted_at')->first();
+    //             if(!empty($payments)){
+    //                 return MyResponse::error('ขออภัยข้อมูลนี้มีอยู่ในระบบแล้ว');
     //             }
-    //             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ','/paymentliff');
+    //             DB::table('payment')->where('pay_id',$pay_id)->update([
+    //                 'order_id' =>$order_id,
+    //                 'price_net' =>$price_net,
+    //                 'updated_at'=>date('Y-m-d H:i:s')
+    //             ]);
+    //             return MyResponse::success('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ','/paymentlifffrom');
     //         }else{ 
     //             return MyResponse::error('กรุณาป้อนข้อมุลให้ครบค่ะ');
     //         }
     //     }
-
-    //     return MyResponse::error('ป้อนข้อมูลไม่ถูกต้องค่ะ');
-    // }
-
 }

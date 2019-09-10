@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown pull-left">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-                        <i class="fa fa-navicon" style="font-size:36px;color:#FFF" ></i>
+                        <i class="fa fa-navicon" style="font-size:36px;color:#FFE4E1" ></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="nav-menu"><a href="/liff">หน้าแรก</a></li>
@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li class="sub-nav-menu pull-right"><a href="/liff/shoppingcart">
-                    <i class="fa fa-cart-arrow-down" aria-hidden="true" style="font-size:36px;color:#FFF"></i> <span class="badge">{{CurrentUser::cart()}}</span>
+                    <i class="fa fa-cart-arrow-down" aria-hidden="true" style="font-size:36px;color:#FFE4E1"></i> <span class="badge">{{CurrentUser::cart()}}</span>
                 </a></li>
             </ul>
         </nav>

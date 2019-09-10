@@ -7,7 +7,7 @@
         <form action="/liff/profilefrom/{{$customer->cust_id}}" 
         class="form-ajax" method="PUT"> 
             <input type="hidden" value="PUT" name="_mathods">
-        <div class="row">
+        <div class="row" style="background-color:#FFDAB9;">
             <div class="col-md-4">
                 <img src=" {{$customer->image}} "alt="Lights" 
                 style="width:40%; display:block;margin:10px auto;" >
@@ -23,10 +23,9 @@
             </div>      
         </div>
         <button type="submit" class="btn btn-primary">บันทึก</button>
+        <a href="/liff/profile" class="btn btn-info">กลับ</a>
         </form>
     </div> 
-</div>
-    <a href="/liff/profile" class="btn btn-info">กลับ</a>
 </div>
 
 @endsection

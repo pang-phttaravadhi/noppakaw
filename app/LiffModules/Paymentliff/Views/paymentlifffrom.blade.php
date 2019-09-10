@@ -16,8 +16,10 @@
       </div>
       <div class="form-group">
       <label>ธนาคาร:</label>
-        <input type="text" class="form-control"  name="bank_type" value="{{isset($payments)?$payments->bank_type:''}}">
-      </div>
+          <input name="bank_name" type="radio" class="from-control" value=" {{isset($payments)?$payments->bank_name:''}}">กสิกร
+          <input name="bank_name" type="radio" class="from-control" value=" {{isset($payments)?$payments->bank_name:''}}">ไทยพาณิชย์
+          <input name="bank_name" type="radio" class="from-control" value=" {{isset($payments)?$payments->bank_name:''}}">กรุงศรี
+    </div>
       <div class="form-group">
         <label>จำนวนเงิน:</label>
           <input type="text" class="form-control"  name="price_net" value="{{isset($payments)?$payments->price_net:''}}">

@@ -31,7 +31,14 @@
 .sub-nav-menu a{color:#333!important; font-size:13px;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.1)}
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{background-color: rgba(0,0,0,.3)}
-.header-panal{background: #AED6F1!important;color:#21618C!important;}
-.thead-light{background: #509de4;}
-.panel-default>.panel-heading{background-color:#FFA07A;}
+.header-panal{background: #FFDAB9!important;color:#21618C!important;}
+.thead-light{background: #FFDAB9!important;}
+.panel-default>.panel-heading{background-color:#FFDAB9;}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #FFDAB9!important;
+}
 
