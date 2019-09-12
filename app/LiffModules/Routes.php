@@ -3,7 +3,7 @@ Route::prefix('liff')->group(function() {
     Route::Get('/','\App\LiffModules\Home\HomeController@index');
     Route::Get('/categoryliff','\App\LiffModules\Categoryliff\CategoryliffController@index');
     Route::Get('/history','\App\LiffModules\History\HistoryController@index');
-    Route::Get('/historyfrom','\App\LiffModules\History\HistoryController@historyfrom');
+    Route::Get('/historyfrom/{order_id}','\App\LiffModules\History\HistoryController@historyfrom');
     Route::Get('/profile','\App\LiffModules\Profile\ProfileController@index');
     Route::Get('/profilefrom/{cust_id}','\App\LiffModules\Profile\ProfileController@profilefrom');
     Route::Put('/profilefrom/{cust_id}','\App\LiffModules\Profile\ProfileController@update');
