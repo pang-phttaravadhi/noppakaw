@@ -1,0 +1,1 @@
+{"events":[{"type":"postback","replyToken":"c8b62c29bf304e25a57044ab116653c7","source":{"userId":"U77ac0e05aa6ded3ece1e05ba8a843848","type":"user"},"timestamp":1568870783372,"postback":{"data":"2"}}],"destination":"Uf5d7a407a9e9062718a7d7dad13a5dcb"}

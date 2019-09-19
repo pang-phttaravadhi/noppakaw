@@ -43,4 +43,16 @@ class CategoryliffController extends Controller
 
     	return view('cate::product-detail',compact('product'));
     }
+
+    public function detail_line(Request $request)
+    {
+        $pro_id = $request->get('product_id');
+        $product = DB ::table('product')
+        ->select('product.*','category.cate_name')
+        ->leftJoin('category','product.cate_id','category.cate_id')
+        ->whereNull('product.deleted_at')
+        ->where('pro_id','=',$pro_id)
+        ->first();
+    	return view('cate::product-detail',compact('product'));
+    }
 }

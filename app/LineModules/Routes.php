@@ -1,9 +1,4 @@
 <?php
-Route::prefix('api')->group(function() {
-    Route::Get('/login','\App\BackofficeModules\Login\LoginController@index')->name('login');
-    Route::Post('/login','\App\BackofficeModules\Login\LoginController@action');
-    Route::Get('/logout','\App\BackofficeModules\Login\LoginController@logout');
-   
-    
-    
+Route::prefix('line')->group(function() {
+    Route::match(array('GET', 'POST'),'/','\App\LineModules\Home\HomeController@index');
 });
