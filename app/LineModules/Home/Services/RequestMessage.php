@@ -28,6 +28,9 @@ class RequestMessage
                     case 'สินค้าแนะนำ':
                         $mesage=Response::recomence_product();
                         break;
+                    // case 'หมวดสินค้า':
+                    //     $mesage=Response::category();
+                    //     break;
                 }
                 $sender_message = ['to'=>$user_id,'messages'=>[$mesage]];
                 file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));
@@ -67,10 +70,10 @@ class RequestMessage
                     $product = DB ::table('product')
                 ->where('pro_id',$product_id)
                 ->first();
-                    $shopping_cart= DB::table ('shopping_cart')
-                    ->where ('cust_id',$cus_id)
-                    ->where ('pro_id','=',$product_id)
-                    ->first();
+                $shopping_cart= DB::table ('shopping_cart')
+                ->where ('cust_id',$cus_id)
+                ->where ('pro_id','=',$product_id)
+                ->first();
                     if(empty($shopping_cart))
                     {
                         DB::table ('shopping_cart')
@@ -83,10 +86,45 @@ class RequestMessage
                         ]);
                     }
                 }
+               
                 $sender_message = ['to'=>$line_id,'messages'=>[['type'=>'text','text'=>'ระบบได้เพิ่มสินค้าลงตะกร้าเรียบร้อยแล้วคะ']]];
                 file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));
                 SendToLine::push($sender_message);
             }
         }
+        // $category= DB::table('category')
+        // ->where('cate_id',$cate_id)
+        // ->get();
+        // {
+        //     "type": "imagemap",
+        //     "baseUrl": "https://example.com/bot/images/rm001",
+        //     "altText": "This is an imagemap",
+        //     "baseSize": {
+        //         "width": 1040,
+        //         "height": 1040
+        //     }
+        //     "actions": [
+        //         {
+        //             "type": "uri",
+        //             "linkUri": "https://example.com/",
+        //             "area": {
+        //                 "x": 0,
+        //                 "y": 586,
+        //                 "width": 520,
+        //                 "height": 454
+        //             }
+        //         },
+        //         {
+        //             "type": "message",
+        //             "text": "Hello",
+        //             "area": {
+        //                 "x": 520,
+        //                 "y": 586,
+        //                 "width": 520,
+        //                 "height": 454
+        //             }
+        //         }
+        //     ]
+        // }
     }
 }

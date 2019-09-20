@@ -9,7 +9,9 @@ class Response
 {
     public static function recomence_product()
     {
-        $products = DB::table('product')->where('is_recommence','Y')->get();
+        $products = DB::table('product')
+        ->where('is_recommence','Y')
+        ->get();
         if(!empty($products))
         {
             return MessageType::carousel($products);
@@ -19,7 +21,29 @@ class Response
 
     public static function cateogrys()
     {
-        
+        // $categorys = DB::table('category')
+        // ->where('cate_id',$cate_id)
+        // ->get();
+        // if(!empty($categorys))
+        // {
+        //     return MessageType::carousel($categorys);
+        // } 
     }
+    // {   
+    //     {
+    //         $category = DB::table('category')
+    //         ->where('cate_id',$cate_id)
+    //         ->first();
+    //         if(!empty($category))
+    //         {
+    //             $action='/category'.$cate_id;
+    //             return view('category',[
+    //                 'category'=>$category,
+    //                 'action'=>$action
+    //             ]);
+    //         }
+    //     }
+    //     return MessageType::carousel($categorys);
+    // }
 
 }

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading">ใบสั่งซื้อ</div>
+            <div class="panel-heading">รายละเอียดใบสั่งซื้อ</div>
             <div class="panel-body">
                 <div class="form-group">
                         <b>ชื่อลูกค้า : {{$order->cust_name}}</b><br>
