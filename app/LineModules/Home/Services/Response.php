@@ -22,13 +22,4 @@ class Response
         
     }
 
-    public static function product($cate_id)
-    {
-        
-    }
-
-    public static function product_detail($product_id)
-    {
-        
-    }
 }
