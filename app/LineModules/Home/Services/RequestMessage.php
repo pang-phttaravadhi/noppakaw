@@ -6,6 +6,7 @@ use DB;
 use stdClass;
 use App\LineModules\Home\Services\Response;
 use App\LineModules\Home\Services\SendToLine;
+use App\LineModules\Home\Services\MessageType;
 class RequestMessage
 {
     public static function get($request)
@@ -28,9 +29,19 @@ class RequestMessage
                     case 'สินค้าแนะนำ':
                         $mesage=Response::recomence_product();
                         break;
-                    // case 'หมวดสินค้า':
-                    //     $mesage=Response::category();
-                    //     break;
+                    case 'หมวดชุดไทย':
+                        $mesage=Response::cateogrys(1);
+                        break;
+                    case 'หมวดเครื่องประดับ':
+                        $mesage=Response::cateogrys(2);
+                        break;
+                    case 'หมวดรองเท้า':
+                        $mesage=Response::cateogrys(3);
+                        break;
+
+                    case 'หมวดสินค้า':
+                        $mesage=json_decode(MessageType::imagemap(),true);
+                        break;
                 }
                 $sender_message = ['to'=>$user_id,'messages'=>[$mesage]];
                 file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));

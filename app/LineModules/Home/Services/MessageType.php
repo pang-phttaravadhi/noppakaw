@@ -49,4 +49,52 @@ class MessageType
         $object['template']['columns'] =$columns;
         return $object;
     }
+    public static function imagemap()
+    {
+        $baes_url = env('LINE_BASE_URL');
+      return '{
+        "type": "imagemap",
+        "baseUrl": "'.$baes_url.'/assets/img/logo/category",
+        "altText": "หมวดสินค้า",
+        "baseSize": {
+            "width": 1040,
+            "height": 1040
+        },
+        "actions": [
+            {  
+                "type":"message",
+                "label":"หมวดชุดไทย",
+                "text":"หมวดชุดไทย",
+                "area":{  
+                    "x":0,
+                    "y":0,
+                    "width":490,
+                    "height":552
+                }
+            },
+            {  
+                "type":"message",
+                "label":"หมวดเครื่องประดับ",
+                "text":"หมวดเครรื่องประดับ",
+                "area":{  
+                    "x":490,
+                    "y":0,
+                    "width":550,
+                    "height":552
+                }
+            },
+            {  
+                "type":"message",
+                "label":"หมวดรองเท้า",
+                "text":"หมวดรองเท้า",
+                "area":{  
+                    "x":0,
+                    "y":552,
+                    "width":1040,
+                    "height":448
+                }
+            }
+        ]
+      }';  
+    }
 }

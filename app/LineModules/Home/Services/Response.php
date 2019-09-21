@@ -19,15 +19,16 @@ class Response
         return ['type'=>'text','text'=>'ขออภัยคะ สินค้าหมดคะ'];
     }
 
-    public static function cateogrys()
+    public static function cateogrys($cate_id)
     {
-        // $categorys = DB::table('category')
-        // ->where('cate_id',$cate_id)
-        // ->get();
-        // if(!empty($categorys))
-        // {
-        //     return MessageType::carousel($categorys);
-        // } 
+        $products = DB::table('product')
+        ->where('cate_id',$cate_id)
+        ->get();
+        if(!empty($products))
+        {
+            return MessageType::carousel($products);
+        }
+        return ['type'=>'text','text'=>'ขออภัยคะ สินค้าหมดคะ'];
     }
     // {   
     //     {
