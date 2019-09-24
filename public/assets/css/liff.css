@@ -34,13 +34,13 @@
 .header-panal{background: #FFDAB9!important;color:#21618C!important;}
 .thead-light{background: #FFDAB9!important;}
 .panel-default>.panel-heading{background-color:#FFDAB9;}
-body .jumbotron{
+body{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
     background-color: #FFDAB9!important;
-    background-image: url(/assets/img/pd.jpg);
+    background-image: url(/assets/img/pd.jpg)!important;
 }
 
 .thumbnail{
