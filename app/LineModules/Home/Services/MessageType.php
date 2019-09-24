@@ -63,24 +63,24 @@ class MessageType
         "actions": [
             {  
                 "type":"message",
-                "label":"หมวดชุดไทย",
-                "text":"หมวดชุดไทย",
+                "label":"หมวดเครื่องแต่งกาย",
+                "text":"หมวดเครื่องแต่งกาย",
                 "area":{  
                     "x":0,
                     "y":0,
-                    "width":490,
-                    "height":552
+                    "width":522,
+                    "height":564
                 }
             },
             {  
                 "type":"message",
                 "label":"หมวดเครื่องประดับ",
-                "text":"หมวดเครรื่องประดับ",
+                "text":"หมวดเครื่องประดับ",
                 "area":{  
                     "x":490,
                     "y":0,
-                    "width":550,
-                    "height":552
+                    "width":518,
+                    "height":564
                 }
             },
             {  
@@ -91,7 +91,7 @@ class MessageType
                     "x":0,
                     "y":552,
                     "width":1040,
-                    "height":448
+                    "height":476
                 }
             }
         ]

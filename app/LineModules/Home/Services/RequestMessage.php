@@ -29,7 +29,7 @@ class RequestMessage
                     case 'สินค้าแนะนำ':
                         $mesage=Response::recomence_product();
                         break;
-                    case 'หมวดชุดไทย':
+                    case 'หมวดเครื่องแต่งกาย':
                         $mesage=Response::cateogrys(1);
                         break;
                     case 'หมวดเครื่องประดับ':

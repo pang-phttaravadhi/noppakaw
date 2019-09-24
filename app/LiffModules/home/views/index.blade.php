@@ -5,7 +5,7 @@
 <div class="row">
     @foreach($products as $index => $product)
         <div class="col-md-4 col-xs-6">
-            <div class="thumbnail">
+            <div class="thumbnail w3-card">
                 <a href="/liff/product-detail/{{$product->pro_id}}">
                 <img src="{{$product->image}}" alt="Lights" style="width:100%">
                     <div class="caption">
