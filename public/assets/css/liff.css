@@ -34,7 +34,7 @@
 .header-panal{background: #FFDAB9!important;color:#21618C!important;}
 .thead-light{background: #FFDAB9!important;}
 .panel-default>.panel-heading{background-color:#FFDAB9;}
-body {
+body .jumbotron{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
