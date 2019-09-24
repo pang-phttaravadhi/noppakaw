@@ -1,17 +1,24 @@
 <?php
 
-namespace App\BackofficeModules\customer;
+namespace App\BackofficeModules\Customer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Input;
 use DB;
+use App\Services\CurrentUser;
+
 
 class CustomerController extends Controller
 {
-    public function customer()
+    public function index(Request $request)
     {
-    	return view('cus::customer');
+        $customer= CurrentUser::user();
+        $customers = DB ::table('customer')
+        ->select('customer.*')
+        ->get();
+    	return view('cus::customer',compact('customers','customer'));
+    
     }
     
 }
