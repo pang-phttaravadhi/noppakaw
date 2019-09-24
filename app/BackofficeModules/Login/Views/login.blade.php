@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 <body>
-    <div class="container"style="background-color:#CD853F;">
-        <div class="modal-content" style="height:370px; width:352px; margin: 100px auto; "><center>
+    <div class="container">
+        <div class="modal-content" style="height:480px; width:352px; margin: 100px auto; "><center>
             <div class="modal-header">
-            <img src="/assets/img/logo/11.jpg"  width="150" height="90"><center> 
+            <img src="/assets/img/logo/logo.png"  width="250" height="200"><center> 
                 <h4 class="modal-title" id="myModalLabel">Log in</h4>
             </div> <!-- /.modal-header -->
             <div class="modal-body">
