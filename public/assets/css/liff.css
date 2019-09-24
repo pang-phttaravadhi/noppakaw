@@ -40,9 +40,10 @@ body {
     line-height: 1.42857143;
     color: #333;
     background-color: #FFDAB9!important;
-    background-image: url(/assets/img/background2.jpg);
+    background-image: url(/assets/img/p2.jpg);
 }
 
 .thumbnail{
-    background-image: url(/assets/img/background.jpg);
+    background-image: url(/assets/img/p1.jpg);
+    border-radius : 8px;
 }
