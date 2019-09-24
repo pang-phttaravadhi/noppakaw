@@ -1,6 +1,6 @@
 @extends('liff-layout')
 @section('content' )
-<img src="/assets/img/logo/logo.png"  width="340" height="250"> 
+<img src="/assets/img/logo/logo.png"  style="width:350px; height:200px;"> 
 <h4>รายการสินค้าแนะนำ</h4>
 <div class="row">
     @foreach($products as $index => $product)
