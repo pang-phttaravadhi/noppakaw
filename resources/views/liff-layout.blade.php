@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/liff.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <body>
         <nav style="padding:0 10px;" class="navbar navbar-default navbar-fixed-top nav-bg-color">
             <ul class="nav navbar-nav">
