@@ -18,7 +18,7 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img class="mylogo" src="/assets/img/logo/logo.png" style="width:180px; height:80px;"/>
+                    <img class="mylogo" src="/assets/img/logo/logo3.png" style="width:150px; height:80px;"/>
                 </a>
             </div>
             <ul class="nav navbar-nav pull-right" style="margin-top: 11px">

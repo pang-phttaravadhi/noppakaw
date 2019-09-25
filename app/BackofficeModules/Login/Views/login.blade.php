@@ -16,7 +16,7 @@
     <div class="container">
         <div class="modal-content" style="height:480px; width:352px; margin: 100px auto; "><center>
             <div class="modal-header">
-            <img src="/assets/img/logo/logo.png"  width="250" height="200"><center> 
+            <img src="/assets/img/logo/logo3.png"  width="240" height="150"><center> 
                 <h4 class="modal-title" id="myModalLabel">Log in</h4>
             </div> <!-- /.modal-header -->
             <div class="modal-body">
