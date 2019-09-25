@@ -54,7 +54,7 @@ class MessageType
         $baes_url = env('LINE_BASE_URL');
       return '{
         "type": "imagemap",
-        "baseUrl": "'.$baes_url.'/assets/img/logo/category",
+        "baseUrl": "'.$baes_url.'/assets/img/logo/category2",
         "altText": "หมวดสินค้า",
         "baseSize": {
             "width": 1040,
@@ -68,8 +68,8 @@ class MessageType
                 "area":{  
                     "x":0,
                     "y":0,
-                    "width":522,
-                    "height":564
+                    "width":518,
+                    "height":614
                 }
             },
             {  
@@ -79,8 +79,8 @@ class MessageType
                 "area":{  
                     "x":490,
                     "y":0,
-                    "width":518,
-                    "height":564
+                    "width":522,
+                    "height":614
                 }
             },
             {  
@@ -91,7 +91,7 @@ class MessageType
                     "x":0,
                     "y":552,
                     "width":1040,
-                    "height":476
+                    "height":426
                 }
             }
         ]

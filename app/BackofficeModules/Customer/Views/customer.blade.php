@@ -7,14 +7,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
-                    <form action="/action_page.php">
+                    <form action="/customer">
                         <div class="form-group">
-                            <label for="email">ชื่อ-นามสกุลลูกค้า</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">เบอร์โทร</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <label>ชื่อ-นามสกุลลูกค้า</label>
+                            <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
                         <button type="submit" class="btn btn-default">ค้นหา</button>
                     </form>

@@ -24,7 +24,7 @@
                 </div>
             </a>
             <div class="container">
-                <a href='/liff/shoppingcart/{{$product->pro_id}}' class="add-shoppingcart" style='font-size:14px'><i class='fa fa-shopping-cart'></i></a>
+                <a href='/liff/shoppingcart/{{$product->pro_id}}' class="add-shoppingcart" style='font-size:20px'><i class='fa fa-shopping-cart'></i></a>
             </div>
         </div>
     </div>
