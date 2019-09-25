@@ -6,7 +6,6 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">ค้นหา</div>
-              
                 <div class="panel-body">
                     <form action="/category">
                         <div class="form-group">
