@@ -50,8 +50,31 @@
                 </table>
                 <form action="/orders/{{$order->order_id}}" class="form-ajax" call_back='yes' method="PUT">
                     <input type="hidden"value="PUT" name="_methods">
-                    <div class="row">
-                        <div class="col-md-4">
+                        <div class="form-group col-md-4">
+                            <label>หมวดสินค้า:</label>
+                            <select name="status">
+                                <option value="status">
+                                กรุณาเลือกสถานะ
+                                </option>
+                                <option value='ใบสั่งซื้อใหม่' {{ isset($order) && $order->status=='ใบสั่งซื้อใหม่'?'selected':''}} >
+                                ใบสั่งซื้อใหม่
+                                </option>
+                                <option value='ใบสั่งซื้อรอชำระเงิน' {{ isset($order) && $order->status=='ใบสั่งซื้อรอชำระเงิน'?'selected':''}} >
+                                ใบสั่งซื้อรอชำระเงิน
+                                </option>
+                                <option value='ใบสั่งซื้อชำระเงินแล้ว' {{ isset($order) && $order->status=='ใบสั่งซื้อชำระเงินแล้ว'?'selected':''}}>
+                                ใบสั่งซื้อชำระเงินแล้ว
+                                </option>
+                                <option value='ใบสั่งซื้อส่งสินค้าแล้ว' {{ isset($order) && $order->status=='ใบสั่งซื้อส่งสินค้าแล้ว'?'selected':''}} >
+                                ใบสั่งซื้อส่งสินค้าแล้ว
+                                </option>
+                                <option value='ใบสั่งซื้อได้รับสินค้าแล้ว' {{ isset($order) && $order->status=='ใบสั่งซื้อได้รับสินค้าแล้ว'?'selected':''}} >
+                                ใบสั่งซื้อได้รับสินค้าแล้ว
+                                </option>
+                            </select>
+                        </div>
+                    <!-- <div class="row">
+                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="status">สถานะ:</label>
                                 <select class="form-control" name="status">
@@ -62,7 +85,7 @@
                                     <option value="ใบสั่งซื้อได้รับสินค้าแล้ว">ใบสั่งซื้อได้รับสินค้าแล้ว</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> --> 
                         <div class="col-md-4">
                         <div class="form-group">
                                 <label for="status">เลขพัสดุ:</label>
