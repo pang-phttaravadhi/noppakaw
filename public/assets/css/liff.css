@@ -26,7 +26,7 @@
 .navbar-header{height:40px;}
 .navbar-brand{padding:0px 0px 0px 0px;}
 .navbar-brand .mylogo{height:58px;}
-.nav-bg-color{background: #CD853F;}
+.nav-bg-color{background: #A5CAD2;}
 .nav-menu a{color:#000000!important;}
 .sub-nav-menu a{color:#333!important; font-size:13px;}
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{background-color: rgba(0,0,0,.1)}
@@ -44,6 +44,12 @@ body{
 }
 
 .thumbnail{
+    /* background-color: #90EE90!important; */
+
     background-image: url(/assets/img/p1.jpg);
     border-radius : 8px;
+}
+.col-md-4{
+    background-image: url(/assets/img/p4.jpg)!important;
+
 }

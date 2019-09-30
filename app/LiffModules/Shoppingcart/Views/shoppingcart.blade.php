@@ -6,7 +6,6 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center"><strong>รายการสินค้า</strong></div>
       <div class="panel-body">
-        <h3>หน้าแรกของสินค้า</h3>
           {!! $product_list_html !!}
        <a href="/liff/shoppingcart-shipping/{{$customer->cust_id}}" style='margin:25px 0;' class="btn btn-primary btn-block">ป้อนที่อยู่ในการจัดส่งสินค้า</a>
       </div>

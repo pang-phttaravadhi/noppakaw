@@ -3,7 +3,6 @@
 @section('content' )
 <div class="panel panel-default">
     <div class="panel-heading text-center"><strong>โปรไฟล์</strong></div>
-    <div class="row" style="background-color:#FFDAB9;"> 
         <div class="col-md-4">
             <img src=" {{ isset($customers) ? $customer->image:''}} "alt="Lights" 
             style="width:40%; display:block;margin:10px auto;" >
@@ -28,7 +27,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 
