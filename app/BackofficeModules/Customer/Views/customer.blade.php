@@ -5,21 +5,21 @@
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"></div>
+                <div class="panel-heading">ค้นหา</div>
                 <div class="panel-body">
                     <form action="/customer">
                         <div class="form-group">
                             <label>ชื่อ-นามสกุลลูกค้า</label>
                             <input type="text" class="form-control"  name="keyword" value="{{Input::get('keyword')}}">
                         </div>
-                        <button type="submit" class="btn btn-default">ค้นหา</button>
+                        <button type="submit" class="btn btn-info">ค้นหา</button>
                     </form>
                 </div>
             </div>
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">สถานะการจัดส่งสินค้า</div>
+                <div class="panel-heading">ลูกค้า</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
