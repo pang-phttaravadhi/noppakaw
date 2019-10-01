@@ -16,7 +16,7 @@ Route::prefix('liff')->group(function() {
     Route::Post('/login','\App\LiffModules\Customer\CustomerController@login');
     Route::Get('/shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController@index');
     Route::POST('/shoppingcart/{pro_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@add');
-    Route::POST('/shoppingcart/{pro_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@delete');
+    Route::DELETE('/shoppingcart-delete/{pro_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@delete');
     Route::GET('/shoppingcart-shipping/{cust_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@shipping');
     Route::POST('/shoppingcart-shipping/{cust_id}','\App\LiffModules\Shoppingcart\ShoppingcartController@shipping_save');
     Route::GET('/shoppingcart-confirm','\App\LiffModules\Shoppingcart\ShoppingcartController@confirm');

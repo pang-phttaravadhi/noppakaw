@@ -243,9 +243,11 @@ class ShoppingcartController extends Controller
     {
         if(is_numeric($pro_id))
         {
-            DB::table('product')->where('pro_id',$pro_id)->update([
-                'deleted_at'=>date('Y-m-d H:i:s'),
-            ]);
+            $customer= CurrentUser::user();
+            DB::table('shopping_cart')
+            ->where('pro_id',$pro_id)
+            ->where('cust_id',$customer->cust_id)
+            ->delete();
             return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
         }
     }           

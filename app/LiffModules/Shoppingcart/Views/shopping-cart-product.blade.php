@@ -9,10 +9,10 @@
                   <p style="margin:3px;"><strong>{{$pro->pro_name}}</strong></p>
                   <p style="margin:3px;">{{$pro->price}} บาท</p>
                   <p style="margin:3px;">จำนวน : <input class="text-center" style="width:85px;padding:5px;" type="number" value="{{$pro->amount}}"></p>
+                  <a class="btn btn-default deleted-item" href="/liff/shoppingcart-delete/{{$pro->pro_id}}"><i class="fa fa-trash"></i></a>
                 </div>
             </td>
           </tr>
-          <a class="btn btn-default deleted-item" href="/shoppingcart/{{$product->pro_id}}"><i class="fa fa-trash"></i></a>
         @endforeach
             <tr>
               <td class="text-right" style="padding-top:10px;margin-bottom:2px;border-top:3px double #ccc;font-size:15px;">

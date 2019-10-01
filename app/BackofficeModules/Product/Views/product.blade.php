@@ -54,7 +54,7 @@
                         <tbody>
                             @foreach($products as $index=> $product)
                             <tr>
-                                <td>{{$index+1}}</td>
+                                <td>{{$index+$products->firstItem()}}</td>
                                 <td>{{$product->pro_name}}</td>
                                 <td>{{$product->cate_name}}</td>
                                 <td>{{$product->price}}</td>
