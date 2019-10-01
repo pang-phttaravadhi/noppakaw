@@ -12,6 +12,7 @@
                 </div>
             </td>
           </tr>
+          <a class="btn btn-default deleted-item" href="/shoppingcart/{{$product->pro_id}}"><i class="fa fa-trash"></i></a>
         @endforeach
             <tr>
               <td class="text-right" style="padding-top:10px;margin-bottom:2px;border-top:3px double #ccc;font-size:15px;">

@@ -237,22 +237,18 @@ class ShoppingcartController extends Controller
         }else{
             return MyResponse::error('กรุณาloginก่อนค่ะ');
             }
-
-        
     }
-        
-       
-            
-         // select product by id
-    
-         // 1unit*price = amount
-    
-         // insert to shopping cart 
-        
-    
-        
-        
-        //return true;*/
+
+    public function delete($pro_id)
+    {
+        if(is_numeric($pro_id))
+        {
+            DB::table('product')->where('pro_id',$pro_id)->update([
+                'deleted_at'=>date('Y-m-d H:i:s'),
+            ]);
+            return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
+        }
+    }           
 }
 
     

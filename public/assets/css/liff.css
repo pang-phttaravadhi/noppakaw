@@ -34,6 +34,10 @@
 .header-panal{background: #FFDAB9!important;color:#21618C!important;}
 .thead-light{background: #FFDAB9!important;}
 .panel-default>.panel-heading{background-color:#FFDAB9;}
+.col-md-4{
+    background-image: url(/assets/img/p4.jpg)!important;
+
+}
 body{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
