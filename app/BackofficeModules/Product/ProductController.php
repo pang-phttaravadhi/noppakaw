@@ -27,7 +27,7 @@ class ProductController extends Controller
         {
             $products->where('product.cate_id','=',$cate_id);
         }
-        $products = $products->orderBy('product.price','desc')->orderBy('product.pro_name','desc')->paginate(6);
+        $products = $products->orderBy('product.price','desc')->paginate(6);
         $category= DB::table('category')->whereNull('deleted_at')->get();
         return view('pro::product',compact('products','category'));
     }

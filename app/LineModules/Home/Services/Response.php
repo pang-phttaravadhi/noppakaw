@@ -11,6 +11,7 @@ class Response
     {
         $products = DB::table('product')
         ->where('is_recommence','Y')
+        ->limit(10)
         ->get();
         if(!empty($products))
         {
@@ -23,6 +24,7 @@ class Response
     {
         $products = DB::table('product')
         ->where('cate_id',$cate_id)
+        ->limit(10)
         ->get();
         if(!empty($products))
         {
