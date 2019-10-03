@@ -32,7 +32,7 @@
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">ใบสั่งซื้อ</div>
+                <div class="panel-heading">รายการใบสั่งซื้อ</div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

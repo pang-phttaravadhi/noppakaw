@@ -21,7 +21,7 @@
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    หมวดสินค้า
+                    รายการหมวดสินค้า
                     <a class="btn btn-default pull-right" href="/category/create" style="padding-top:2px; padding-bottom:2px; "><i class="fa fa-plus" aria-hidden="true"></i></a>
                 </div>
                 <div class="panel-body">
