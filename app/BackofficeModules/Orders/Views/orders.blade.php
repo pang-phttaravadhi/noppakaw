@@ -15,11 +15,11 @@
                                 <label for="status">สถานะ:</label>
                                 <select class="form-control" name="status">
                                     <option value="">ทั้งหมด</option>
-                                    <option value="ใบสั่งซื้อใหม่">ใบสั่งซื้อใหม่</option>
-                                    <option value="ใบสั่งซื้อรอชำระเงิน">ใบสั่งซื้อรอชำระเงิน</option>
-                                    <option value="ใบสั่งซื้อชำระเงินแล้ว">ใบสั่งซื้อชำระเงินแล้ว</option>
-                                    <option value="ใบสั่งซื้อส่งสินค้าแล้ว">ใบสั่งซื้อส่งสินค้าแล้ว</option>
-                                    <option value="ใบสั่งซื้อได้รับสินค้าแล้ว">ใบสั่งซื้อได้รับสินค้าแล้ว</option>
+                                    <option value="ใบสั่งซื้อใหม่">สั่งซื้อใหม่</option>
+                                    <option value="ใบสั่งซื้อรอชำระเงิน">รอชำระเงิน</option>
+                                    <option value="ใบสั่งซื้อชำระเงินแล้ว">ชำระเงินแล้ว</option>
+                                    <option value="ใบสั่งซื้อส่งสินค้าแล้ว">ส่งสินค้าแล้ว</option>
+                                    <option value="ใบสั่งซื้อได้รับสินค้าแล้ว">ได้รับสินค้าแล้ว</option>
                                 </select>
                             </div>
                         </div>
@@ -39,10 +39,11 @@
                             <tr>
                                 <th>#</th>
                                 <th>รหัสใบสั่งซื้อ</th>
+                                <th>ว/ด/ป ที่แจ้ง</th>
                                 <th>ชื่อลูกค้า</th>
                                 <th>ยอดสุทธิ</th>
                                 <th>สถานะ</th>
-                               <th style="width:50px">Order detail</th>
+                               <th style="width:50px">รายละเอียด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,12 +51,13 @@
                             <tr>
                                 <td>{{$index+1}}</td>
                                 <td>{{$order->order_id}}</td>
+                                <td>{{$order->created_at}}</td>
                                 <td>{{$order->cust_name}}</td>
                                 <td>{{$order->price_net}}</td>
                                 <td>{{$order->status}}</td>
                                 <td>
                                 <div class="btn-group">
-                                <a href="/ordersfrom/{{$order->order_id}}" class="btn btn-primary" role="button">Order detail</a> 
+                                <a href="/ordersfrom/{{$order->order_id}}" class="btn btn-primary" role="button">รายละเอียด</a> 
                                 </div> 
                                 </td>
                             </tr>

@@ -57,7 +57,7 @@ class PaymentliffController extends Controller
                 ]);
                 DB::table('orders')
                 ->where('order_id',$order_id)->update([
-                    'status'=>'ใบสั่งซื้อชำระเงินแล้ว'
+                    'status'=>'ชำระเงินแล้ว'
                 ]);
                 // 'ใบสั่งซื้อใหม่','ใบสั่งซื้อรอชำระเงิน','ใบสั่งซื้อชำระเงินแล้ว','ใบสั่งซื้อส่งสินค้าแล้ว','ใบสั่งซื้อได้รับสินค้าแล้ว'
                

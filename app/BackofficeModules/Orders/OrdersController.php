@@ -17,7 +17,7 @@ class OrdersController extends Controller
         $status = $request->get('status');
         $keyword = $request->get('keyword');
         $orders = DB ::table('orders')
-        ->select('orders.*','customer.cust_name','customer.address','customer.tel')
+        ->select('orders.*','customer.cust_name','customer.address','customer.tel','customer.created_at')
         ->leftJoin('customer','orders.cust_id','customer.cust_id')
         ->whereNull('orders.deleted_at')
         ->orderBy('orders.cust_id','desc');

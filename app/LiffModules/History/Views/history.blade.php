@@ -19,7 +19,7 @@
                     <td>{{$payment->pay_date}}</td>
                     <td>{{$payment->price_net}}</td>
                     <td>{{$payment->status}}</td>
-                    <td><a href="/liff/historyfrom/{{$payment->order_id}}" class="btn btn-primary" role="button">detail</a></td> 
+                    <td><a href="/liff/historyfrom/{{$payment->order_id}}" class="btn btn-primary" role="button">รายละเอียด</a></td> 
                 </tr>
                 @endforeach
             </table>

@@ -148,7 +148,7 @@ class ShoppingcartController extends Controller
            'total_price' =>$shopping_cart->total_price,
            'amount' =>$shopping_cart->total_amount,
            'discount' =>$discount,
-           'status' =>'ใบสั่งซื้อใหม่',
+           'status' =>'สั่งซื้อใหม่',
 
            'created_at'=>date('Y-m-d H:i:s'),
          

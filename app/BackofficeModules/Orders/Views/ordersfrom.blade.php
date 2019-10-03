@@ -14,7 +14,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>รหัสสินค้า</th>
+                            <!-- <th>รหัสสินค้า</th> -->
                             <th>รายการ</th>
                             <th>จำนวน</th>
                             <th>ราคาต่อหน่วย</th>
@@ -24,7 +24,7 @@
                     <tbody>
                     @foreach($shops as $shop)
                         <tr>
-                            <td>{{$shop->pro_id}}</td>
+                            <!-- <td>{{$shop->pro_id}}</td> -->
                             <td>{{$shop->pro_name}}</td>
                             <td>{{$shop->amount}}</td>
                             <td>{{$shop->price_per_unit}}</td>
@@ -56,20 +56,20 @@
                                 <option value="status">
                                 กรุณาเลือกสถานะ
                                 </option>
-                                <option value='ใบสั่งซื้อใหม่' {{ isset($order) && $order->status=='ใบสั่งซื้อใหม่'?'selected':''}} >
-                                ใบสั่งซื้อใหม่
+                                <option value='สั่งซื้อใหม่' {{ isset($order) && $order->status=='สั่งซื้อใหม่'?'selected':''}} >
+                                สั่งซื้อใหม่
                                 </option>
-                                <option value='ใบสั่งซื้อรอชำระเงิน' {{ isset($order) && $order->status=='ใบสั่งซื้อรอชำระเงิน'?'selected':''}} >
-                                ใบสั่งซื้อรอชำระเงิน
+                                <option value='รอชำระเงิน' {{ isset($order) && $order->status=='รอชำระเงิน'?'selected':''}} >
+                                รอชำระเงิน
                                 </option>
-                                <option value='ใบสั่งซื้อชำระเงินแล้ว' {{ isset($order) && $order->status=='ใบสั่งซื้อชำระเงินแล้ว'?'selected':''}}>
-                                ใบสั่งซื้อชำระเงินแล้ว
+                                <option value='ชำระเงินแล้ว' {{ isset($order) && $order->status=='ชำระเงินแล้ว'?'selected':''}}>
+                                ชำระเงินแล้ว
                                 </option>
-                                <option value='ใบสั่งซื้อส่งสินค้าแล้ว' {{ isset($order) && $order->status=='ใบสั่งซื้อส่งสินค้าแล้ว'?'selected':''}} >
-                                ใบสั่งซื้อส่งสินค้าแล้ว
+                                <option value='ส่งสินค้าแล้ว' {{ isset($order) && $order->status=='ส่งสินค้าแล้ว'?'selected':''}} >
+                                ส่งสินค้าแล้ว
                                 </option>
-                                <option value='ใบสั่งซื้อได้รับสินค้าแล้ว' {{ isset($order) && $order->status=='ใบสั่งซื้อได้รับสินค้าแล้ว'?'selected':''}} >
-                                ใบสั่งซื้อได้รับสินค้าแล้ว
+                                <option value='ได้รับสินค้าแล้ว' {{ isset($order) && $order->status=='ได้รับสินค้าแล้ว'?'selected':''}} >
+                                ได้รับสินค้าแล้ว
                                 </option>
                             </select>
                         </div>

@@ -10,8 +10,8 @@
                 <img src="{{$product->image}}" alt="Lights" style="width:100%">
                     <div class="caption">
                     <p style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">{{$product->pro_name}}</p>
-                    <p style="color:blue">ราคา <b>{{$product->price}}</b> บาท</p>
-                    <p>น้ำหนัก <b>{{$product->weight}}</b> กรัม</p>
+                    <p style="color:blue">ราคา <b>{{$product->price}}</b> THB</p>
+                    <p>น้ำหนัก <b>{{$product->weight}}</b> (g.)</p>
                     </div>
                 </a>
                 <div class="container">

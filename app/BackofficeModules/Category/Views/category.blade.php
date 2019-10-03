@@ -16,11 +16,14 @@
                     </form>
                 </div>
             </div>
-            <a href='/category/create' class="btn btn-primary">เพิ่มหมวดสินค้า</a>
+            <!-- <a href='/category/create' class="btn btn-primary">เพิ่มหมวดสินค้า</a> -->
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">หมวดสินค้า</div>
+                <div class="panel-heading">
+                    หมวดสินค้า
+                    <a class="btn btn-default pull-right" href="/category/create" style="padding-top:2px; padding-bottom:2px; "><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>

@@ -31,13 +31,16 @@
                     </form>
                 </div>
             </div>
-            <div class="container">
+            <!-- <div class="container">
                 <a class="btn btn-primary" href="/product/create">เพิ่มสินค้าใหม่</a>
-            </div>
+            </div> -->
         </div> 
         <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">ชื่อสินค้า</div>
+                <div class="panel-heading">
+                    ชื่อสินค้า
+                        <a class="btn btn-default pull-right" href="/product/create" style="padding-top:2px; padding-bottom:2px; "><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
