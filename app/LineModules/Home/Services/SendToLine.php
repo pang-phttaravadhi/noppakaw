@@ -19,7 +19,7 @@ class SendToLine
             'Content-Length: ' . strlen($data_string))                                                                       
         );                                                                                                                   
         $result = curl_exec($ch);
-        file_put_contents(__DIR__.'/log-send-to-line.txt',$result);
+        //file_put_contents(__DIR__.'/log-send-to-line.txt',$result);
         curl_close($ch);
     }
 
@@ -36,7 +36,7 @@ class SendToLine
             'Content-Length: ' . strlen($data_string))                                                                       
         );                                                                                                                   
         $result = curl_exec($ch);
-        file_put_contents(__DIR__.'/log-send-to-line.txt',$result);
+        //file_put_contents(__DIR__.'/log-send-to-line.txt',$result);
         curl_close($ch);
     }
 }

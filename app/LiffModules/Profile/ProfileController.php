@@ -18,14 +18,14 @@ class ProfileController extends Controller
         ->select('customer.*')
         ->get();
       //print_r($customers);exit;
-    	return view('proo::Profile',compact('customers','customer'));
+    	return view('proo::profile',compact('customers','customer'));
     }
      public function profilefrom($cust_id,Request $request)
     {
         $customer= CurrentUser::user();
         if(is_numeric($cust_id))
         {
-            return view('proofrom::Profilefrom',compact('customer'));
+            return view('proofrom::profilefrom',compact('customer'));
         }
     }
     public function show($cust_id,Request $request)

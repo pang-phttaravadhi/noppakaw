@@ -44,7 +44,7 @@ class RequestMessage
                         break;
                 }
                 $sender_message = ['to'=>$user_id,'messages'=>[$mesage]];
-                file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));
+                //file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));
                 SendToLine::push($sender_message);
             }
             elseif($obj['type']=='postback')
@@ -99,7 +99,7 @@ class RequestMessage
                 }
                
                 $sender_message = ['to'=>$line_id,'messages'=>[['type'=>'text','text'=>'ระบบได้เพิ่มสินค้าลงตะกร้าเรียบร้อยแล้วคะ']]];
-                file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));
+                //file_put_contents(__DIR__.'/message.txt',json_encode($sender_message));
                 SendToLine::push($sender_message);
             }
         }

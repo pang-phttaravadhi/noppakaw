@@ -5,12 +5,12 @@ use Auth;
 use DB;
 use MyConst;
 class CurrentUser
-{
+{ 
     public static function user(){
         // for test
         
         //  return DB::table('customer')
-        //        ->where('cust_id',4)
+        //        ->where('cust_id')
         //         ->first();
 
               

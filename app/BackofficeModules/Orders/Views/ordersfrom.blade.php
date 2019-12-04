@@ -51,8 +51,8 @@
                 <form action="/orders/{{$order->order_id}}" class="form-ajax" call_back='yes' method="PUT">
                     <input type="hidden"value="PUT" name="_methods">
                         <div class="form-group col-md-4">
-                            <label>หมวดสินค้า:</label>
-                            <select name="status">
+                            <label> สถานะ:</label>
+                            <select class="form-control" name="status">
                                 <option value="status">
                                 กรุณาเลือกสถานะ
                                 </option>
@@ -89,7 +89,7 @@
                         <div class="col-md-4">
                         <div class="form-group">
                                 <label for="status">เลขพัสดุ:</label>
-                                <input class="form-control" name="transport_number">
+                                <input class="form-control" name="transport_number" value="{{$order->transport_number}}">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -104,6 +104,11 @@
                     </div>
                         <button type="submit" class="btn btn-primary">บันทึก</button>
                         <a href="/orders" class="btn btn-info">กลับ</a>
+                        @if(isset($order) && !empty($order->image))
+                        <a  href="{{$order->image}}" aria-hidden="true" 
+                        style='font-size:36px;color:blue'>
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </a> @endif    
                 </form>
             </div>
         </div>

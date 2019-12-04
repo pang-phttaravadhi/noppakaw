@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-group">
                             <label>หมวดสินค้า</label>
-                            <select name="cate_id">
+                            <select class="form-control" name="cate_id">
                                 <option value="all">
                                     ทั้งหมด
                                 </option>

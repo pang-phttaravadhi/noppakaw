@@ -3,7 +3,7 @@
 @section('content' )
 <div class="container">
     <a herf="/product"กลับ></a>
-      <div class="panel-heading" style="font-size:20px;"></div>
+    <div class="panel-heading" style="font-size:20px;"></div>
     @if(isset($product))
       <form action="/product/{{$product->pro_id}}"  class="form-ajax" call_back='yes' method="PUT">
         <input type="hidden"value="put" name="_methods">
@@ -12,41 +12,41 @@
       <form class="form-ajax" action="/product" method="POST">
     @csrf()
     @endif
-    <div class="form-group col-md-8">
-      <label>ชื่อสินค้า:</label>
-        <input type="text" class="form-control"  name="pro_name" value="{{ isset($product) ? $product->pro_name:''}}">
-    </div>
-    <div class="form-group col-md-2">
-      <label>ราคาสินค้า:</label>
-        <input type="text" class="form-control"  name="price" value="{{ isset($product) ? $product->price:''}}">
-    </div>
-    <div class="form-group col-md-2">
-      <label>น้ำหนัก:</label>
-        <input type="text" class="form-control"  name="weight" value="{{ isset($product) ? $product->weight:''}}">
-    </div>
-    <div class="form-group ">
-      <label>หมวดสินค้า:</label>
-      <select name="cate_id">
-        <option value="">
-          กรุณาเลือกหมวดสินค้า
+    <div class="panel-body">
+      <div class="form-group col-md-8">
+        <label>ชื่อสินค้า:</label>
+          <input type="text" class="form-control"  name="pro_name" value="{{ isset($product) ? $product->pro_name:''}}">
+      </div>
+      <div class="form-group col-md-2">
+        <label>ราคาสินค้า:</label>
+          <input type="text" class="form-control"  name="price" value="{{ isset($product) ? $product->price:''}}">
+      </div>
+      <div class="form-group col-md-2">
+        <label>น้ำหนัก:</label>
+          <input type="text" class="form-control"  name="weight" value="{{ isset($product) ? $product->weight:''}}">
+      </div>
+      <div class="form-group col-md-6 ">
+        <label>หมวดสินค้า:</label>
+        <select class="form-control" name="cate_id">
+          <option value="">
+            กรุณาเลือกหมวดสินค้า
           </option>
           @foreach($category as $index=> $row)
           <option value="{{$row->cate_id}}" {{ isset($product) && $product->cate_id==$row->cate_id?'selected':''}}>
           {{$row->cate_name}}
           </option>
           @endforeach
-      </select>
-    </div>
-    <div class="form-group ">
-      <label>ประเภทสินค้า:</label>
-          <label><input type="checkbox" {{ isset($product) && $product->is_new=='Y'?'checked':''}} name="is_new"value="Y">สินค้าใหม่</label>
-          <label><input type="checkbox" {{ isset($product) && $product->is_recommence=='Y'?'checked':''}} name="is_recommence"value="Y">สินค้าแนะนำ</label>
-    </div>
-    
-    
-    <div>
-    <label>รายละเอียดสินค้า:</label>
-    <textarea class="form-control" rows="5" name="detail" >{{ isset($product) ? $product->detail:''}}</textarea>
+        </select>
+      </div>
+      <div class="form-group col-md-6 ">
+        <label>ประเภทสินค้า:</label>
+            <label><input type="checkbox" {{ isset($product) && $product->is_new=='Y'?'checked':''}} name="is_new"value="Y">สินค้าใหม่</label>
+            <label><input type="checkbox" {{ isset($product) && $product->is_recommence=='Y'?'checked':''}} name="is_recommence"value="Y">สินค้าแนะนำ</label>
+      </div>
+      <div class="form-group col-md-12 ">
+        <label>รายละเอียดสินค้า:</label>
+        <textarea class="form-control" rows="5" name="detail" >{{ isset($product) ? $product->detail:''}}</textarea>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">บันทึก</button>
       <a href="/product" class="btn btn-info">กลับ</a>

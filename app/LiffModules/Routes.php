@@ -9,7 +9,7 @@ Route::prefix('liff')->group(function() {
     Route::Put('/profilefrom/{cust_id}','\App\LiffModules\Profile\ProfileController@update');
     Route::Get('/paymentlifffrom','\App\LiffModules\Paymentliff\PaymentliffController@paymentlifffrom');
     Route::Post('/paymentlifffrom/{order_id}','\App\LiffModules\Paymentliff\PaymentliffController@store');
-    Route::Get('/shoppingcartfrom','\App\LiffModules\shoppingcart\ShoppingcartController@shoppingcartfrom');
+    Route::Get('/shoppingcartfrom','\App\LiffModules\Shoppingcart\ShoppingcartController@shoppingcartfrom');
     Route::Get('/shoppingcartfromm','\App\LiffModules\Shoppingcart\ShoppingcartController@shoppingcartfromm');
     Route::Get('/product-detail/{pro_id}','\App\LiffModules\Categoryliff\CategoryliffController@detail');
     Route::Get('/product-detail-line','\App\LiffModules\Categoryliff\CategoryliffController@detail_line');
@@ -29,7 +29,7 @@ Route::prefix('liff')->group(function() {
 
     
     Route::resource('paymentliff','\App\LiffModules\Paymentliff\PaymentliffController');
-    Route::resource('shoppingcart','\App\LiffModules\shoppingcart\shoppingcartController');  
+    Route::resource('shoppingcart','\App\LiffModules\Shoppingcart\ShoppingcartController');  
     Route::resource('history','\App\LiffModules\History\HistoryController');  
     Route::resource('profile','\App\LiffModules\Profile\ProfileController');  
 

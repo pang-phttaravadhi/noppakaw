@@ -19,7 +19,7 @@ class HistoryController extends Controller
         ->where('orders.cust_id',$customer->cust_id)
         ->get();
          
-        return view('his::History',compact('customers','payments'));
+        return view('his::history',compact('customers','payments'));
     }
     public function historyfrom($order_id)
     {
@@ -47,7 +47,7 @@ class HistoryController extends Controller
             $total_weight+=$pro->weight;
         }
         
-    	return view('hisfrom::Historyfrom',compact('shipping','discount','price_net','products','transport_number','customer','order'));
+    	return view('hisfrom::historyfrom',compact('shipping','discount','price_net','products','transport_number','customer','order'));
         // $customer= CurrentUser::user();
         // $order= DB::table('order_details')
         // ->select('order_details.*','product.pro_name','product.price'

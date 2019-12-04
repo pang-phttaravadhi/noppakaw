@@ -19,7 +19,7 @@ class PaymentliffController extends Controller
         ->select('orders.*')
         ->first();
         // print_r($payments);exit;
-        return view('payy::Paymentliff',compact('payments','customer'));
+        return view('payy::paymentliff',compact('payments','customer'));
     }
     public function  paymentlifffrom()
     {
