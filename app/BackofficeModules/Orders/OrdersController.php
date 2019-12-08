@@ -47,13 +47,15 @@ class OrdersController extends Controller
         ->whereNull('order_details.deleted_at')
         ->get();
         $order = DB ::table('orders')
-        ->select('orders.*','customer.cust_name','customer.address','customer.tel','delivery.transport_number')
+        ->select('orders.*','customer.cust_name','customer.address','customer.tel','delivery.transport_number','payment.image')
         ->leftJoin('customer','orders.cust_id','customer.cust_id')
+        ->leftJoin('payment','orders.order_id','payment.order_id')
         ->leftJoin('delivery','orders.order_id','delivery.order_id')
         ->where('orders.order_id',$order_id)
         ->whereNull('orders.deleted_at')
         ->first();
-    	return view('pay::ordersfrom' ,compact('shops','order'));
+        return view('pay::ordersfrom' ,compact('shops','order'));
+        
     	
     }
     
@@ -115,4 +117,3 @@ class OrdersController extends Controller
     }
     
 }
-      

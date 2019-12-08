@@ -104,6 +104,11 @@
                     </div>
                         <button type="submit" class="btn btn-primary">บันทึก</button>
                         <a href="/orders" class="btn btn-info">กลับ</a>
+                        @if(isset($order) && !empty($order->image))
+                        <a  href="{{$order->image}}" aria-hidden="true" 
+                        style='font-size:36px;color:blue'>
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </a>@endif
                 </form>
             </div>
         </div>

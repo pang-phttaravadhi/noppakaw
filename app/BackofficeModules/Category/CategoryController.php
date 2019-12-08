@@ -100,7 +100,9 @@ class CategoryController extends Controller
     {
         if(is_numeric($id))
         {
-        DB::table('category')->where('cate_id',$id)->update([
+        DB::table('category')
+        ->where('cate_id',$id)
+        ->update([
             'deleted_at'=>date('Y-m-d H:i:s'),
         ]);
         return MyResponse::success ('ระบบได้ลบเรียบร้อยค่ะ');
